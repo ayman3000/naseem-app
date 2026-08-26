@@ -56,7 +56,7 @@
   header.hero .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   header.hero .fine { color: var(--dim); font-size: 13px; margin-top: 16px; }
   header.hero .shot { margin-top: 44px; }
-  header.hero .shot img { width: 100%; max-width: 900px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 24px 70px #0008; }
+  header.hero .shot img, header.hero .shot video { width: 100%; max-width: 900px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 24px 70px #0008; display: block; margin: 0 auto; }
   header.hero .shot .cap { color: var(--dim); font-size: 13px; margin-top: 12px; }
   .section-shot { margin-top: 26px; }
   .section-shot img { width: 100%; max-width: 560px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 44px #0006; }
@@ -127,8 +127,10 @@
   </div>
   <p class="fine">Free forever · No account · No subscription · Bring your own AI key</p>
   <div class="shot">
-    <img src="assets/app-overview.png" alt="Naseem driving a build-and-test task on macOS — sidebar of projects, live tool trace, and artifacts pane" loading="lazy">
-    <p class="cap">Naseem running a real task: inspecting a project, building, testing, and driving the iOS Simulator — all behind approvals.</p>
+    <video src="assets/subagents.mp4" poster="assets/subagents-poster.jpg"
+           autoplay muted loop playsinline preload="metadata"
+           aria-label="Naseem delegating three research tasks to sub-agents in parallel and composing the results"></video>
+    <p class="cap">Watch Naseem fan one request out to three sub-agents in parallel, then compose the results — while its own context stays tiny.</p>
   </div>
 </div></header>
 
