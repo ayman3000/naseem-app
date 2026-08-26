@@ -55,6 +55,11 @@
   header.hero p.sub { color: var(--muted); max-width: 620px; margin: 0 auto 28px; }
   header.hero .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
   header.hero .fine { color: var(--dim); font-size: 13px; margin-top: 16px; }
+  header.hero .shot { margin-top: 44px; }
+  header.hero .shot img { width: 100%; max-width: 900px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 24px 70px #0008; }
+  header.hero .shot .cap { color: var(--dim); font-size: 13px; margin-top: 12px; }
+  .section-shot { margin-top: 26px; }
+  .section-shot img { width: 100%; max-width: 560px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 44px #0006; }
 
   /* Sections */
   section { padding: 56px 0; border-top: 1px solid var(--line); }
@@ -121,6 +126,10 @@
     <a class="btn ghost" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
   </div>
   <p class="fine">Free forever · No account · No subscription · Bring your own AI key</p>
+  <div class="shot">
+    <img src="assets/app-overview.png" alt="Naseem driving a build-and-test task on macOS — sidebar of projects, live tool trace, and artifacts pane" loading="lazy">
+    <p class="cap">Naseem running a real task: inspecting a project, building, testing, and driving the iOS Simulator — all behind approvals.</p>
+  </div>
 </div></header>
 
 <section id="what"><div class="wrap">
@@ -151,6 +160,10 @@
     <div class="row"><h3>Stays on mission</h3><p>Each conversation carries an objective the agent re-reads on every step, with progress checkpoints so it stops grinding a stubborn subproblem and reports back.</p></div>
     <div class="row"><h3>Crash-safe runs</h3><p>Quit or crash mid-task and completed steps are preserved and clearly marked; <em>continue</em> resumes with memory of what was done.</p></div>
   </div>
+  <div class="section-shot">
+    <img src="assets/lessons.png" alt="Naseem's Lessons panel — durable lessons the agent captured from failed or corrected runs, awaiting your review" loading="lazy">
+    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Naseem captures lessons from failed or corrected runs — you review what it keeps.</p>
+  </div>
 </div></section>
 
 <section id="features"><div class="wrap">
@@ -167,6 +180,10 @@
     <div class="feat"><div class="t">Native tools</div><div class="d">Real terminal, filesystem with diff-based patching, Python, PDF — behind per-call approval.</div></div>
     <div class="feat"><div class="t">MCP</div><div class="d">Connect any Model Context Protocol server; paste-whole-JSON config editor.</div></div>
     <div class="feat"><div class="t">Memory &amp; skills</div><div class="d">Cross-conversation memory; recurring tasks become reusable skills; lessons learned from failed runs.</div></div>
+  </div>
+  <div class="section-shot">
+    <img src="assets/skills.png" alt="Naseem's Skills library — reusable procedures like project-builder and github-workflow, importable and reviewable" loading="lazy">
+    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Skills teach Naseem how you want recurring work done — reviewed before you trust them.</p>
   </div>
 </div></section>
 
