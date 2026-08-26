@@ -58,8 +58,14 @@
   header.hero .shot { margin-top: 44px; }
   header.hero .shot img, header.hero .shot video { width: 100%; max-width: 900px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 24px 70px #0008; display: block; margin: 0 auto; }
   header.hero .shot .cap { color: var(--dim); font-size: 13px; margin-top: 12px; }
-  .section-shot { margin-top: 26px; }
-  .section-shot img { width: 100%; max-width: 560px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 44px #0006; }
+  .section-shot { margin-top: 26px; text-align: center; }
+  .section-shot img { width: 100%; max-width: 560px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 44px #0006; display: inline-block; }
+  .section-shot .cap { color: var(--dim); font-size: 13px; margin-top: 12px; }
+  /* Any content image can be clicked to zoom */
+  img.zoom, .shot video { cursor: zoom-in; }
+  .lightbox { position: fixed; inset: 0; z-index: 100; background: #0b0d10ee; display: none; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 96vw; max-height: 92vh; border-radius: 10px; box-shadow: 0 30px 90px #000a; }
 
   /* Sections */
   section { padding: 56px 0; border-top: 1px solid var(--line); }
@@ -132,6 +138,10 @@
            aria-label="Naseem delegating three research tasks to sub-agents in parallel and composing the results"></video>
     <p class="cap">Watch Naseem fan one request out to three sub-agents in parallel, then compose the results — while its own context stays tiny.</p>
   </div>
+  <div class="section-shot" style="margin-top:36px;">
+    <img class="zoom" src="assets/app-overview.png" alt="Naseem building, installing, launching and driving a real app in the iOS Simulator — sim_build_install, sim_launch, sim_ui and screenshots in the transcript" loading="lazy" style="max-width:900px;">
+    <p class="cap">Debug your app by asking: Naseem builds, installs, launches, taps through the UI, and screenshots the iOS Simulator — natively.</p>
+  </div>
 </div></header>
 
 <section id="what"><div class="wrap">
@@ -163,7 +173,7 @@
     <div class="row"><h3>Crash-safe runs</h3><p>Quit or crash mid-task and completed steps are preserved and clearly marked; <em>continue</em> resumes with memory of what was done.</p></div>
   </div>
   <div class="section-shot">
-    <img src="assets/lessons.png" alt="Naseem's Lessons panel — durable lessons the agent captured from failed or corrected runs, awaiting your review" loading="lazy">
+    <img class="zoom" src="assets/lessons.png" alt="Naseem's Lessons panel — durable lessons the agent captured from failed or corrected runs, awaiting your review" loading="lazy">
     <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Naseem captures lessons from failed or corrected runs — you review what it keeps.</p>
   </div>
 </div></section>
@@ -184,7 +194,7 @@
     <div class="feat"><div class="t">Memory &amp; skills</div><div class="d">Cross-conversation memory; recurring tasks become reusable skills; lessons learned from failed runs.</div></div>
   </div>
   <div class="section-shot">
-    <img src="assets/skills.png" alt="Naseem's Skills library — reusable procedures like project-builder and github-workflow, importable and reviewable" loading="lazy">
+    <img class="zoom" src="assets/skills.png" alt="Naseem's Skills library — reusable procedures like project-builder and github-workflow, importable and reviewable" loading="lazy">
     <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Skills teach Naseem how you want recurring work done — reviewed before you trust them.</p>
   </div>
 </div></section>
@@ -251,6 +261,25 @@
   </div>
   <p class="copy">© 2026 Ayman Hamed. "Naseem" and the breeze logo are trademarks of Ayman Hamed. Naseem is intentionally unsandboxed so its terminal is a real terminal — the safety boundary is you: every consequential action asks first.</p>
 </div></footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
+<script>
+  (function () {
+    var box = document.getElementById('lightbox');
+    var big = box.querySelector('img');
+    document.querySelectorAll('img.zoom').forEach(function (im) {
+      im.addEventListener('click', function () {
+        big.src = im.currentSrc || im.src;
+        big.alt = im.alt;
+        box.classList.add('open');
+        box.setAttribute('aria-hidden', 'false');
+      });
+    });
+    function close() { box.classList.remove('open'); box.setAttribute('aria-hidden', 'true'); big.src = ''; }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+</script>
 
 </body>
 </html>
