@@ -8,6 +8,8 @@
 A fast, lightweight agent for macOS — a gentle breeze against the heavy, hot Electron assistants.</p>
 
 <p align="center">
+  <a href="https://ayman3000.github.io/naseem-app/"><b>🌐 Website</b></a>
+  &nbsp;·&nbsp;
   <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg"><b>⬇️ Download Naseem for macOS</b></a>
   &nbsp;·&nbsp;
   <a href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
@@ -98,6 +100,15 @@ Naseem is intentionally **unsandboxed** so its terminal is a real terminal. The 
 ## Built on
 
 Naseem is built on the open-source [SwiftAgentKit](https://github.com/ayman3000/SwiftAgentKit) (agent runtime, tools, MCP, simulator/Mac driving) and [LLMProviderKit](https://github.com/ayman3000/LLMProviderKit) (provider abstraction) — both MIT.
+
+## Links
+
+- 🌐 **Website:** [ayman3000.github.io/naseem-app](https://ayman3000.github.io/naseem-app/)
+- ⬇️ **Download (latest DMG):** [Naseem.dmg](https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg)
+- ⭐ **Get Pro:** [aymanhamed.gumroad.com/l/naseem](https://aymanhamed.gumroad.com/l/naseem)
+- 📝 **Release notes & feed:** [Releases](https://github.com/ayman3000/naseem-app/releases)
+- 🧩 **Open-source foundations:** [SwiftAgentKit](https://github.com/ayman3000/SwiftAgentKit) · [LLMProviderKit](https://github.com/ayman3000/LLMProviderKit)
+- 🌬 **Also by the author:** [Kommanda](https://kommanda.app/)
 
 ## Support
 
