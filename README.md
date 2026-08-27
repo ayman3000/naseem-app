@@ -60,7 +60,8 @@ The hard part of an agent isn't answering — it's staying useful over hundreds 
 
 - **Small, stable context** — completed tool outputs collapse to compact receipts (full text always retrievable on demand), so a marathon run keeps its working context lean instead of ballooning. The request prefix stays byte-identical between steps, so your provider's prompt cache does the work it's meant to — **cheaper, faster long sessions**, and on a subscription your quota lasts far longer.
 - **Memory that survives restarts** — build logs, test runs, and search results persist across app launches. Ask about yesterday's failed build and the agent pulls up the actual log.
-- **Stays on mission** — each conversation carries an objective the agent re-reads on every step, with progress checkpoints on long runs so it stops grinding a stubborn subproblem and reports back.
+- **Stays on mission — and knows when to stop** — each conversation carries a goal (shown as a header chip) the agent re-reads on every step. A **no-progress guard** watches for flailing: after a few turns with no real progress it **pauses and asks you** — with the goal and what it tried — instead of grinding to the turn limit. Tunable or off in Settings.
+- **See where it goes** — a **Usage & Cost** view charts your tokens and estimated cost over time, by day and by model. Prices are sourced live from models.dev, so the numbers cover far more models automatically.
 - **Crash-safe runs** — quit or crash mid-task and completed steps are preserved and clearly marked; *continue* resumes with memory of what was done.
 - **Honest numbers** — the token and cost readout uses your provider's real reported usage, and shows *subscription* instead of a phantom dollar figure when you're on a flat-rate plan.
 
