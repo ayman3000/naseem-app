@@ -7,8 +7,13 @@
 <meta name="description" content="Naseem is a fast, native macOS AI agent. Chat with any major model or fully on-device, and let it safely act on your Mac — run commands, edit files, drive the iOS Simulator, automate apps — behind a human approval gate. Bring your own key. No subscription.">
 <meta property="og:title" content="Naseem — The Mac-native AI agent that does the work">
 <meta property="og:description" content="A fast, native macOS AI agent that acts on your Mac behind a human approval gate. Bring your own key. No subscription.">
-<meta property="og:image" content="assets/icon-256.png">
+<meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
+<meta property="og:url" content="https://ayman3000.github.io/naseem-app/">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Naseem — The Mac-native AI agent that does the work">
+<meta name="twitter:description" content="A fast, native macOS AI agent that acts on your Mac behind a human approval gate. Bring your own key. No subscription.">
+<meta name="twitter:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
 <link rel="icon" href="assets/icon-256.png">
 <style>
   :root {
@@ -116,6 +121,7 @@
   <span class="spacer"></span>
   <span class="links">
     <a href="#why">Why Naseem</a>
+    <a href="#new13">New in 1.3</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="https://github.com/ayman3000/naseem-app/releases">Releases</a>
@@ -160,6 +166,17 @@
     <div class="row"><h3>It drives the iOS Simulator natively</h3><p>The way the best browser agents work: it reads the app's <strong>accessibility tree as text</strong> and acts on named elements — not by screenshotting and guessing. Faster, cheaper, and far more precise. Other coding agents shell out to <code>simctl</code> one command at a time; Naseem keeps one live connection and talks to your app.</p></div>
     <div class="row"><h3>It automates native Mac apps</h3><p>The same tree-first approach through Apple's Accessibility APIs — for GUI-only apps (Notes, Mail, System Settings) that have no CLI or API.</p></div>
     <div class="row"><h3>It's the conductor, not the orchestra</h3><p>Written entirely in Swift — no Electron, no embedded browser, no Node runtime. During a full build-and-test run it stays light while Xcode, the Simulator, and the model do the heavy lifting.</p></div>
+  </div>
+</div></section>
+
+<section id="new13"><div class="wrap">
+  <h2>New in 1.3</h2>
+  <div class="rows">
+    <div class="row"><h3>Vision for every model</h3><p>Your chat model can't see images? Naseem hands screenshots to a vision model and gives yours a full description — screenshot-driven debugging works with <em>any</em> model. Vision support is detected from each provider's own catalog, not guesswork.</p></div>
+    <div class="row"><h3>Verified file writes</h3><p>Every file the agent writes is syntax-verified after landing; a corrupted write is rolled back automatically and retried in safe chunks. Long build sessions can't be derailed by one bad write.</p></div>
+    <div class="row"><h3>Suggested next prompt</h3><p>When the agent finishes, the input pre-fills with the best next step — press Tab to accept, or just type over it.</p></div>
+    <div class="row"><h3>Token-aware by design</h3><p>The agent does exactly what you asked — nothing extra. Adjacent work becomes a one-line offer, so your tokens and quotas are spent only on what you approved.</p></div>
+    <div class="row"><h3>Usage, cost &amp; memory insights</h3><p>Per-model token and cost breakdowns, plus a live memory panel showing the app's actual footprint — proof of "light as a breeze," not a slogan.</p></div>
   </div>
 </div></section>
 

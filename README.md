@@ -54,6 +54,14 @@ Most AI assistants stop at generating an answer. Naseem is built to **continue**
 | 🧠 **Memory & skills** | Cross-conversation memory; recurring tasks become reusable skills; lessons learned from failed runs. |
 | ⌥␣ **Quick Ask** | Global hotkey panel — one-shot questions from anywhere. |
 
+## New in 1.3
+
+- **Vision for every model** — if your chat model can't see images, Naseem hands screenshots to a vision model and gives yours a full description. Screenshot-driven debugging works with *any* model, and vision support is detected from each provider's own catalog.
+- **Verified file writes** — every file the agent writes is syntax-verified after landing; a corrupted write rolls back automatically and is retried in safe chunks.
+- **Suggested next prompt** — the input pre-fills with the best next step when a run finishes; press Tab to accept.
+- **Token-aware by design** — the agent does exactly what you asked; adjacent work becomes a one-line offer instead of unrequested (and billed) actions.
+- **Usage, cost & memory insights** — per-model token/cost breakdowns and a live memory panel showing the app's real footprint.
+
 ## Built to stay sharp on long tasks
 
 The hard part of an agent isn't answering — it's staying useful over hundreds of steps without drowning in its own context or losing the plot. Naseem invests heavily here:
