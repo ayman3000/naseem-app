@@ -66,6 +66,8 @@
   .section-shot { margin-top: 26px; text-align: center; }
   .section-shot img { width: 100%; max-width: 560px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 44px #0006; display: inline-block; }
   .section-shot .cap { color: var(--dim); font-size: 13px; margin-top: 12px; }
+  .yt { position: relative; width: 100%; max-width: 900px; margin: 0 auto; aspect-ratio: 16/9; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 24px 70px #0008; }
+  .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
   /* Any content image can be clicked to zoom */
   img.zoom, .shot video { cursor: zoom-in; }
   .lightbox { position: fixed; inset: 0; z-index: 100; background: #0b0d10ee; display: none; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out; }
@@ -166,6 +168,10 @@
     <div class="row"><h3>It drives the iOS Simulator natively</h3><p>The way the best browser agents work: it reads the app's <strong>accessibility tree as text</strong> and acts on named elements — not by screenshotting and guessing. Faster, cheaper, and far more precise. Other coding agents shell out to <code>simctl</code> one command at a time; Naseem keeps one live connection and talks to your app.</p></div>
     <div class="row"><h3>It automates native Mac apps</h3><p>The same tree-first approach through Apple's Accessibility APIs — for GUI-only apps (Notes, Mail, System Settings) that have no CLI or API.</p></div>
     <div class="row"><h3>It's the conductor, not the orchestra</h3><p>Written entirely in Swift — no Electron, no embedded browser, no Node runtime. During a full build-and-test run it stays light while Xcode, the Simulator, and the model do the heavy lifting.</p></div>
+  </div>
+  <div class="section-shot">
+    <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/ITIlQa9m5Kw" title="Naseem in Action: AI Agent Controls the iOS Simulator" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Watch Naseem drive the iOS Simulator — build, launch, tap, verify.</p>
   </div>
   <div class="section-shot">
     <img class="zoom" src="assets/simulator-live.jpg" alt="Naseem next to the iOS Simulator — the agent's debugging summary on the left, the finished bilingual weather app it built showing live Cairo weather on the right" loading="lazy" style="max-width:900px;">
