@@ -1,0 +1,53 @@
+name: Download stats snapshot
+
+# Once a day, record GitHub release-asset download counts so we get a trend
+# line, not just a lifetime total. DMG downloads ≈ new installs (the stable
+# Naseem.dmg name is the site's Download button; versioned DMGs are mostly
+# Sparkle auto-updates). appcast.xml fetches ≈ daily active Macs (Sparkle
+# checks about once a day per install).
+on:
+  schedule:
+    - cron: "17 3 * * *"   # 03:17 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Append today's counts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          FILE=stats/downloads.csv
+          DATE=$(date -u +%F)
+          if [ ! -f "$FILE" ]; then
+            echo "date,stable_dmg_total,versioned_dmg_total,appcast_total,latest_tag,latest_stable_dmg,latest_versioned_dmg,latest_appcast" > "$FILE"
+          fi
+          JSON=$(gh api --paginate repos/${{ github.repository }}/releases)
+          STABLE=$(echo "$JSON"    | jq '[.[].assets[] | select(.name=="Naseem.dmg") | .download_count] | add // 0')
+          VERSIONED=$(echo "$JSON" | jq '[.[].assets[] | select(.name|test("^Naseem-.*\\.dmg$")) | .download_count] | add // 0')
+          APPCAST=$(echo "$JSON"   | jq '[.[].assets[] | select(.name=="appcast.xml") | .download_count] | add // 0')
+          LATEST=$(echo "$JSON"    | jq -r '[.[] | select(.draft|not)] | sort_by(.published_at) | last')
+          TAG=$(echo "$LATEST"     | jq -r '.tag_name')
+          L_STABLE=$(echo "$LATEST"    | jq '[.assets[] | select(.name=="Naseem.dmg") | .download_count] | add // 0')
+          L_VERSIONED=$(echo "$LATEST" | jq '[.assets[] | select(.name|test("^Naseem-.*\\.dmg$")) | .download_count] | add // 0')
+          L_APPCAST=$(echo "$LATEST"   | jq '[.assets[] | select(.name=="appcast.xml") | .download_count] | add // 0')
+          # One row per day: replace today's row if the workflow re-runs.
+          grep -v "^$DATE," "$FILE" > "$FILE.tmp" || true
+          echo "$DATE,$STABLE,$VERSIONED,$APPCAST,$TAG,$L_STABLE,$L_VERSIONED,$L_APPCAST" >> "$FILE.tmp"
+          mv "$FILE.tmp" "$FILE"
+          cat "$FILE" | tail -3
+
+      - name: Commit
+        run: |
+          git config user.name "download-stats bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add stats/downloads.csv
+          git diff --cached --quiet || git commit -m "stats: $(date -u +%F) download snapshot"
+          git push
