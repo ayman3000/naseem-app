@@ -107,6 +107,10 @@
   .plan li { padding: 5px 0 5px 24px; position: relative; color: var(--muted); font-size: 14.5px; }
   .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); }
   .plan .note { color: var(--dim); font-size: 13px; margin-top: 10px; }
+  .plan .was { color: var(--dim); text-decoration: line-through; font-weight: 600; font-size: 20px; margin-right: 8px; }
+  .plan .offer { color: var(--amber); font-weight: 650; font-size: 14px; margin-top: 2px; }
+  .hero-offer { margin-top: 10px; font-size: 14px; color: var(--amber); font-weight: 600; }
+  .hero-offer .was { color: var(--dim); text-decoration: line-through; font-weight: 500; margin-right: 4px; }
 
   footer { border-top: 1px solid var(--line); padding: 40px 0 60px; color: var(--muted); font-size: 14px; }
   footer .cols { display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between; }
@@ -145,6 +149,7 @@
     <a class="btn ghost" data-goatcounter-click="buy-pro" data-goatcounter-title="Get Naseem Pro" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
   </div>
   <p class="fine">Free forever · No account · No subscription · Bring your own AI key</p>
+  <p class="hero-offer" data-hero-offer>Naseem Pro: <span class="was">$49</span>$29 lifetime — launch price ends September 30</p>
   <p style="margin-top:14px;"><a href="https://www.producthunt.com/products/naseem-2/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-naseem&#0045;2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1306216&theme=light" alt="Naseem - A&#0032;native&#0032;AI&#0032;agent&#0032;that&#0032;does&#0032;real&#0032;work&#0032;on&#0032;your&#0032;Mac | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a></p>
   <div class="shot">
     <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/ITIlQa9m5Kw" title="Naseem in Action: AI Agent Controls the iOS Simulator" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
@@ -238,7 +243,7 @@
       <h3>Free</h3>
       <div class="p">$0 <small>forever</small></div>
       <ul>
-        <li>Every provider (Anthropic, OpenAI, Gemini, Ollama, local MLX)</li>
+        <li>Every provider (Anthropic, OpenAI, Gemini, OpenRouter, Ollama, local MLX)</li>
         <li>Conversations &amp; projects</li>
         <li>Web search, vision, artifacts</li>
         <li>Core tools with approval, MCP</li>
@@ -249,7 +254,8 @@
     </div>
     <div class="plan pro">
       <h3>Pro</h3>
-      <div class="p">One-time <small>· no subscription</small></div>
+      <div class="p" data-price><span class="was">$49</span>$29 <small>lifetime</small></div>
+      <div class="offer" data-offer>Launch price — ends September 30</div>
       <ul>
         <li>iOS Simulator automation</li>
         <li>Native Mac computer use</li>
@@ -259,7 +265,7 @@
         <li>Personal license, up to 3 Macs</li>
       </ul>
       <a class="btn primary" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
-      <p class="note">Every install starts with a 30-day full-feature trial — no card. Keeps working on Free afterward.</p>
+      <p class="note">30-day Pro trial · No credit card · No subscription. Keeps working on Free afterward.</p>
     </div>
   </div>
   <div class="section-shot">
@@ -330,6 +336,17 @@
       if (el) el.innerHTML = '<strong>Latest: ' + (rel.name || rel.tag_name).replace(/[<>&]/g, '') + '</strong>' +
         (first ? ' — ' + first.replace(/[<>&]/g, '') : '') + '. See <a href="whats-new.html">everything that\'s new</a>.';
     }).catch(function () {});
+</script>
+<script>
+  (function () {
+    var ends = new Date(2026, 8, 30, 23, 59, 59);   // September 30, local time
+    if (new Date() <= ends) return;
+    var p = document.querySelector('[data-price]');
+    if (p) p.innerHTML = '$49 <small>lifetime</small>';
+    var o = document.querySelector('[data-offer]'); if (o) o.remove();
+    var h = document.querySelector('[data-hero-offer]');
+    if (h) h.innerHTML = 'Naseem Pro: $49 lifetime — one-time, no subscription';
+  })();
 </script>
 <script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
