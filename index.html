@@ -111,6 +111,8 @@
   .plan .offer { color: var(--amber); font-weight: 650; font-size: 14px; margin-top: 2px; }
   .hero-offer { margin-top: 10px; font-size: 14px; color: var(--amber); font-weight: 600; }
   .hero-offer .was { color: var(--dim); text-decoration: line-through; font-weight: 500; margin-right: 4px; }
+  .not-mac { display: none; margin-top: 10px; font-size: 14px; color: var(--muted); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+  .not-mac.show { display: inline-block; }
 
   footer { border-top: 1px solid var(--line); padding: 40px 0 60px; color: var(--muted); font-size: 14px; }
   footer .cols { display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between; }
@@ -149,6 +151,7 @@
     <a class="btn ghost" data-goatcounter-click="buy-pro" data-goatcounter-title="Get Naseem Pro" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
   </div>
   <p class="fine">Free forever · No account · No subscription · Bring your own AI key</p>
+  <p class="not-mac" id="not-mac">Naseem is a Mac app (macOS 14+). On Windows or a phone? <a href="https://www.producthunt.com/p/naseem-2">Follow Naseem on Product Hunt</a> for updates, or send yourself the link for later.</p>
   <p class="hero-offer" data-hero-offer>Naseem Pro: <span class="was">$49</span>$29 lifetime — launch price ends September 30</p>
   <p style="margin-top:14px;"><a href="https://www.producthunt.com/products/naseem-2/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-naseem&#0045;2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1306216&theme=light" alt="Naseem - A&#0032;native&#0032;AI&#0032;agent&#0032;that&#0032;does&#0032;real&#0032;work&#0032;on&#0032;your&#0032;Mac | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a></p>
   <div class="shot">
@@ -346,6 +349,14 @@
     var o = document.querySelector('[data-offer]'); if (o) o.remove();
     var h = document.querySelector('[data-hero-offer]');
     if (h) h.innerHTML = 'Naseem Pro: $49 lifetime — one-time, no subscription';
+  })();
+</script>
+<script>
+  // A visitor who cannot install a Mac app should still get a next step.
+  (function () {
+    var ua = navigator.userAgent || '';
+    var isMac = /Macintosh|Mac OS X/.test(ua) && !/iPhone|iPad|iPod/.test(ua);
+    if (!isMac) { var el = document.getElementById('not-mac'); if (el) el.classList.add('show'); }
   })();
 </script>
 <script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
