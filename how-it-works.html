@@ -48,17 +48,17 @@
 
   <div class="principle">
     <h2>1. Context that stays small</h2>
-    <p>Long tasks die of context bloat: every file read and every build log lands in the prompt until the model forgets the objective. Naseem keeps the whole conversation but replaces each finished tool exchange with a one-line receipt — head and tail of the output, with the full text spilled to an artifact the model can search or re-read on demand. Eviction is budget-driven and sticky: once a result is folded it stays folded, so the prompt prefix stays byte-stable and your provider's prompt cache keeps hitting.</p>
-    <p>When a run stalls — every tool call in a turn failed or repeated an earlier one — Naseem does not keep burning turns. It pauses, posts the objective, the turn budget, and "what I tried", and waits. Your next message resumes exactly where it stopped.</p>
-    <p>Memory across conversations is markdown on disk: one file per fact plus an index, in Application Support, seeded on first launch. The model reads the index first and opens a fact only when it needs it. Reveal in Finder shows you everything it knows.</p>
+    <p>Long tasks die of context bloat: every file read and every build log lands in the prompt until the model forgets the objective. Naseem compacts completed tool work while keeping the full output as artifacts the model can retrieve when it needs them. Compaction is designed to preserve prompt-cache efficiency rather than constantly rewriting the conversation history, so a long session keeps hitting your provider's cache instead of paying full price every turn.</p>
+    <p>When a run stops making progress, Naseem pauses instead of spending turns indefinitely. It shows the objective and what it tried, and your next message continues the run from there.</p>
+    <p>Memory across conversations is stored locally as readable markdown. Reveal in Finder shows you everything Naseem remembers.</p>
     <p class="how"><strong>See it:</strong> the tool trail in any run · the brain icon in the toolbar → Memory → Reveal in Finder.</p>
   </div>
 
   <div class="principle">
     <h2>2. Simulator and Mac, driven natively</h2>
-    <p><strong>iOS Simulator.</strong> Lifecycle goes through Apple's own <code>simctl</code>: list, boot, install, launch. For the UI, Naseem builds a small XCTest driver once and runs it inside the Simulator as a loopback-only server. The agent reads an accessibility snapshot and taps <em>elements</em>, never coordinates. Every snapshot carries a generation number; a tap that references an element from an older snapshot is rejected as stale, so the agent cannot act on a screen that has already changed.</p>
-    <p><strong>Mac apps.</strong> Native Accessibility API plus synthetic input events. No AppleScript, no screenshots-and-guess, no embedded browser or cloud VM. Every conversation has its own allowlist of apps; the first time the agent reaches for an app that is not on it, you get an approval sheet, and the approval takes effect on that very call.</p>
-    <p class="how"><strong>See it:</strong> tools named <code>sim_ui</code>, <code>sim_tap</code>, <code>mac_ui</code>, <code>mac_click</code> in the trail · the app allowlist in each conversation's settings. Both are Pro.</p>
+    <p><strong>iOS Simulator.</strong> Naseem uses Apple's own Simulator tooling for lifecycle — boot, install, launch — and accessibility information for the UI. It acts on elements rather than guessing coordinates from a screenshot, and it refuses an action when its view of the screen is no longer current.</p>
+    <p><strong>Mac apps.</strong> Native Accessibility API plus synthetic input events. No AppleScript, no screenshots-and-guess, no embedded browser or cloud VM. Every conversation has its own allowlist of apps; the first time the agent reaches for one that is not on it, you get an approval sheet.</p>
+    <p class="how"><strong>See it:</strong> the Simulator and Mac tool calls in the trail · the app allowlist in each conversation's settings. Both are Pro.</p>
   </div>
 
   <div class="principle">
@@ -69,14 +69,14 @@
 
   <div class="principle">
     <h2>4. Suggestions from your project, not a template</h2>
-    <p>Each project gets a <code>naseem/</code> folder with three markdown files: <code>project.md</code> (what it is, stack, how to build and test), <code>roadmap.md</code> (done, in progress, next, known issues) and <code>journal.md</code> (one dated line per run). Every project chat reads the first two up front. Start cards are generated from the roadmap's "Next" items and the folder itself, cached for a day, refreshed in the background.</p>
-    <p>Generation runs on a helper model, not your chat model: a reasoning model once spent thirty seconds and its whole token budget thinking about six one-line cards. If you don't pick one, Naseem chooses a fast, cheap sibling from the same provider.</p>
+    <p>Each project has a readable <code>naseem/</code> folder with project context, a roadmap, and journal notes — plain markdown you can edit and commit. Naseem uses that context to generate start cards from the actual state of your project rather than a generic list.</p>
+    <p>Suggestions run on the helper model so they don't consume your chat model's time or budget: a reasoning model once spent thirty seconds and its whole token budget thinking about six one-line cards.</p>
     <p class="how"><strong>See it:</strong> <code>naseem/</code> in any project folder · Settings → General → Helper model · the start panel of a new chat.</p>
   </div>
 
   <div class="principle">
     <h2>5. Rules that cannot bluff</h2>
-    <p>A rule's conversation is rolling, so every run starts with a stamp declaring earlier observations out of date. A run that ends without a single tool call is refused and sent back to actually look. Quiet rules must end with an explicit ALL CLEAR or ATTENTION marker; a reply with neither is treated as attention, so silence can never mean success. Dry run forbids every writing tool and asks for a description of what would have happened.</p>
+    <p>Rules have to look before they report. Naseem rejects a run that makes no observation, and quiet rules must explicitly distinguish "all clear" from something that needs attention. Silence is never interpreted as success. Dry run lets you see what a rule would do without letting it change anything.</p>
     <p>Once a week a heartbeat leads with the run count per rule and names any rule that did not run. The menu bar shows the age of the last run, and a <code>rules-status.json</code> in your Outputs folder mirrors it for anything else that wants to watch.</p>
     <p class="how"><strong>See it:</strong> Tools → Rules · the menu-bar badge · Outputs/rules-status.json. Pro, currently Beta.</p>
   </div>
