@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How it works · Naseem</title>
+<meta name="description" content="The mechanisms behind Naseem: context that stays small, native Simulator and Mac control, vision for any model, project-aware start cards, rules that cannot bluff, and where your data goes.">
+<link rel="icon" href="assets/icon-256.png">
+<style>
+  :root { --bg: #16181d; --card: #21252e; --line: #2c313b; --fg: #e7e9ee; --muted: #9aa1ad; --dim: #6f7681; --accent: #6fd3d6; --accent2: #8ab4f8; --amber: #e0a458; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--fg); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent2); text-decoration: none; } a:hover { text-decoration: underline; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; background: #00000033; padding: 1px 6px; border-radius: 5px; font-size: .9em; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { position: sticky; top: 0; background: #16181dcc; backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; gap: 12px; height: 60px; }
+  nav img { width: 30px; height: 30px; border-radius: 7px; } nav .brand { font-weight: 700; } nav .spacer { flex: 1; }
+  nav .links a { color: var(--muted); font-size: 14px; margin-left: 20px; }
+  main { padding: 56px 0 80px; }
+  h1 { font-size: 34px; letter-spacing: -.02em; margin-bottom: 8px; }
+  .lead { color: var(--muted); font-size: 18px; margin-bottom: 40px; }
+  .principle { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; margin-bottom: 16px; }
+  .principle h2 { font-size: 19px; margin-bottom: 8px; }
+  .principle p { color: var(--muted); }
+  .principle p + p { margin-top: 8px; }
+  .principle .how { color: var(--fg); font-size: 14.5px; margin-top: 10px; }
+  .principle .how strong { color: var(--accent); font-weight: 650; }
+  h3.section { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); margin: 36px 0 12px; }
+  ul.nots { list-style: none; } ul.nots li { padding: 6px 0 6px 24px; position: relative; color: var(--muted); }
+  ul.nots li::before { content: "✕"; position: absolute; left: 0; color: var(--amber); }
+  .key { color: var(--fg); font-weight: 600; background: linear-gradient(transparent 62%, #6fd3d633 62%); }
+  .flow { background: #00000033; border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px; color: var(--fg); white-space: pre; overflow-x: auto; margin-top: 12px; }
+  .quote { border-left: 3px solid var(--accent); padding: 4px 16px; color: var(--muted); font-style: italic; margin: 28px 0; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--dim); font-size: 13px; }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="./" style="display:flex;align-items:center;gap:12px;color:var(--fg)"><img src="assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span></a>
+  <span class="spacer"></span>
+  <span class="links"><a href="philosophy.html">Philosophy</a><a href="how-it-works.html">How it works</a><a href="./#features">Features</a><a href="whats-new.html">What's New</a><a href="./#pricing">Pricing</a></span>
+</div></nav>
+
+<main><div class="wrap">
+  <h1>How it works</h1>
+  <p class="lead">The <a href="philosophy.html">philosophy page</a> says why Naseem behaves the way it does. This one says how. Each section names the mechanism and where you can see it in the app, so every claim here can be tested.</p>
+
+  <div class="principle">
+    <h2>1. Context that stays small</h2>
+    <p>Long tasks die of context bloat: every file read and every build log lands in the prompt until the model forgets the objective. Naseem keeps the whole conversation but replaces each finished tool exchange with a one-line receipt — head and tail of the output, with the full text spilled to an artifact the model can search or re-read on demand. Eviction is budget-driven and sticky: once a result is folded it stays folded, so the prompt prefix stays byte-stable and your provider's prompt cache keeps hitting.</p>
+    <p>When a run stalls — every tool call in a turn failed or repeated an earlier one — Naseem does not keep burning turns. It pauses, posts the objective, the turn budget, and "what I tried", and waits. Your next message resumes exactly where it stopped.</p>
+    <p>Memory across conversations is markdown on disk: one file per fact plus an index, in Application Support, seeded on first launch. The model reads the index first and opens a fact only when it needs it. Reveal in Finder shows you everything it knows.</p>
+    <p class="how"><strong>See it:</strong> the tool trail in any run · Usage &amp; Cost → context size · Settings → Knowledge → Reveal in Finder.</p>
+  </div>
+
+  <div class="principle">
+    <h2>2. Simulator and Mac, driven natively</h2>
+    <p><strong>iOS Simulator.</strong> Lifecycle goes through Apple's own <code>simctl</code>: list, boot, install, launch. For the UI, Naseem builds a small XCTest driver once and runs it inside the Simulator as a loopback-only server. The agent reads an accessibility snapshot and taps <em>elements</em>, never coordinates. Every snapshot carries a generation number; a tap that references an element from an older snapshot is rejected as stale, so the agent cannot act on a screen that has already changed.</p>
+    <p><strong>Mac apps.</strong> Native Accessibility API plus synthetic input events. No AppleScript, no screenshots-and-guess, no embedded browser or cloud VM. Every conversation has its own allowlist of apps; the first time the agent reaches for an app that is not on it, you get an approval sheet, and the approval takes effect on that very call.</p>
+    <p class="how"><strong>See it:</strong> tools named <code>sim_ui</code>, <code>sim_tap</code>, <code>mac_ui</code>, <code>mac_click</code> in the trail · the app allowlist in each conversation's settings. Both are Pro.</p>
+  </div>
+
+  <div class="principle">
+    <h2>3. Eyes for any model</h2>
+    <p>Most good coding models are text-only. When a screenshot arrives and the chat model cannot see, Naseem sends the image to the vision model you chose and hands the description back to the chat model as its own inspection. If no vision model is configured, the agent is required to say on the first line of its reply that it could not see the image — no silent guessing. The vision call's tokens are recorded in Usage &amp; Cost like everything else.</p>
+    <p class="how"><strong>See it:</strong> Settings → Models → Vision model (provider and model) · the "inspected for you by …" block in the trail.</p>
+  </div>
+
+  <div class="principle">
+    <h2>4. Suggestions from your project, not a template</h2>
+    <p>Each project gets a <code>naseem/</code> folder with three markdown files: <code>project.md</code> (what it is, stack, how to build and test), <code>roadmap.md</code> (done, in progress, next, known issues) and <code>journal.md</code> (one dated line per run). Every project chat reads the first two up front. Start cards are generated from the roadmap's "Next" items and the folder itself, cached for a day, refreshed in the background.</p>
+    <p>Generation runs on a helper model, not your chat model: a reasoning model once spent thirty seconds and its whole token budget thinking about six one-line cards. If you don't pick one, Naseem chooses a fast, cheap sibling from the same provider.</p>
+    <p class="how"><strong>See it:</strong> <code>naseem/</code> in any project folder · Settings → Models → Helper model · the start panel of a new chat.</p>
+  </div>
+
+  <div class="principle">
+    <h2>5. Rules that cannot bluff</h2>
+    <p>A rule's conversation is rolling, so every run starts with a stamp declaring earlier observations out of date. A run that ends without a single tool call is refused and sent back to actually look. Quiet rules must end with an explicit ALL CLEAR or ATTENTION marker; a reply with neither is treated as attention, so silence can never mean success. Dry run forbids every writing tool and asks for a description of what would have happened.</p>
+    <p>Once a week a heartbeat leads with the run count per rule and names any rule that did not run. The menu bar shows the age of the last run, and a <code>rules-status.json</code> in your Outputs folder mirrors it for anything else that wants to watch.</p>
+    <p class="how"><strong>See it:</strong> Tools → Rules · the menu-bar badge · Outputs/rules-status.json. Pro, currently Beta.</p>
+  </div>
+
+  <div class="principle">
+    <h2>6. Light by construction</h2>
+    <p>Naseem is Swift and AppKit/SwiftUI end to end. There is no JavaScript runtime, no Chromium, no Python sidecar. Heavy work — the compiler, the Simulator, the model — happens outside the process. The Memory panel reads the same physical-footprint number Activity Monitor shows, plus the session peak, and attributes it to components so you can see what a long session actually costs.</p>
+    <p class="how"><strong>See it:</strong> Tools → Usage &amp; Cost → Memory. <a href="philosophy.html">A measured figure is on the philosophy page.</a></p>
+  </div>
+
+  <div class="principle">
+    <h2>7. Where your data goes</h2>
+    <p>Naseem hosts nothing. Every connection leaves your Mac directly for a service you configured with your own key.</p>
+    <div class="flow">your Mac ──▶ model provider API      (Anthropic, OpenAI, Gemini, OpenRouter, Ollama Cloud)
+your Mac ──▶ api.telegram.org        (long-polled by the app; replies go the same way)
+your Mac ──▶ Tavily or Brave         (web search, only if you add a key)
+your Mac ──▶ nowhere                 (local Ollama, on-device MLX)
+
+Naseem servers: none.   Telemetry: none.</div>
+    <p style="margin-top:12px">Telegram accepts commands only from the user id you set. Leave it empty and any sender can talk to your Mac — set it.</p>
+    <p class="how"><strong>See it:</strong> Settings → Providers · Settings → Telegram → Allowed user id.</p>
+  </div>
+</div></main>
+
+<footer><div class="wrap">© 2026 Ayman Hamed · <a href="./">Home</a> · <a href="whats-new.html">What's New</a> · <a href="terms.html">Terms of Use</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a></div></footer>
+<script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
