@@ -29,6 +29,7 @@
   h3.section { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); margin: 36px 0 12px; }
   ul.nots { list-style: none; } ul.nots li { padding: 6px 0 6px 24px; position: relative; color: var(--muted); }
   ul.nots li::before { content: "✕"; position: absolute; left: 0; color: var(--amber); }
+  .key { color: var(--fg); font-weight: 600; background: linear-gradient(transparent 62%, #6fd3d633 62%); }
   .quote { border-left: 3px solid var(--accent); padding: 4px 16px; color: var(--muted); font-style: italic; margin: 28px 0; }
   footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--dim); font-size: 13px; }
 </style>
@@ -58,7 +59,7 @@
 
   <div class="principle">
     <h2>3. Local-first, and honest about it</h2>
-    <p>No server unless your phone needs one. The app itself is the status page: the menu bar shows how long ago the last rule ran, and if the app is closed the icon is gone — which is the honest signal. Project notes live in a folder inside your project where you can read, edit, and commit them.</p>
+    <p>Naseem runs no server. Telegram is your Mac talking to Telegram's API directly; nothing passes through me, and if a hosted option ever exists it will be separate and optional. The app itself is the status page: the menu bar shows how long ago the last rule ran, and if the app is closed the icon is gone — which is the honest signal. Project notes live in a folder inside your project where you can read, edit, and commit them.</p>
     <p class="how"><strong>In the app:</strong> <code>naseem/</code> notes in every project · <code>rules-status.json</code> in your Outputs folder · on-device MLX when nothing should leave the Mac · no telemetry.</p>
   </div>
 
@@ -71,7 +72,7 @@
   <div class="principle">
     <h2>5. Light as a breeze</h2>
     <p>Naseem is written entirely in Swift. No Electron, no embedded browser, no Node runtime. The name means "gentle breeze", and that is the target: Xcode, the Simulator, and the model do the heavy work, Naseem stays out of the way.</p>
-    <p class="how"><strong>Measured, not promised:</strong> while writing this page, a Naseem session that had been open for about an hour was using around 150 MB of memory. Your own figure is in Usage &amp; Cost → Memory, live.</p>
+    <p class="how"><span class="key">Measured, not promised:</span> while writing this page, a Naseem session that had been open for about an hour was using around 150 MB of memory. You don't have to take my number for it — your own is live in Usage &amp; Cost → Memory.</p>
   </div>
 
   <div class="principle">
@@ -82,7 +83,7 @@
 
   <div class="principle">
     <h2>7. Bring your own key; Pro sells capability, not access</h2>
-    <p>Free is the agent you chat with and supervise. Pro is the agent you hand work to: Simulator driving, Mac computer use, sub-agents, Telegram, Rules. Every provider works on Free with your own key, and always will. No subscription, no account, a personal license on your Macs.</p>
+    <p>Free is the agent you chat with and supervise. Pro is the agent you hand work to: Simulator driving, Mac computer use, sub-agents, Telegram, Rules. Every supported provider works on Free with your own key. Pro charges for what Naseem can do, not which model you can talk to. No subscription, no account, a personal license on your Macs.</p>
   </div>
 
   <h3 class="section">What I deliberately don't do</h3>
@@ -96,8 +97,8 @@
   <h3 class="section">Still growing</h3>
   <div class="principle">
     <h2>Learning, in public</h2>
-    <p>Naseem is weeks old. Every principle above was tested by something that went wrong: a heartbeat sent to the wrong chat, a "done" that never ran its check, a screenshot the agent said it couldn't see. Each became a rule only after it broke. I expect more of that, and would rather hear it from you than find it myself.</p>
-    <p>So this page is not finished doctrine. It is what I have understood so far, and it will change as people teach me better. If a principle here doesn't match what the app actually does, that is a bug — <a href="https://www.producthunt.com/p/naseem-2">tell me</a>, and it gets fixed before the next line of marketing is written.</p>
+    <p>Naseem is weeks old. Many of the principles above were tested by something that went wrong: a heartbeat sent to the wrong chat, a "done" that never ran its check, a screenshot the agent said it couldn't see. Each became a rule only after it broke.</p>
+    <p>So this page is not finished doctrine. It is what I have understood so far, and it will change as people teach me better. <span class="key">If a principle here doesn't match what the app actually does, that is a bug</span> — <a href="https://www.producthunt.com/p/naseem-2">tell me</a>, and it gets fixed before the next line of marketing is written.</p>
   </div>
 
   <p class="quote">"Anything I have to remember to open is already dead to me." — a user, on why the status lives in the menu bar. It went on the wall.</p>
