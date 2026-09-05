@@ -42,12 +42,12 @@
 
 <main><div class="wrap">
   <h1>Our philosophy</h1>
-  <p class="lead">Naseem is an agent that acts on your Mac. That is a lot of trust to ask for, so these are the rules it is built by — not marketing lines, but the decisions you can check in the app. They are also the rules we are still learning to keep: Naseem is young, and most of what is good in it was taught to us by users, by feedback, and by our own mistakes.</p>
+  <p class="lead">Naseem is an agent that acts on your Mac. That is a lot of trust to ask for, so these are the rules it is built by — not marketing lines, but decisions you can check in the app. They are also rules I am still learning to keep: Naseem is young, and most of what is good in it was taught to me by users, by feedback, and by my own mistakes.</p>
 
   <div class="principle">
-    <h2>1. You are the safety boundary</h2>
-    <p>Naseem is deliberately unsandboxed. Its terminal is a real terminal, its files are your files, because an agent that can't touch anything can't do anything. The boundary is a person: every consequential action asks first.</p>
-    <p class="how"><strong>In the app:</strong> per-action approval sheets · autonomy decided per chat from a badge in the header · profiles that can only lock permissions down, never loosen them · Mac apps allowlisted per conversation.</p>
+    <h2>1. Authority stays with you</h2>
+    <p>Naseem works with your real Mac — real files, a real terminal, real applications. I don't pretend that power is risk-free. Actions that cross a permission boundary need your approval, and you decide how much autonomy each conversation gets. Profiles can only tighten that, never loosen it.</p>
+    <p class="how"><strong>In the app:</strong> per-action approval sheets · autonomy set per chat from a badge in the header · profiles that lock permissions down · Mac apps allowlisted per conversation.</p>
   </div>
 
   <div class="principle">
@@ -59,23 +59,24 @@
   <div class="principle">
     <h2>3. Local-first, and honest about it</h2>
     <p>No server unless your phone needs one. The app itself is the status page: the menu bar shows how long ago the last rule ran, and if the app is closed the icon is gone — which is the honest signal. Project notes live in a folder inside your project where you can read, edit, and commit them.</p>
-    <p class="how"><strong>In the app:</strong> <code>naseem/</code> notes in every project · <code>rules-status.json</code> in your Outputs folder · on-device MLX when you want nothing to leave the Mac · no telemetry.</p>
+    <p class="how"><strong>In the app:</strong> <code>naseem/</code> notes in every project · <code>rules-status.json</code> in your Outputs folder · on-device MLX when nothing should leave the Mac · no telemetry.</p>
   </div>
 
   <div class="principle">
-    <h2>4. Model judgment over keyword tricks</h2>
-    <p>When a decision needs judgment — which skill fits, which of two hundred threads matter, whether a screenshot shows a bug — Naseem asks a model, not a list of trigger words. Heuristics are cheap and wrong in the cases that matter.</p>
-    <p class="how"><strong>In the app:</strong> skills loaded by the model from an index, not by keyword · quiet rules where the model decides what counts as "needs attention" · start cards generated from your projects, not templates.</p>
+    <h2>4. Use judgment where judgment is required</h2>
+    <p>When a decision needs understanding — which skill fits, which of two hundred threads matter, whether a screenshot shows a bug — Naseem asks the model instead of pretending a keyword list understands the task. Deterministic rules stay deterministic: permissions, validation, and safety checks are code, not opinions.</p>
+    <p class="how"><strong>In the app:</strong> skills chosen by the model from an index, not by trigger words · quiet rules where the model decides what counts as "needs attention" · start cards generated from your projects, not templates.</p>
   </div>
 
   <div class="principle">
     <h2>5. Light as a breeze</h2>
-    <p>Naseem is written entirely in Swift. No Electron, no embedded browser, no Node runtime. During a full build-and-test run it stays small while Xcode, the Simulator, and the model do the heavy work. The name means "gentle breeze" — that is the target, and the Memory panel in Usage &amp; Cost shows whether it is hit.</p>
+    <p>Naseem is written entirely in Swift. No Electron, no embedded browser, no Node runtime. The name means "gentle breeze", and that is the target: Xcode, the Simulator, and the model do the heavy work, Naseem stays out of the way.</p>
+    <p class="how"><strong>Measured, not promised:</strong> while writing this page, a Naseem session that had been open for about an hour was using around 150 MB of memory. Your own figure is in Usage &amp; Cost → Memory, live.</p>
   </div>
 
   <div class="principle">
-    <h2>6. Ship from feedback, and say "done", not "next"</h2>
-    <p>The best features of launch week came from strangers on the forum: quiet rules, the heartbeat, the menu-bar status. Each shipped within hours of the comment. We don't describe a capability in public until it is in a build you can download.</p>
+    <h2>6. Ship what exists</h2>
+    <p>The best features of launch week came from strangers on the forum: quiet rules, the heartbeat, the menu-bar status. Each shipped within hours of the comment. I don't describe a capability publicly until it is in a build you can download.</p>
     <p class="how"><strong>In practice:</strong> the <a href="https://www.producthunt.com/p/naseem-2">community forum</a> is where product decisions get made · <a href="whats-new.html">What's New</a> is read straight from the release notes.</p>
   </div>
 
@@ -84,23 +85,22 @@
     <p>Free is the agent you chat with and supervise. Pro is the agent you hand work to: Simulator driving, Mac computer use, sub-agents, Telegram, Rules. Every provider works on Free with your own key, and always will. No subscription, no account, a personal license on your Macs.</p>
   </div>
 
-  <h3 class="section">What we deliberately don't do</h3>
+  <h3 class="section">What I deliberately don't do</h3>
   <ul class="nots">
-    <li>No telemetry, no usage pings. If you want to tell us something, there is a forum.</li>
-    <li>No popups or toasts while you work. A run's notices live in that run's activity card.</li>
-    <li>No "all clear" from silence. If a check didn't run, you see a count that says so.</li>
-    <li>No hosted service to keep an agent alive. If that ever changes it will be a separate, optional decision — for the phone, not for fixing silence.</li>
+    <li>No telemetry, no usage pings.</li>
+    <li>No "all clear" when a check never ran.</li>
+    <li>No hosted service required to keep Naseem working.</li>
     <li>No claims ahead of the build.</li>
   </ul>
 
-  <p class="quote">"Anything I have to remember to open is already dead to me." — a user, on why the status lives in the menu bar. It went on the wall.</p>
-
   <h3 class="section">Still growing</h3>
   <div class="principle">
-    <h2>We are learning, in public</h2>
-    <p>Naseem is weeks old. Every principle above was tested by something that went wrong: a heartbeat sent to the wrong chat, a "done" that never ran its check, a screenshot the agent said it couldn't see. Each became a rule only after it broke. We expect more of that, and we would rather hear it from you than find it ourselves.</p>
-    <p>So this page is not a finished doctrine. It is where we write down what we have understood so far, and it will change as people teach us better. If a principle here doesn't match what the app actually does, that is a bug — <a href="https://www.producthunt.com/p/naseem-2">tell us</a>, and it gets fixed before the next line of marketing is written.</p>
+    <h2>Learning, in public</h2>
+    <p>Naseem is weeks old. Every principle above was tested by something that went wrong: a heartbeat sent to the wrong chat, a "done" that never ran its check, a screenshot the agent said it couldn't see. Each became a rule only after it broke. I expect more of that, and would rather hear it from you than find it myself.</p>
+    <p>So this page is not finished doctrine. It is what I have understood so far, and it will change as people teach me better. If a principle here doesn't match what the app actually does, that is a bug — <a href="https://www.producthunt.com/p/naseem-2">tell me</a>, and it gets fixed before the next line of marketing is written.</p>
   </div>
+
+  <p class="quote">"Anything I have to remember to open is already dead to me." — a user, on why the status lives in the menu bar. It went on the wall.</p>
 </div></main>
 
 <footer><div class="wrap">© 2026 Ayman Hamed · <a href="./">Home</a> · <a href="whats-new.html">What's New</a> · <a href="terms.html">Terms of Use</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a></div></footer>
