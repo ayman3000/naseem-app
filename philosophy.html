@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philosophy · Naseem</title>
+<meta name="description" content="The principles Naseem is built on: you are the safety boundary, prove don't assert, local-first, light as a breeze.">
+<link rel="icon" href="assets/icon-256.png">
+<style>
+  :root { --bg: #16181d; --card: #21252e; --line: #2c313b; --fg: #e7e9ee; --muted: #9aa1ad; --dim: #6f7681; --accent: #6fd3d6; --accent2: #8ab4f8; --amber: #e0a458; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--fg); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent2); text-decoration: none; } a:hover { text-decoration: underline; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; background: #00000033; padding: 1px 6px; border-radius: 5px; font-size: .9em; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { position: sticky; top: 0; background: #16181dcc; backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; gap: 12px; height: 60px; }
+  nav img { width: 30px; height: 30px; border-radius: 7px; } nav .brand { font-weight: 700; } nav .spacer { flex: 1; }
+  nav .links a { color: var(--muted); font-size: 14px; margin-left: 20px; }
+  main { padding: 56px 0 80px; }
+  h1 { font-size: 34px; letter-spacing: -.02em; margin-bottom: 8px; }
+  .lead { color: var(--muted); font-size: 18px; margin-bottom: 40px; }
+  .principle { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; margin-bottom: 16px; }
+  .principle h2 { font-size: 19px; margin-bottom: 8px; }
+  .principle p { color: var(--muted); }
+  .principle p + p { margin-top: 8px; }
+  .principle .how { color: var(--fg); font-size: 14.5px; margin-top: 10px; }
+  .principle .how strong { color: var(--accent); font-weight: 650; }
+  h3.section { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); margin: 36px 0 12px; }
+  ul.nots { list-style: none; } ul.nots li { padding: 6px 0 6px 24px; position: relative; color: var(--muted); }
+  ul.nots li::before { content: "✕"; position: absolute; left: 0; color: var(--amber); }
+  .quote { border-left: 3px solid var(--accent); padding: 4px 16px; color: var(--muted); font-style: italic; margin: 28px 0; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--dim); font-size: 13px; }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="./" style="display:flex;align-items:center;gap:12px;color:var(--fg)"><img src="assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span></a>
+  <span class="spacer"></span>
+  <span class="links"><a href="./#features">Features</a><a href="whats-new.html">What's New</a><a href="./#pricing">Pricing</a></span>
+</div></nav>
+
+<main><div class="wrap">
+  <h1>Our philosophy</h1>
+  <p class="lead">Naseem is an agent that acts on your Mac. That is a lot of trust to ask for, so these are the rules it is built by — not marketing lines, but the decisions you can check in the app.</p>
+
+  <div class="principle">
+    <h2>1. You are the safety boundary</h2>
+    <p>Naseem is deliberately unsandboxed. Its terminal is a real terminal, its files are your files, because an agent that can't touch anything can't do anything. The boundary is a person: every consequential action asks first.</p>
+    <p class="how"><strong>In the app:</strong> per-action approval sheets · autonomy decided per chat from a badge in the header · profiles that can only lock permissions down, never loosen them · Mac apps allowlisted per conversation.</p>
+  </div>
+
+  <div class="principle">
+    <h2>2. Prove it, don't assert it</h2>
+    <p>Models are fluent at saying "done". Naseem treats that as a claim to check, not a fact to display. A scheduled check that ran no tool is refused. A heartbeat counts runs that actually fired, never runs the schedule expected. Every message sent is logged with its outcome.</p>
+    <p class="how"><strong>In the app:</strong> the completion verifier sends back an answer that made no observation · weekly heartbeat with real run counts · delivery log and a status file on disk · cost figures from the provider's own token counts and prices.</p>
+  </div>
+
+  <div class="principle">
+    <h2>3. Local-first, and honest about it</h2>
+    <p>No server unless your phone needs one. The app itself is the status page: the menu bar shows how long ago the last rule ran, and if the app is closed the icon is gone — which is the honest signal. Project notes live in a folder inside your project where you can read, edit, and commit them.</p>
+    <p class="how"><strong>In the app:</strong> <code>naseem/</code> notes in every project · <code>rules-status.json</code> in your Outputs folder · on-device MLX when you want nothing to leave the Mac · no telemetry.</p>
+  </div>
+
+  <div class="principle">
+    <h2>4. Model judgment over keyword tricks</h2>
+    <p>When a decision needs judgment — which skill fits, which of two hundred threads matter, whether a screenshot shows a bug — Naseem asks a model, not a list of trigger words. Heuristics are cheap and wrong in the cases that matter.</p>
+    <p class="how"><strong>In the app:</strong> skills loaded by the model from an index, not by keyword · quiet rules where the model decides what counts as "needs attention" · start cards generated from your projects, not templates.</p>
+  </div>
+
+  <div class="principle">
+    <h2>5. Light as a breeze</h2>
+    <p>Naseem is written entirely in Swift. No Electron, no embedded browser, no Node runtime. During a full build-and-test run it stays small while Xcode, the Simulator, and the model do the heavy work. The name means "gentle breeze" — that is the target, and the Memory panel in Usage &amp; Cost shows whether it is hit.</p>
+  </div>
+
+  <div class="principle">
+    <h2>6. Ship from feedback, and say "done", not "next"</h2>
+    <p>The best features of launch week came from strangers on the forum: quiet rules, the heartbeat, the menu-bar status. Each shipped within hours of the comment. We don't describe a capability in public until it is in a build you can download.</p>
+    <p class="how"><strong>In practice:</strong> the <a href="https://www.producthunt.com/p/naseem-2">community forum</a> is where product decisions get made · <a href="whats-new.html">What's New</a> is read straight from the release notes.</p>
+  </div>
+
+  <div class="principle">
+    <h2>7. Bring your own key; Pro sells capability, not access</h2>
+    <p>Free is the agent you chat with and supervise. Pro is the agent you hand work to: Simulator driving, Mac computer use, sub-agents, Telegram, Rules. Every provider works on Free with your own key, and always will. No subscription, no account, a personal license on your Macs.</p>
+  </div>
+
+  <h3 class="section">What we deliberately don't do</h3>
+  <ul class="nots">
+    <li>No telemetry, no usage pings. If you want to tell us something, there is a forum.</li>
+    <li>No popups or toasts while you work. A run's notices live in that run's activity card.</li>
+    <li>No "all clear" from silence. If a check didn't run, you see a count that says so.</li>
+    <li>No hosted service to keep an agent alive. If that ever changes it will be a separate, optional decision — for the phone, not for fixing silence.</li>
+    <li>No claims ahead of the build.</li>
+  </ul>
+
+  <p class="quote">"Anything I have to remember to open is already dead to me." — a user, on why the status lives in the menu bar. It went on the wall.</p>
+</div></main>
+
+<footer><div class="wrap">© 2026 Ayman Hamed · <a href="./">Home</a> · <a href="whats-new.html">What's New</a> · <a href="terms.html">Terms of Use</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a></div></footer>
+<script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
