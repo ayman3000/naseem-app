@@ -114,7 +114,8 @@
   <li>Naseem turns recurring multi-step tasks and corrected mistakes into reusable, keyword-triggered <strong>skills</strong> (via <code>learn_skill</code>, Pro).</li>
   <li>Import skills or whole skill collections from URLs and repos — human-review gated.</li>
   <li>Browse what it knows in the <strong>Knowledge inspector</strong> (memory / skills / tools).</li>
-  <li><strong>Trial skills</strong> — a skill marked <strong>TRIAL</strong> ships switched off, because it changes how a run works. Turn it on per skill in the brain icon → <strong>Skills</strong>; it is offered to the model only after that.</li>
+  <li><strong>Switch any skill on or off</strong> — every skill in the brain icon → <strong>Skills</strong> has a switch. Off keeps the file and its text but hides the skill from the model, so a run cannot pick it. Regular skills ship on.</li>
+  <li><strong>Trial skills</strong> — a skill marked <strong>TRIAL</strong> ships switched off, because it changes how a run works. Turn it on per skill; it is offered to the model only after that.</li>
   <li><strong>Codebase review (trial)</strong> — hands the reading to sub-agents so the main model never loads the code: it sizes the job first, uses one reviewer for a small project and one per dimension for a large one, and each writes findings to a file under <code>naseem/reviews/&lt;date&gt;/</code>. Every finding is then re-checked against the cited lines and the ones that don't survive are thrown out, so you get a short list with file and line rather than a long plausible one. In approval mode it tells you the plan first — files, lines, how many reviewers, roughly how many calls — and asks whether you want the full review, reviewers without verification, or a quick single-pass look. In Autonomous mode it prints the plan and goes.</li>
 </ul>
   </main>
