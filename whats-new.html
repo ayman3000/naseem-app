@@ -65,20 +65,18 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.4.19</h2><span class="tag">Latest</span><span class="date">Sep 8, 2026</span></header>
-      <h3>New in 1.4.19</h3>
+      <header><h2>Naseem 1.4.20</h2><span class="tag">Latest</span><span class="date">Sep 9, 2026</span></header>
+      <h3>New in 1.4.20</h3>
       <ul>
-        <li><strong>Models by phase</strong> (Pro) — a custom profile can name a sub-agent model and a review model: the strong model plans and writes, sub-agents do the bulk of the tool calls on a cheaper one, and the reviewer checks the answer against the tool trail before you see it.</li>
-        <li><strong>Sub-agents are visible</strong> — the transcript says how many are working, and on a cloud model they now run side by side.</li>
-        <li><strong>Rules tell three states apart</strong> — <em>first run in 3h</em>, <em>catching up</em> after a closed laptop, and <em>late</em> only when a slot was missed while Naseem was running.</li>
-        <li><strong>Documentation</strong> — the in-app manual is now published as a <a href="docs/">docs site</a> built from the same text, with a proper Free vs Pro comparison.</li>
-        <li><strong>Ollama on another machine</strong> — a server URL with a Test button.</li>
+        <li><strong>Codebase review</strong> (trial skill, off by default) — say <em>check the codebase</em>: the agent states its plan in one line, asks in approval mode whether you want the full review, reviewers only, or a quick look, then delegates the reading to sub-agents and re-checks every finding against the cited lines before you see it.</li>
+        <li><strong>Switch any skill on or off</strong> — every skill has a switch; off keeps the file but hides it from the model.</li>
+        <li><strong>Built-in skills update themselves</strong> on launch, keeping your edited copy beside the new one.</li>
+        <li><strong>Sub-agents finish</strong> — more turns, and a partial result instead of nothing when they run out.</li>
+        <li><strong>Patient providers</strong> — requests wait up to five minutes, so slow cloud models no longer fail at one minute.</li>
       </ul>
-      <h3>Fixed in 1.4.19</h3>
+      <h3>Fixed in 1.4.20</h3>
       <ul>
-        <li><strong>Custom profiles are saved</strong> — duplicating a built-in profile appeared to work and then vanished.</li>
-        <li><strong>No more phantom missing files</strong> — a report listing <code>lib/main.dart</code> could be read as a missing <code>/main.dart</code>.</li>
-        <li><strong>A corrected answer is a whole answer</strong> — after a check sends a reply back, the agent restates everything, not just the fix.</li>
+        <li><strong>Duplicate profile only on Done</strong> — Escape no longer leaves a copy behind.</li>
       </ul>
     </article>
   </div>
