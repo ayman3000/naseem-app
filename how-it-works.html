@@ -88,7 +88,23 @@
   </div>
 
   <div class="principle">
-    <h2>7. Where your data goes</h2>
+    <h2>7. How a run goes, start to finish</h2>
+    <p>Who does what when you send a request, in plain words.</p>
+    <ul style="color:var(--muted);padding-left:20px;line-height:1.7">
+      <li><strong>You send a request.</strong> The chat model — the one in the header menu — reads it with your project notes, the profile's instructions and the tools it may use.</li>
+      <li><strong>It plans and works.</strong> Files, terminal, Simulator, Mac apps, asking first where approval is required. Independent side tasks can go to <strong>sub-agents</strong>: fresh helpers with only that task, on a cheaper model if you choose one. The transcript says <em>N sub-agents working</em> while they run; only their summaries come back.</li>
+      <li><strong>The chat model writes the answer.</strong> Every reply you see is written by the chat model — never by a sub-agent, never by the reviewer.</li>
+      <li><strong>Checks run before you see it.</strong> Built-in checks first: did it actually use tools when the task needed them, does every file it says it created exist. Then, if your profile names a <strong>review model</strong>, that model reads the request, the answer and the list of tool calls, and returns pass or fail with a reason.</li>
+      <li><strong>Pass</strong> — the answer is shown unchanged. The reviewer adds nothing to a good answer.</li>
+      <li><strong>Fail</strong> — the reason goes back to the chat model, not to you: <em>not complete yet, here is why; reply with the complete answer</em>. It fixes the work, alone or by delegating again, and the checks run once more. The send-back appears as a small note in the activity card.</li>
+      <li><strong>It always ends.</strong> Reviews and send-backs are capped per run; after that the run stops and shows the chat model's last answer, so a strict reviewer can never trap a run.</li>
+      <li><strong>Afterwards</strong>, Usage &amp; Cost lists every call by model: the chat model's turns, the sub-agents' calls, the reviewer's call.</li>
+    </ul>
+    <p class="how"><strong>See it:</strong> the activity card of any run · Profiles → Edit → Models by phase (Pro) · Usage &amp; Cost.</p>
+  </div>
+
+  <div class="principle">
+    <h2>8. Where your data goes</h2>
     <p>Naseem hosts nothing. Every connection leaves your Mac directly for a service you configured with your own key.</p>
     <div class="flow">your Mac ──▶ model provider API      (Anthropic, OpenAI, Gemini, OpenRouter, Ollama Cloud)
 your Mac ──▶ api.telegram.org        (long-polled by the app; replies go the same way)
