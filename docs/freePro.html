@@ -15,7 +15,11 @@
   nav.top { position:sticky; top:0; z-index:5; background:#16181dcc; backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
   nav.top .wrap { display:flex; align-items:center; gap:12px; height:60px; max-width:1100px; margin:0 auto; padding:0 24px; }
   nav.top img { width:30px; height:30px; border-radius:7px; } nav.top .brand { font-weight:700; } nav.top .spacer { flex:1; }
-  nav.top .links a { color:var(--muted); font-size:14px; margin-left:20px; }
+  nav.top .links a { color:var(--muted); font-size:14px; margin-left:18px; }
+  nav.top .links a.here { color:var(--fg); font-weight:600; }
+  nav.top .links a.dl { color:var(--bg); background:var(--accent); padding:6px 12px; border-radius:8px; font-weight:600; }
+  nav.top .links a.dl:hover { text-decoration:none; opacity:.9; }
+  @media (max-width:720px) { nav.top .links a:not(.dl):not(.here) { display:none; } }
   .shell { max-width:1100px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:230px 1fr; gap:36px; }
   aside { position:sticky; top:60px; align-self:start; padding:28px 0; max-height:calc(100vh - 60px); overflow:auto; }
   aside h4 { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); margin-bottom:10px; }
@@ -42,6 +46,19 @@
   table.keys { border-collapse:collapse; margin:10px 0 18px; width:100%; }
   table.keys td { padding:7px 10px; border-bottom:1px solid var(--line); color:var(--muted); font-size:14.5px; }
   kbd { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#6fd3d61a; border:1px solid var(--line); border-radius:6px; padding:2px 8px; color:var(--fg); font-size:13px; }
+  .plans { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin:16px 0; align-items:start; }
+  .plan { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
+  .plan h3 { margin:0; color:var(--fg); font-size:19px; }
+  .plan .price { color:var(--accent); font-size:14px; margin:2px 0 10px; }
+  ul.ticks { list-style:none; margin:0; }
+  ul.ticks li { color:var(--muted); padding:5px 0 5px 22px; position:relative; font-size:14.5px; }
+  ul.ticks li::before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:700; }
+  table.compare { border-collapse:collapse; width:100%; margin:14px 0 20px; }
+  table.compare th { text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--dim); padding:8px 10px; border-bottom:1px solid var(--line); }
+  table.compare td { padding:9px 10px; border-bottom:1px solid var(--line); color:var(--muted); font-size:14.5px; }
+  table.compare td:first-child { color:var(--fg); }
+  table.compare td.yes { color:var(--accent); font-weight:700; }
+  table.compare td.no { color:var(--dim); }
   .try { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:12px 0; }
   .try span { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:6px; }
   .try code { background:none; padding:0; color:var(--fg); }
@@ -55,11 +72,13 @@
   <a href="../" style="display:flex;align-items:center;gap:12px;color:var(--fg)"><img src="../assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span></a>
   <span class="spacer"></span>
   <span class="links">
-    <a href="./">Docs</a>
-    <a href="../philosophy.html">Philosophy</a>
+    <a href="../">Home</a>
+    <a href="./" class="here">Docs</a>
     <a href="../how-it-works.html">How it works</a>
+    <a href="../philosophy.html">Philosophy</a>
     <a href="../whats-new.html">What's New</a>
     <a href="../#pricing">Pricing</a>
+    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
   </span>
 </div></nav>
 <div class="shell">
@@ -80,22 +99,37 @@
   </aside>
   <main>
     <h1>Free vs Pro</h1>
-    <blockquote><strong>Free is the agent you chat with and supervise; Pro is the agent you hand work to.</strong> Free needs no account and no card.</blockquote>
-<h2 id="free-what-s-included-today">Free — what's included today</h2>
+    <blockquote><strong>Free is the agent you chat with and supervise. Pro is the agent you hand work to.</strong> No account either way — you bring your own API keys, and Pro is one payment, not a subscription.</blockquote>
+<h2 id="the-two-plans">The two plans</h2>
+<div class="plans">
+<div class="plan"><h3>Free</h3><div class="price">$0 · no account, no card</div><ul class="ticks"><li>Every provider with your own keys — Anthropic, OpenAI, Gemini, OpenRouter, Ollama Cloud, local Ollama, on-device MLX</li><li>Conversations, search, vision, files and artifacts</li><li>Up to <strong>3 projects</strong></li><li>All five built-in profiles</li><li>Terminal, filesystem, Python and PDF tools, behind approval</li><li>MCP servers, memory, built-in skills, ⌥Space Quick Ask</li><li>Share, copy and export any conversation as Markdown</li><li>Usage &amp; Cost: tokens, cost and memory footprint</li></ul></div>
+<div class="plan"><h3>Naseem Pro</h3><div class="price">one-time · up to 3 Macs</div><ul class="ticks"><li><strong>Everything in Free</strong>, plus:</li><li>iOS Simulator driving — build, install, tap, type, read the screen</li><li>Mac computer use — drive native apps through Accessibility</li><li>Rules — run a prompt on a schedule, quietly</li><li>Sub-agent delegation, and a cheaper model to run them on</li><li>A review model that checks the answer before you see it</li><li>Telegram remote, with approvals on your phone</li><li>Unlimited projects and custom profiles</li><li>Self-improving skills</li></ul></div>
+</div>
+<h2 id="side-by-side">Side by side</h2>
+<table class="compare"><thead><tr><th>Capability</th><th>Free</th><th>Pro</th></tr></thead><tbody>
+  <tr><td>Every provider, your own keys</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+  <tr><td>On-device MLX, local Ollama</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+  <tr><td>Terminal, files, Python, PDF</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+  <tr><td>MCP servers, memory, skills</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+  <tr><td>Built-in profiles</td><td>All five</td><td>All five</td></tr>
+  <tr><td>Projects</td><td>3</td><td>Unlimited</td></tr>
+  <tr><td>iOS Simulator driving</td><td class="no">—</td><td class="yes">✓</td></tr>
+  <tr><td>Mac computer use</td><td class="no">—</td><td class="yes">✓</td></tr>
+  <tr><td>Rules (scheduled runs)</td><td class="no">—</td><td class="yes">✓</td></tr>
+  <tr><td>Sub-agent delegation</td><td class="no">—</td><td class="yes">✓</td></tr>
+  <tr><td>Review model</td><td class="no">—</td><td class="yes">✓</td></tr>
+  <tr><td>Telegram remote</td><td class="no">—</td><td class="yes">✓</td></tr>
+  <tr><td>Custom profiles</td><td class="no">—</td><td class="yes">✓</td></tr>
+  <tr><td>Models by phase</td><td class="no">—</td><td class="yes">✓</td></tr>
+</tbody></table>
+<h2 id="good-to-know">Good to know</h2>
 <ul>
-  <li>Chat with every provider — Anthropic, OpenAI, Gemini, OpenRouter (400+ models, one key), Ollama Cloud, local Ollama, and fully on-device MLX.</li>
-  <li>Conversations, search, vision, artifacts, and up to <strong>3 projects</strong> (Pro: unlimited). Projects you already have keep working whatever the plan.</li>
-  <li>Core tools with approval gates: terminal, filesystem, Python, PDF.</li>
-  <li>MCP servers, built-in skills, cross-conversation memory, ⌥Space Quick Ask.</li>
-  <li>All five built-in profiles. In Software Engineer, QA Engineer and Automation/Ops, the Simulator and Mac-driving capabilities are Pro; everything else in them works on Free.</li>
-  <li>The Free feature set may change in future versions. A version you already have never loses features it shipped with.</li>
+  <li><strong>Every install starts with a 14-day full-feature trial</strong> — no card. When it ends, the app keeps working on Free; it never locks you out.</li>
+  <li><strong>Nothing is taken away.</strong> Projects you already made keep working whatever the plan; the limit applies only to creating new ones.</li>
+  <li><strong>Profiles are not locked.</strong> All five are on Free — inside Software Engineer, QA Engineer and Automation/Ops, only the Simulator- and Mac-driving capabilities are Pro, and the agent says so precisely when a request needs one.</li>
+  <li><strong>No model bill from us.</strong> Pro pays for what Naseem can do, not for the models. You keep using your own keys, and local models cost nothing at all.</li>
+  <li><strong>The Free feature set may change in future versions.</strong> A version you already have never loses features it shipped with.</li>
 </ul>
-<ul>
-  <li>iOS Simulator driving, Mac computer use, sub-agent delegation, Telegram remote, self-improving skills.</li>
-  <li>Unlimited projects, and custom profile authoring (duplicate a built-in profile and make it yours).</li>
-  <li>Personal license, up to 3 of your Macs. No subscription.</li>
-</ul>
-<blockquote>Every install starts with a <strong>14-day full-feature trial</strong> — no card. When it ends, the app keeps working on Free; it never locks you out.</blockquote>
   </main>
 </div>
 <footer><div class="wrap">© 2026 Ayman Hamed · <a href="../">Home</a> · <a href="../whats-new.html">What's New</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a> · Built from the same text as the in-app manual.</div></footer>
