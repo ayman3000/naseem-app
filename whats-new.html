@@ -65,13 +65,20 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.4.18</h2><span class="tag">Latest</span><span class="date">Sep 7, 2026</span></header>
-      <h3>New in 1.4.18</h3>
+      <header><h2>Naseem 1.4.19</h2><span class="tag">Latest</span><span class="date">Sep 8, 2026</span></header>
+      <h3>New in 1.4.19</h3>
       <ul>
-        <li><strong>All five profiles on Free</strong> — only the Simulator- and Mac-driving capabilities inside them are Pro, and the agent says so precisely when a request needs one.</li>
-        <li><strong>Free plan: up to 3 projects</strong> — Pro is unlimited. Existing projects keep working; the limit applies only to creating new ones.</li>
-        <li><strong>Your trial in numbers</strong> — Settings and the Pro sheet show what the trial's Pro capabilities actually did for you.</li>
-        <li><strong>Plan wording</strong> — the Free feature set may change in future versions; a version you already have never loses features it shipped with.</li>
+        <li><strong>Models by phase</strong> (Pro) — a custom profile can name a sub-agent model and a review model: the strong model plans and writes, sub-agents do the bulk of the tool calls on a cheaper one, and the reviewer checks the answer against the tool trail before you see it.</li>
+        <li><strong>Sub-agents are visible</strong> — the transcript says how many are working, and on a cloud model they now run side by side.</li>
+        <li><strong>Rules tell three states apart</strong> — <em>first run in 3h</em>, <em>catching up</em> after a closed laptop, and <em>late</em> only when a slot was missed while Naseem was running.</li>
+        <li><strong>Documentation</strong> — the in-app manual is now published as a <a href="docs/">docs site</a> built from the same text, with a proper Free vs Pro comparison.</li>
+        <li><strong>Ollama on another machine</strong> — a server URL with a Test button.</li>
+      </ul>
+      <h3>Fixed in 1.4.19</h3>
+      <ul>
+        <li><strong>Custom profiles are saved</strong> — duplicating a built-in profile appeared to work and then vanished.</li>
+        <li><strong>No more phantom missing files</strong> — a report listing <code>lib/main.dart</code> could be read as a missing <code>/main.dart</code>.</li>
+        <li><strong>A corrected answer is a whole answer</strong> — after a check sends a reply back, the agent restates everything, not just the fix.</li>
       </ul>
     </article>
   </div>
