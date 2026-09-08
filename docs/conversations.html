@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chats &amp; Projects · Naseem docs</title>
+<meta name="description" content="Chats &amp; Projects — documentation for Naseem, the Mac-native AI agent.">
+<link rel="icon" href="../assets/icon-256.png">
+<style>
+  :root { --bg:#16181d; --card:#21252e; --line:#2c313b; --fg:#e7e9ee; --muted:#9aa1ad; --dim:#6f7681; --accent:#6fd3d6; --accent2:#8ab4f8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:var(--accent2); text-decoration:none; } a:hover { text-decoration:underline; }
+  code { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#00000033; padding:1px 6px; border-radius:5px; font-size:.9em; }
+  nav.top { position:sticky; top:0; z-index:5; background:#16181dcc; backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  nav.top .wrap { display:flex; align-items:center; gap:12px; height:60px; max-width:1100px; margin:0 auto; padding:0 24px; }
+  nav.top img { width:30px; height:30px; border-radius:7px; } nav.top .brand { font-weight:700; } nav.top .spacer { flex:1; }
+  nav.top .links a { color:var(--muted); font-size:14px; margin-left:20px; }
+  .shell { max-width:1100px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:230px 1fr; gap:36px; }
+  aside { position:sticky; top:60px; align-self:start; padding:28px 0; max-height:calc(100vh - 60px); overflow:auto; }
+  aside h4 { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); margin-bottom:10px; }
+  aside a { display:block; color:var(--muted); font-size:14.5px; padding:5px 10px; border-radius:7px; }
+  aside a:hover { background:var(--card); text-decoration:none; }
+  aside a.active { background:var(--card); color:var(--fg); font-weight:600; }
+  main { padding:32px 0 80px; min-width:0; }
+  main h1 { font-size:32px; letter-spacing:-.02em; margin-bottom:22px; }
+  main h2 { font-size:21px; margin:30px 0 10px; }
+  main h3 { font-size:16px; margin:22px 0 8px; color:var(--muted); }
+  main p { color:var(--muted); margin-bottom:12px; }
+  main ul { list-style:none; margin:0 0 14px; }
+  main li { color:var(--muted); padding:5px 0 5px 20px; position:relative; }
+  main li::before { content:"•"; position:absolute; left:2px; color:var(--accent); }
+  main li strong, main p strong, blockquote strong { color:var(--fg); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:18px; }
+  .card h2 { margin:0 0 6px; font-size:20px; }
+  .card p { margin:0; }
+  blockquote { border-left:3px solid var(--accent); background:#6fd3d611; padding:12px 16px; border-radius:0 8px 8px 0; color:var(--muted); margin:14px 0; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin:14px 0; }
+  .tile { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .tile h3 { margin:0 0 4px; color:var(--accent); font-size:15px; }
+  .tile p { margin:0; font-size:14px; }
+  table.keys { border-collapse:collapse; margin:10px 0 18px; width:100%; }
+  table.keys td { padding:7px 10px; border-bottom:1px solid var(--line); color:var(--muted); font-size:14.5px; }
+  kbd { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#6fd3d61a; border:1px solid var(--line); border-radius:6px; padding:2px 8px; color:var(--fg); font-size:13px; }
+  .try { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .try span { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:6px; }
+  .try code { background:none; padding:0; color:var(--fg); }
+  footer { border-top:1px solid var(--line); padding:24px 0; color:var(--dim); font-size:13px; }
+  footer .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
+  @media (max-width:860px) { .shell { grid-template-columns:1fr; } aside { position:static; max-height:none; padding-bottom:0; } }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a href="../" style="display:flex;align-items:center;gap:12px;color:var(--fg)"><img src="../assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span></a>
+  <span class="spacer"></span>
+  <span class="links">
+    <a href="./">Docs</a>
+    <a href="../philosophy.html">Philosophy</a>
+    <a href="../how-it-works.html">How it works</a>
+    <a href="../whats-new.html">What's New</a>
+    <a href="../#pricing">Pricing</a>
+  </span>
+</div></nav>
+<div class="shell">
+  <aside>
+    <h4>Documentation</h4>
+    <a href="index.html">Get Started</a>
+    <a href="conversations.html" class="active">Chats &amp; Projects</a>
+    <a href="profiles.html">Profiles</a>
+    <a href="tools.html">Tools &amp; Approval</a>
+    <a href="agentic.html">Simulator &amp; Mac</a>
+    <a href="memory.html">Memory &amp; Skills</a>
+    <a href="mcp.html">MCP Servers</a>
+    <a href="quickAsk.html">Quick Ask</a>
+    <a href="freePro.html">Free vs Pro</a>
+    <a href="beta.html">Beta Features</a>
+    <a href="shortcuts.html">Shortcuts</a>
+    <a href="../whats-new.html">What's New ↗</a>
+  </aside>
+  <main>
+    <h1>Chats &amp; Projects</h1>
+    <h2 id="conversations">Conversations</h2>
+<ul>
+  <li><strong>⌘N</strong> starts a new chat; <strong>⇧⌘N</strong> opens a second window. Every chat keeps its own model and streams independently.</li>
+  <li>Pin, rename, and delete from the sidebar; <strong>⌘F</strong> searches inside a chat, the sidebar field searches across all of them.</li>
+  <li>A <strong>green dot</strong> beside a chat means it is running now; a <strong>grey dot</strong> means it ran earlier this session. The trail clears when you quit.</li>
+  <li>Each reply shows the model, duration, and token/cost figures; expand the activity card to see every step the agent took.</li>
+  <li><strong>Return</strong> sends; <strong>Shift+Return</strong> starts a new line. The field grows with your text, then scrolls.</li>
+  <li>Attach images with the paperclip, drag-and-drop, or <strong>⌘V</strong> (up to 6); click a thumbnail to enlarge, copy, or remove it.</li>
+  <li>The right pane shows the project's <strong>Files</strong> and the run's <strong>Artifacts</strong>; select one to preview it. Code and config files are syntax-colored, images and PDFs render inline, and <strong>Open</strong> hands anything to its own app.</li>
+  <li><strong>Share or export a chat</strong> — right-click it in the sidebar: <strong>Share…</strong> opens the macOS share sheet (Mail, Messages, AirDrop, Notes), <strong>Copy as Markdown</strong> puts it on the clipboard, <strong>Export as Markdown…</strong> saves a file (also <strong>⇧⌘E</strong>). By default that is the conversation only — what you and Naseem said, no tool calls. <strong>With Tool Details</strong> offers the same three with one line per tool call, for when someone needs the trail. <strong>File → Import Conversation…</strong> brings a file back as a new chat, in its project if the name matches.</li>
+</ul>
+<h2 id="how-a-run-works-start-to-finish">How a run works, start to finish</h2>
+<ul>
+  <li><strong>You send a request.</strong> The chat model — the one in the header menu — reads it together with your project notes, the profile's instructions and the tools it may use.</li>
+  <li><strong>It plans and works.</strong> It reads files, runs commands, drives the Simulator, and so on, asking first where approval is required. If the job has independent side tasks and sub-agents are on (Pro), it hands each one to a <strong>sub-agent</strong>: a fresh helper with only that task, running on the sub-agent model. You see <em>N sub-agents working</em> while they run; only their summaries come back to the chat model.</li>
+  <li><strong>The chat model writes the answer.</strong> Every reply you see is written by the chat model — never by a sub-agent, never by the reviewer.</li>
+  <li><strong>Checks run before you see it.</strong> Built-in checks first: did it actually use tools when the task needed them, and does every file it says it created exist on disk. Then, if your profile names a <strong>review model</strong> (Pro), that model reads the request, the answer and the list of tool calls, and returns pass or fail with a reason.</li>
+  <li><strong>Pass</strong> — the answer is shown to you unchanged. The reviewer adds nothing to a good answer.</li>
+  <li><strong>Fail</strong> — the reason goes back to the chat model, not to you, as <em>not complete yet, here is why; reply with the complete answer</em>. The chat model fixes it, by itself or by delegating again, and the checks run once more. You see the send-back as a small note in the activity card.</li>
+  <li><strong>It always ends.</strong> At most two reviews and three send-backs per run; after that the run stops and shows the chat model's last answer, so a strict reviewer can never trap a run.</li>
+  <li><strong>Afterwards</strong>, Usage &amp; Cost lists every call by model: the chat model's turns, the sub-agents' calls, and the reviewer's call.</li>
+</ul>
+<h2 id="project-notes">Project notes</h2>
+<ul>
+  <li><strong>Naseem keeps notes inside each project</strong>, in a <code>naseem/</code> folder you can read, edit, and commit: <strong>project.md</strong> (what it is, stack, how to build and test), <strong>roadmap.md</strong> (Done, In progress, Next, Known issues) and <strong>journal.md</strong> (one line per run).</li>
+  <li><strong>Start with the card</strong> — in a new project chat, <em>Set up this project</em> writes the first two files from the code. After that, every chat reads them first, the start cards come from the roadmap's Next items, and Naseem updates roadmap.md and journal.md after runs that change the project.</li>
+</ul>
+<h2 id="projects">Projects</h2>
+<ul>
+  <li>A <strong>project</strong> groups related chats around a shared working directory — every chat in the project reads and writes the same folder.</li>
+  <li>Use one project with several chats (e.g. one per profile) to run a small team over the same workspace.</li>
+  <li>A new chat inside a project starts with cards about <strong>that project</strong>, drawn from its notes (see <em>Project notes</em> above). Set the projects folder in Settings → General so new projects land where you keep code.</li>
+  <li>Right-click a project → <strong>Color</strong> to tint its folder icon and name so it stands out in a long list.</li>
+</ul>
+  </main>
+</div>
+<footer><div class="wrap">© 2026 Ayman Hamed · <a href="../">Home</a> · <a href="../whats-new.html">What's New</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a> · Built from the same text as the in-app manual.</div></footer>
+</body>
+</html>

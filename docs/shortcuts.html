@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shortcuts · Naseem docs</title>
+<meta name="description" content="Shortcuts — documentation for Naseem, the Mac-native AI agent.">
+<link rel="icon" href="../assets/icon-256.png">
+<style>
+  :root { --bg:#16181d; --card:#21252e; --line:#2c313b; --fg:#e7e9ee; --muted:#9aa1ad; --dim:#6f7681; --accent:#6fd3d6; --accent2:#8ab4f8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:var(--accent2); text-decoration:none; } a:hover { text-decoration:underline; }
+  code { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#00000033; padding:1px 6px; border-radius:5px; font-size:.9em; }
+  nav.top { position:sticky; top:0; z-index:5; background:#16181dcc; backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  nav.top .wrap { display:flex; align-items:center; gap:12px; height:60px; max-width:1100px; margin:0 auto; padding:0 24px; }
+  nav.top img { width:30px; height:30px; border-radius:7px; } nav.top .brand { font-weight:700; } nav.top .spacer { flex:1; }
+  nav.top .links a { color:var(--muted); font-size:14px; margin-left:20px; }
+  .shell { max-width:1100px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:230px 1fr; gap:36px; }
+  aside { position:sticky; top:60px; align-self:start; padding:28px 0; max-height:calc(100vh - 60px); overflow:auto; }
+  aside h4 { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); margin-bottom:10px; }
+  aside a { display:block; color:var(--muted); font-size:14.5px; padding:5px 10px; border-radius:7px; }
+  aside a:hover { background:var(--card); text-decoration:none; }
+  aside a.active { background:var(--card); color:var(--fg); font-weight:600; }
+  main { padding:32px 0 80px; min-width:0; }
+  main h1 { font-size:32px; letter-spacing:-.02em; margin-bottom:22px; }
+  main h2 { font-size:21px; margin:30px 0 10px; }
+  main h3 { font-size:16px; margin:22px 0 8px; color:var(--muted); }
+  main p { color:var(--muted); margin-bottom:12px; }
+  main ul { list-style:none; margin:0 0 14px; }
+  main li { color:var(--muted); padding:5px 0 5px 20px; position:relative; }
+  main li::before { content:"•"; position:absolute; left:2px; color:var(--accent); }
+  main li strong, main p strong, blockquote strong { color:var(--fg); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:18px; }
+  .card h2 { margin:0 0 6px; font-size:20px; }
+  .card p { margin:0; }
+  blockquote { border-left:3px solid var(--accent); background:#6fd3d611; padding:12px 16px; border-radius:0 8px 8px 0; color:var(--muted); margin:14px 0; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin:14px 0; }
+  .tile { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .tile h3 { margin:0 0 4px; color:var(--accent); font-size:15px; }
+  .tile p { margin:0; font-size:14px; }
+  table.keys { border-collapse:collapse; margin:10px 0 18px; width:100%; }
+  table.keys td { padding:7px 10px; border-bottom:1px solid var(--line); color:var(--muted); font-size:14.5px; }
+  kbd { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#6fd3d61a; border:1px solid var(--line); border-radius:6px; padding:2px 8px; color:var(--fg); font-size:13px; }
+  .try { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .try span { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:6px; }
+  .try code { background:none; padding:0; color:var(--fg); }
+  footer { border-top:1px solid var(--line); padding:24px 0; color:var(--dim); font-size:13px; }
+  footer .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
+  @media (max-width:860px) { .shell { grid-template-columns:1fr; } aside { position:static; max-height:none; padding-bottom:0; } }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a href="../" style="display:flex;align-items:center;gap:12px;color:var(--fg)"><img src="../assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span></a>
+  <span class="spacer"></span>
+  <span class="links">
+    <a href="./">Docs</a>
+    <a href="../philosophy.html">Philosophy</a>
+    <a href="../how-it-works.html">How it works</a>
+    <a href="../whats-new.html">What's New</a>
+    <a href="../#pricing">Pricing</a>
+  </span>
+</div></nav>
+<div class="shell">
+  <aside>
+    <h4>Documentation</h4>
+    <a href="index.html">Get Started</a>
+    <a href="conversations.html">Chats &amp; Projects</a>
+    <a href="profiles.html">Profiles</a>
+    <a href="tools.html">Tools &amp; Approval</a>
+    <a href="agentic.html">Simulator &amp; Mac</a>
+    <a href="memory.html">Memory &amp; Skills</a>
+    <a href="mcp.html">MCP Servers</a>
+    <a href="quickAsk.html">Quick Ask</a>
+    <a href="freePro.html">Free vs Pro</a>
+    <a href="beta.html">Beta Features</a>
+    <a href="shortcuts.html" class="active">Shortcuts</a>
+    <a href="../whats-new.html">What's New ↗</a>
+  </aside>
+  <main>
+    <h1>Shortcuts</h1>
+    <h3>Essentials</h3>
+<table class="keys">
+  <tr><td><kbd>⌘N</kbd></td><td>New chat</td></tr>
+  <tr><td><kbd>⇧⌘N</kbd></td><td>New window</td></tr>
+  <tr><td><kbd>⌘F</kbd></td><td>Find in chat</td></tr>
+  <tr><td><kbd>⌘,</kbd></td><td>Settings</td></tr>
+  <tr><td><kbd>⌥Space</kbd></td><td>Quick Ask (global)</td></tr>
+  <tr><td><kbd>⌘?</kbd></td><td>This manual</td></tr>
+  <tr><td><kbd>⇧⌘U</kbd></td><td>Usage &amp; Cost (Beta)</td></tr>
+  <tr><td><kbd>⇧⌘R</kbd></td><td>Rules (Beta)</td></tr>
+</table>
+  </main>
+</div>
+<footer><div class="wrap">© 2026 Ayman Hamed · <a href="../">Home</a> · <a href="../whats-new.html">What's New</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a> · Built from the same text as the in-app manual.</div></footer>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beta Features · Naseem docs</title>
+<meta name="description" content="Beta Features — documentation for Naseem, the Mac-native AI agent.">
+<link rel="icon" href="../assets/icon-256.png">
+<style>
+  :root { --bg:#16181d; --card:#21252e; --line:#2c313b; --fg:#e7e9ee; --muted:#9aa1ad; --dim:#6f7681; --accent:#6fd3d6; --accent2:#8ab4f8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:var(--accent2); text-decoration:none; } a:hover { text-decoration:underline; }
+  code { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#00000033; padding:1px 6px; border-radius:5px; font-size:.9em; }
+  nav.top { position:sticky; top:0; z-index:5; background:#16181dcc; backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  nav.top .wrap { display:flex; align-items:center; gap:12px; height:60px; max-width:1100px; margin:0 auto; padding:0 24px; }
+  nav.top img { width:30px; height:30px; border-radius:7px; } nav.top .brand { font-weight:700; } nav.top .spacer { flex:1; }
+  nav.top .links a { color:var(--muted); font-size:14px; margin-left:20px; }
+  .shell { max-width:1100px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:230px 1fr; gap:36px; }
+  aside { position:sticky; top:60px; align-self:start; padding:28px 0; max-height:calc(100vh - 60px); overflow:auto; }
+  aside h4 { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--dim); margin-bottom:10px; }
+  aside a { display:block; color:var(--muted); font-size:14.5px; padding:5px 10px; border-radius:7px; }
+  aside a:hover { background:var(--card); text-decoration:none; }
+  aside a.active { background:var(--card); color:var(--fg); font-weight:600; }
+  main { padding:32px 0 80px; min-width:0; }
+  main h1 { font-size:32px; letter-spacing:-.02em; margin-bottom:22px; }
+  main h2 { font-size:21px; margin:30px 0 10px; }
+  main h3 { font-size:16px; margin:22px 0 8px; color:var(--muted); }
+  main p { color:var(--muted); margin-bottom:12px; }
+  main ul { list-style:none; margin:0 0 14px; }
+  main li { color:var(--muted); padding:5px 0 5px 20px; position:relative; }
+  main li::before { content:"•"; position:absolute; left:2px; color:var(--accent); }
+  main li strong, main p strong, blockquote strong { color:var(--fg); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:18px; }
+  .card h2 { margin:0 0 6px; font-size:20px; }
+  .card p { margin:0; }
+  blockquote { border-left:3px solid var(--accent); background:#6fd3d611; padding:12px 16px; border-radius:0 8px 8px 0; color:var(--muted); margin:14px 0; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; margin:14px 0; }
+  .tile { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .tile h3 { margin:0 0 4px; color:var(--accent); font-size:15px; }
+  .tile p { margin:0; font-size:14px; }
+  table.keys { border-collapse:collapse; margin:10px 0 18px; width:100%; }
+  table.keys td { padding:7px 10px; border-bottom:1px solid var(--line); color:var(--muted); font-size:14.5px; }
+  kbd { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#6fd3d61a; border:1px solid var(--line); border-radius:6px; padding:2px 8px; color:var(--fg); font-size:13px; }
+  .try { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px; margin:12px 0; }
+  .try span { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:6px; }
+  .try code { background:none; padding:0; color:var(--fg); }
+  footer { border-top:1px solid var(--line); padding:24px 0; color:var(--dim); font-size:13px; }
+  footer .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
+  @media (max-width:860px) { .shell { grid-template-columns:1fr; } aside { position:static; max-height:none; padding-bottom:0; } }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap">
+  <a href="../" style="display:flex;align-items:center;gap:12px;color:var(--fg)"><img src="../assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span></a>
+  <span class="spacer"></span>
+  <span class="links">
+    <a href="./">Docs</a>
+    <a href="../philosophy.html">Philosophy</a>
+    <a href="../how-it-works.html">How it works</a>
+    <a href="../whats-new.html">What's New</a>
+    <a href="../#pricing">Pricing</a>
+  </span>
+</div></nav>
+<div class="shell">
+  <aside>
+    <h4>Documentation</h4>
+    <a href="index.html">Get Started</a>
+    <a href="conversations.html">Chats &amp; Projects</a>
+    <a href="profiles.html">Profiles</a>
+    <a href="tools.html">Tools &amp; Approval</a>
+    <a href="agentic.html">Simulator &amp; Mac</a>
+    <a href="memory.html">Memory &amp; Skills</a>
+    <a href="mcp.html">MCP Servers</a>
+    <a href="quickAsk.html">Quick Ask</a>
+    <a href="freePro.html">Free vs Pro</a>
+    <a href="beta.html" class="active">Beta Features</a>
+    <a href="shortcuts.html">Shortcuts</a>
+    <a href="../whats-new.html">What's New ↗</a>
+  </aside>
+  <main>
+    <h1>Beta Features</h1>
+    <blockquote><strong>Beta</strong> means real and usable today, still growing. Each section says what's coming next so you know where it's headed — and what to ask for.</blockquote>
+<h2 id="usage-cost-beta-tools-menu-u">Usage &amp; Cost (Beta) — Tools menu, ⇧⌘U</h2>
+<ul>
+  <li><strong>What it shows</strong> — calls, tokens in/out, and estimated cost across every conversation, by day and by model, plus the app's live memory footprint.</li>
+  <li><strong>Why Tokens in is so large</strong> — it adds up every call, and an agent re-sends the whole conversation on each call. A 20K-token chat over 300 calls is 6M tokens with nothing wrong. Look at <strong>Avg prompt</strong> (per call) and the counter in the composer — current prompt against the model's window — for the number that matters. Naseem keeps that small by folding finished tool work into short receipts; the total grows with how many calls a task takes.</li>
+  <li><strong>Other agent tools consume the same way</strong> — they re-send the conversation on every turn too; most simply don't show the running total. Provider limits and prices count tokens per call, and <strong>From cache</strong> tells you how much of each prompt the provider served cheaply. High is good.</li>
+  <li><strong>How to read cost</strong> — it is an estimate that overstates cache-heavy runs; local and flat-rate calls are $0. Tokens are the truer signal when comparing models.</li>
+  <li><strong>Accuracy</strong> — we do our best to report usage and cost correctly: token counts come from the provider wherever it reports them, and prices come from the provider's own catalog or published list prices. Local and flat-rate calls are $0. If a figure looks wrong, or you have feedback, please tell us on the <a href="https://aymanhamed.com/support">Naseem support page</a>.</li>
+  <li><strong>Coming next</strong> — per-model cost charts and per-project totals.</li>
+</ul>
+<h2 id="rules-beta-tools-menu-r-pro">Rules (Beta) — Tools menu, ⇧⌘R · Pro</h2>
+<ul>
+  <li><strong>What it does</strong> — runs a prompt on a schedule: on launch, hourly, daily, or weekly. Each rule keeps its own chat so you can read what it did. Plain-language prompts work: "Download the sales report to ~/Downloads; if it fails, tell me" or "Fetch today's top tech headlines and save them to ~/Naseem/Outputs/news".</li>
+  <li><strong>Approvals</strong> — anything that needs your OK waits in the approval sheet, and mirrors to your phone when the Telegram gateway is on. <strong>Run Now</strong> fires a rule immediately.</li>
+  <li><strong>From chat</strong> — ask the agent to "remind me every morning to…" and it drafts a rule; the editor opens pre-filled and saving is what arms it.</li>
+  <li><strong>Quiet unless it matters</strong> — turn on <em>Only notify when something needs attention</em> and the rule reaches you only on a finding: a backup that didn't appear, a job that produced nothing, a check that failed. All-clear runs stay in the rule's chat without a notification. A rule can't say "all clear" without actually running its check.</li>
+  <li><strong>Dry run</strong> — <em>Explain, don't execute</em>: Naseem inspects and describes what it would do but changes nothing, and approvals are forced on for that run. Use it once on a new rule to see what it will do, then turn it off.</li>
+  <li><strong>Weekly heartbeat</strong> — every Sunday at 9 Naseem sends one Telegram message for all quiet rules, numbers first: how many checks each actually ran, how many alerted, and whether any message failed to deliver. A rule that stopped shows ⚠️ <em>did not run this week</em>; if the heartbeat itself stops arriving, Naseem isn't running its rules. The counts come from each rule's run log over the last seven days — the same log the menu-bar popover and <code>rules-status.json</code> read, so the three can't disagree.</li>
+  <li><strong>Late, by the rule's own clock</strong> — the popover shows each rule's schedule next to its last run and tells three states apart: <em>first run in 3h</em> for a rule that hasn't had its first slot yet, <em>catching up</em> for a slot missed while the Mac was closed (the run fires at the next tick), and <em>late</em>, in orange, only for a slot missed while Naseem was running — overdue by half the interval, a daily rule at 36 hours. The menu-bar badge adds <em>· late</em> for that last case alone; the status file carries the state, the interval and the next slot.</li>
+  <li><strong>Status you can see</strong> — the menu-bar icon shows how long ago the last rule ran (⚠︎ when something needs attention); click it for each rule's last run, verdict and delivery. <code>rules-status.json</code> in your Outputs folder holds the same facts for scripts or a synced folder. No server involved — if the app is closed, the icon is gone, which is the honest signal.</li>
+  <li><strong>Example watchdog</strong> — daily at 9: "Check that ~/Backups has a file newer than 24 hours and not empty. If not, tell me which was the last one." With quiet mode on, you hear about it only on the morning something went wrong.</li>
+  <li><strong>Known limits</strong> — rules run only while Naseem is open; one due rule fires per minute, so a backlog after sleep drains gradually. Reacting to folder changes the moment they happen is what Kommanda's Rules do; Naseem's are scheduled checks.</li>
+  <li><strong>Coming next</strong> — run history per rule and background firing while the app is closed.</li>
+</ul>
+  </main>
+</div>
+<footer><div class="wrap">© 2026 Ayman Hamed · <a href="../">Home</a> · <a href="../whats-new.html">What's New</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a> · Built from the same text as the in-app manual.</div></footer>
+</body>
+</html>
