@@ -114,6 +114,8 @@
   <li>Naseem turns recurring multi-step tasks and corrected mistakes into reusable, keyword-triggered <strong>skills</strong> (via <code>learn_skill</code>, Pro).</li>
   <li>Import skills or whole skill collections from URLs and repos — human-review gated.</li>
   <li>Browse what it knows in the <strong>Knowledge inspector</strong> (memory / skills / tools).</li>
+  <li><strong>Trial skills</strong> — a skill marked <strong>TRIAL</strong> ships switched off, because it changes how a run works. Turn it on per skill in the brain icon → <strong>Skills</strong>; it is offered to the model only after that.</li>
+  <li><strong>Codebase review (trial)</strong> — asks for a whole-codebase review to be split across independent reviewers, one dimension each, writing findings to files under <code>naseem/reviews/&lt;date&gt;/</code>. Every finding is then re-checked against the code and the ones that don't survive are thrown out, so you get a short list with file and line rather than a long plausible one.</li>
 </ul>
   </main>
 </div>
