@@ -65,19 +65,11 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.4.21</h2><span class="tag">Latest</span><span class="date">Sep 9, 2026</span></header>
-      <h3>New in 1.4.21</h3>
+      <header><h2>Naseem 1.4.22</h2><span class="tag">Latest</span><span class="date">Sep 9, 2026</span></header>
+      <h3>New in 1.4.22</h3>
       <ul>
-        <li><strong>Mac apps allowed on first use</strong> — no pre-approval; Naseem asks once in approval mode, adds the app itself in Autonomous mode.</li>
-        <li><strong>Compact window reads</strong> — rows as single lines, menus collapsed, long values clipped, and a filter to find one control cheaply.</li>
-        <li><strong>Verified typing</strong> — the agent waits for focus, types, and reads the field back; "typed" means the text is there.</li>
-        <li><strong>Double-click, right-click, scroll</strong> — rows can be opened, menus reached, lists scrolled; off-screen elements are refused, not mis-clicked.</li>
-        <li><strong>Shortcut sequences</strong> — <code>cmd+a, cmd+c</code> in one call, more key names, app brought to front first.</li>
-      </ul>
-      <h3>Fixed in 1.4.21</h3>
-      <ul>
-        <li><strong>Text typed after a shortcut vanished</strong> — the modifier was never released, so the next text was read as a command.</li>
-        <li><strong>System Settings rows did not open on click</strong>; <strong>Word opened three blank documents</strong> on one request; guardrail pauses named the wrong task.</li>
+        <li><strong>Screenshots of Mac apps, opt-in</strong> — off by default; the agent sees a Mac app through its accessibility tree. Turn it on in Settings → Integrations for apps that expose nothing, or when appearance is the question. Needs Screen Recording and a vision-capable model.</li>
+        <li><strong>Your data is safe from an older Naseem</strong> — a build that finds database fields it does not know refuses to open the database and says why, instead of silently dropping them.</li>
       </ul>
     </article>
   </div>
