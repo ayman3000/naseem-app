@@ -44,6 +44,9 @@
   nav .brandlink { display:flex; align-items:center; gap:12px; color:var(--fg); }
   nav .brandlink:hover { text-decoration:none; }
   /* Phones: the text links fold away, but the download button stays. */
+  /* Mid widths: tighten the menu rather than clip it. */
+  @media (max-width: 1080px){ nav .links a { margin-left: 13px; font-size: 13px; } }
+  @media (max-width: 900px){ nav .links a { margin-left: 10px; font-size: 12.5px; } nav .wrap { gap: 12px; } }
   @media (max-width: 760px){ nav .links { display: none; } }
   nav .links a.here { color: var(--fg); font-weight: 600; }
 </style>
