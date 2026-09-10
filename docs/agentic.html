@@ -20,7 +20,8 @@
   a { color:var(--accent2); text-decoration:none; } a:hover { text-decoration:underline; }
   code { font-family:ui-monospace,"SF Mono",Menlo,monospace; background:#00000033; padding:1px 6px; border-radius:5px; font-size:.9em; }
   nav.top { position:sticky; top:0; z-index:5; background:#16181dcc; backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
-  nav.top .wrap { display:flex; align-items:center; gap:12px; height:60px; max-width:1100px; margin:0 auto; padding:0 24px; }
+  nav.top .wrap { display:flex; align-items:center; gap:12px; height:60px; max-width:1100px; margin:0 auto; padding:0 24px; flex-wrap:nowrap; }
+  nav.top .links { white-space:nowrap; }
   nav.top img { width:30px; height:30px; border-radius:7px; } nav.top .brand { font-weight:700; } nav.top .spacer { flex:1; }
   nav.top .links a { color:var(--muted); font-size:14px; margin-left:18px; }
   nav.top .links a.here { color:var(--fg); font-weight:600; }
@@ -74,8 +75,7 @@
   footer { border-top:1px solid var(--line); padding:24px 0; color:var(--dim); font-size:13px; }
   footer .wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
   @media (max-width:860px) { .shell { grid-template-columns:1fr; } aside { position:static; max-height:none; padding-bottom:0; } }
-  /* Phones: the text links fold away, but the download button stays. */
-  @media (max-width:640px) { nav.top .links a:not(.dl) { display:none; } nav.top .links a.dl { margin-left:0; } }
+  @media (max-width:760px) { nav.top .links { display:none; } }
 </style>
 </head>
 <body>
@@ -91,7 +91,6 @@
     <a href="./" class="here" aria-current="page">Docs</a>
     <a href="../whats-new.html">What's New</a>
     <a href="https://github.com/ayman3000/naseem-app/releases">Releases</a>
-    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
   </span>
 </div></nav>
 <div class="shell">

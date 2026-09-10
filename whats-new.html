@@ -47,12 +47,11 @@
   footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--dim); font-size: 13px; }
 
   /* Site nav — identical on every page (see also scripts/build-docs.py). */
+  nav .links { white-space: nowrap; }
   nav .brandlink { display:flex; align-items:center; gap:12px; color:var(--fg); }
   nav .brandlink:hover { text-decoration:none; }
-  nav .links a.dl { color: var(--bg); background: var(--accent); padding: 6px 12px; border-radius: 8px; font-weight: 600; margin-left: 20px; }
-  nav .links a.dl:hover { text-decoration: none; filter: brightness(1.08); }
   /* Phones: the text links fold away, but the download button stays. */
-  @media (max-width: 640px){ nav .links a:not(.dl) { display: none; } nav .links a.dl { margin-left: 0; } }
+  @media (max-width: 760px){ nav .links { display: none; } }
   nav .links a.here { color: var(--fg); font-weight: 600; }
 </style>
 </head>
@@ -72,7 +71,6 @@
     <a href="./docs/">Docs</a>
     <a href="./whats-new.html" class="here" aria-current="page">What's New</a>
     <a href="https://github.com/ayman3000/naseem-app/releases">Releases</a>
-    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
   </span>
 </div></nav>
 
