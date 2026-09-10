@@ -44,7 +44,8 @@
   nav .spacer { flex: 1; }
   nav .links a { color: var(--muted); font-size: 14px; margin-left: 20px; }
   nav .links a:hover { color: var(--fg); text-decoration: none; }
-  @media (max-width: 640px){ nav .links { display: none; } }
+  /* Phones: the text links fold away, but the download button stays. */
+  @media (max-width: 640px){ nav .links a:not(.dl) { display: none; } nav .links a.dl { margin-left: 0; } }
 
   /* Buttons */
   .btn { display: inline-block; padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid transparent; }
@@ -121,6 +122,13 @@
   footer a { color: var(--muted); }
   footer a:hover { color: var(--fg); }
   footer .copy { color: var(--dim); margin-top: 28px; font-size: 13px; }
+
+  /* Site nav — identical on every page (see also scripts/build-docs.py). */
+  nav .brandlink { display:flex; align-items:center; gap:12px; color:var(--fg); }
+  nav .brandlink:hover { text-decoration:none; }
+  nav .links a.dl { color: var(--bg); background: var(--accent); padding: 6px 12px; border-radius: 8px; font-weight: 600; margin-left: 20px; }
+  nav .links a.dl:hover { text-decoration: none; filter: brightness(1.08); }
+  nav .links a.here { color: var(--fg); font-weight: 600; }
 </style>
 <script type="application/ld+json">
 {
@@ -168,18 +176,20 @@
 </a>
 
 <nav><div class="wrap">
-  <img src="assets/icon-256.png" alt="Naseem">
-  <span class="brand">Naseem</span>
+  <a href="./" class="brandlink" aria-label="Naseem home">
+    <img src="assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span>
+  </a>
   <span class="spacer"></span>
   <span class="links">
     <a href="#why">Why Naseem</a>
-    <a href="philosophy.html">Philosophy</a>
-    <a href="how-it-works.html">How it works</a>
-    <a href="docs/">Docs</a>
-    <a href="whats-new.html">What's New</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="docs/">Docs</a>
+    <a href="whats-new.html">What's New</a>
     <a href="https://github.com/ayman3000/naseem-app/releases">Releases</a>
+    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
   </span>
 </div></nav>
 
