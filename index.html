@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naseem · The Mac-native AI agent that does the work, not just the chat</title>
-<meta name="description" content="Naseem is a fast, native macOS AI agent. Chat with any major model or fully on-device, and let it safely act on your Mac — run commands, edit files, drive the iOS Simulator, automate apps — behind a human approval gate. Bring your own key. No subscription.">
+<title>Naseem — Mac-native AI agent for macOS that runs commands, edits files and drives apps</title>
+<meta name="description" content="Naseem is a native macOS AI agent: chat with any major model or run fully on-device, and let it act on your Mac — run shell commands, edit files, drive the iOS Simulator, automate Mac apps — behind a human approval gate. Bring your own key, no subscription.">
 <meta property="og:title" content="Naseem — The Mac-native AI agent that does the work">
 <meta property="og:description" content="A fast, native macOS AI agent that acts on your Mac behind a human approval gate. Bring your own key. No subscription.">
 <meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
@@ -14,6 +14,8 @@
 <meta name="twitter:title" content="Naseem — The Mac-native AI agent that does the work">
 <meta name="twitter:description" content="A fast, native macOS AI agent that acts on your Mac behind a human approval gate. Bring your own key. No subscription.">
 <meta name="twitter:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ayman3000.github.io/naseem-app/">
 <link rel="icon" href="assets/icon-256.png">
 <style>
   :root {
@@ -120,6 +122,43 @@
   footer a:hover { color: var(--fg); }
   footer .copy { color: var(--dim); margin-top: 28px; font-size: 13px; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Naseem",
+      "alternateName": "Naseem Mac AI agent",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "AI agent",
+      "operatingSystem": "macOS 14 or later",
+      "url": "https://ayman3000.github.io/naseem-app/",
+      "downloadUrl": "https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg",
+      "softwareVersion": "1.4.24",
+      "description": "A native macOS AI agent that chats with any major model or runs fully on-device, and acts on your Mac — running shell commands, editing files, driving the iOS Simulator and automating Mac apps — behind a human approval gate.",
+      "featureList": [
+        "Runs shell commands and edits files behind an approval gate",
+        "Drives native Mac apps through Accessibility",
+        "Controls the iOS Simulator",
+        "Works with Anthropic, OpenAI, Google, Ollama and on-device MLX models",
+        "Bring your own API key, no subscription for the free plan"
+      ],
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Naseem Pro", "url": "https://ayman3000.gumroad.com/l/naseem", "priceCurrency": "USD" }
+      ],
+      "author": { "@type": "Person", "name": "Ayman Hamed" }
+    },
+    {
+      "@type": "WebSite",
+      "name": "Naseem",
+      "url": "https://ayman3000.github.io/naseem-app/",
+      "description": "Naseem — the Mac-native AI agent."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
