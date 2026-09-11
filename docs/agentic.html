@@ -134,6 +134,18 @@
   <li><strong>Adding and removing.</strong> Right-click a conversation → <strong>Add to Board</strong>, or use the <strong>+</strong> menu in the Board's toolbar. The layout follows the count: one fills the area, two sit side by side, three make a top pair and a full-width bottom, four make the grid. Rows on the Board carry a small grid badge. Remove from the cell's ⋯ menu or the row's context menu.</li>
   <li><strong>The active cell</strong> has the accent border and is selected in the sidebar; click anywhere in a cell to make it active, or click its row in the sidebar. ⌘1 to ⌘4 jump between cells in reading order. Return sends there, ⌘F searches there, and the Files | Artifacts pane on the right shows that cell's project files and artifacts. Drag the dividers between cells to resize them. Double-click a cell's title to open that conversation on its own; clicking a sidebar row also leaves the Board. The Board and its members are remembered across relaunches.</li>
 </ul>
+<h2 id="routines-pro-beta">Routines (Pro · Beta)</h2>
+<p>A routine is a Mac automation you have already done once, saved so it can be done again without the agent working it out from scratch. The steps are fixed. The parts that change each time are blanks you fill.</p>
+<ul>
+  <li><strong>Why it is faster</strong> — a normal Mac task stops for the model between every step: look at the window, decide, click, look again. Each pause costs several seconds. A routine runs its steps straight through with nothing thinking in between, so the only model call left is the one that reads your request and fills in the blanks. Measured on a Word task: 75 seconds and eight round trips became 32 seconds and one.</li>
+  <li><strong>Making one</strong> — do the task normally, in full. When it works, say <strong>add it to routines</strong>. The agent writes down the steps it actually ran, replaces the parts that vary with blanks, and asks you to approve. Naseem only saves it after you do.</li>
+  <li><strong>Using one</strong> — ask for the same task in your own words with new values. The agent recognises the routine and fills the blanks from your sentence. You never type a routine name unless you want to.</li>
+  <li><strong>What makes a good one</strong> — a task with fixed steps and changing details: write a document and save it under a name, open a report and file it in a folder, fill the same form with different values. A task that needs judgement, or where the steps differ each time, should stay a normal request.</li>
+  <li><strong>Seeing and editing them</strong> — the brain icon → <strong>Routines</strong> lists each one with its steps and the blanks it will ask for. A routine that has never run end to end is marked so. Reveal shows its JSON, which you can edit by hand: shortening a wait or adding a final step is often the difference between a good routine and a fast one.</li>
+  <li><strong>When something changes</strong> — if an app moves a button or shows an unexpected dialog, the routine stops at that step, says which one, and hands control back to the agent to finish the job. It never ploughs on.</li>
+  <li><strong>Safety</strong> — every step inside a routine asks for approval exactly as it would if the agent had done it by hand. Approving a routine is not approval for the tools inside it.</li>
+</ul>
+<div class="try"><span>Try</span><code>add it to routines</code></div>
 <h2 id="sub-agents-telegram-pro">Sub-agents &amp; Telegram (Pro)</h2>
 <ul>
   <li><strong>Sub-agent delegation</strong> — the agent spawns focused child agents for big side tasks and works in parallel. The transcript says so plainly: a <em>sub-agents working</em> line with a spinner while they run, and one card per sub-agent you can expand for its steps.</li>
