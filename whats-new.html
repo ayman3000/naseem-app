@@ -85,16 +85,19 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.4.24</h2><span class="tag">Latest</span><span class="date">Sep 10, 2026</span></header>
-      <h3>New in 1.4.24</h3>
+      <header><h2>Naseem 1.4.25</h2><span class="tag">Latest</span><span class="date">Sep 11, 2026</span></header>
+      <h3>New in 1.4.25</h3>
       <ul>
-        <li><strong>Several Mac actions in one call</strong> — known steps go as one verified batch that stops at the first failure and returns the window state. Same TextEdit task: 15 calls / 135 s → 7–9 calls / 69 s.</li>
-        <li><strong>Pop-ups picked by name</strong>, <strong>apps found by name</strong> (with whether they answer AppleScript), and a clear rule: script a scriptable app for data work, click everything else.</li>
+        <li><strong>Routines</strong> — walk Naseem through a Mac task once and it offers to save the sequence, with named inputs. Replaying one runs every step with no model turn in between: the same TextEdit task, 8 calls / 75 s → 1 call / 32 s. Approvals still apply to each step.</li>
+        <li><strong>A Routines tab</strong> in the brain inspector, and <strong>independent reads now run together</strong> within a turn.</li>
       </ul>
-      <h3>Fixed in 1.4.24</h3>
+      <h3>Faster in 1.4.25</h3>
       <ul>
-        <li><strong>A shortcut right after typing did nothing</strong> — pending auto-capitalisation swallowed the next command's selection; typing settles it now.</li>
-        <li>Multi-line fields read as one line; a bare wait in a batch is a pause, not an error.</li>
+        <li><strong>Reading a window is about twice as fast</strong> — one request for all of an element's attributes instead of eleven — and keyboard shortcuts are effectively instant.</li>
+      </ul>
+      <h3>Safer in 1.4.25</h3>
+      <ul>
+        <li><strong>Your database is copied aside</strong> before any change to its shape, and once a day otherwise. Settings → General → Database backups shows the last copy and reveals the folder. Nothing is ever restored automatically.</li>
       </ul>
     </article>
   </div>
