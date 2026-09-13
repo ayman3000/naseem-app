@@ -85,15 +85,20 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.4.26</h2><span class="tag">Latest</span><span class="date">Sep 12, 2026</span></header>
-      <h3>New in 1.4.26</h3>
+      <header><h2>Naseem 1.4.27</h2><span class="tag">Latest</span><span class="date">Sep 13, 2026</span></header>
+      <h3>New in 1.4.27</h3>
       <ul>
-        <li><strong>Naseem can read a web page</strong> — give it a link and it reads the page as text, keeping headings, lists and links and dropping scripts and navigation clutter. A typical page arrives as a tenth of its size, so several can be read in one go.</li>
-        <li><strong>A skill for WordPress work</strong> — it asks first whether the site should be WordPress at all (most brochure sites are better off static), then works through <code>wp-cli</code> rather than the admin screens, builds locally, and exports the database before any update.</li>
+        <li><strong>Stop a running server</strong> — the green card that appears when Naseem starts a dev server now has a Stop button, and it ends the whole process tree, so the port is actually released. A server stops on one click; a background task asks first.</li>
       </ul>
-      <h3>Fixed in 1.4.26</h3>
+      <h3>Fixed in 1.4.27</h3>
       <ul>
-        <li><strong>A number sent to an MCP server could arrive as true or false.</strong> Any MCP tool taking a value of 0 or 1 — a page number, an offset, a count, a limit — was given a yes/no instead and refused. Every other number worked, which is why it went unseen.</li>
+        <li><strong>A new chat opened onto blank space</strong> — your message was above the top of the view. Short conversations now sit where you'd expect.</li>
+        <li><strong>The transcript follows tool steps again</strong>, unless you've scrolled up to read something.</li>
+        <li><strong>Tables showed one column and hid the rest.</strong> Cells wrap now, and rows line up.</li>
+      </ul>
+      <h3>Changed in 1.4.27</h3>
+      <ul>
+        <li><strong>The token budget stops runaways, not real work.</strong> It no longer counts context your provider served from its own cache, and the default is now 8M — a few hundred model calls. Settings → Agent offers Off / 2M / 4M / 8M.</li>
       </ul>
     </article>
   </div>
