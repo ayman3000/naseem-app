@@ -85,20 +85,16 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.4.27</h2><span class="tag">Latest</span><span class="date">Sep 13, 2026</span></header>
-      <h3>New in 1.4.27</h3>
+      <header><h2>Naseem 1.4.28</h2><span class="tag">Latest</span><span class="date">Sep 14, 2026</span></header>
+      <h3>New in 1.4.28</h3>
       <ul>
-        <li><strong>Stop a running server</strong> — the green card that appears when Naseem starts a dev server now has a Stop button, and it ends the whole process tree, so the port is actually released. A server stops on one click; a background task asks first.</li>
+        <li><strong>Tasks — your project's plan as a board</strong> (Pro · Beta). Naseem already keeps a plan for each project in <code>naseem/roadmap.md</code>; now you can see it. Next, In progress, Done and Known issues side by side — pick a card and it becomes a chat named after the task, with the task already in the composer. The plan stays a file in your project, so it travels with your code and shows up in git.</li>
+        <li><strong>Two new skills.</strong> Naseem keeps that plan current as it works — every task it adds gets a finish line, and it may only close a card with the output it actually ran. And before saying anything works, it checks, then says how it checked and what it did not.</li>
       </ul>
-      <h3>Fixed in 1.4.27</h3>
+      <h3>Fixed in 1.4.28</h3>
       <ul>
-        <li><strong>A new chat opened onto blank space</strong> — your message was above the top of the view. Short conversations now sit where you'd expect.</li>
-        <li><strong>The transcript follows tool steps again</strong>, unless you've scrolled up to read something.</li>
-        <li><strong>Tables showed one column and hid the rest.</strong> Cells wrap now, and rows line up.</li>
-      </ul>
-      <h3>Changed in 1.4.27</h3>
-      <ul>
-        <li><strong>The token budget stops runaways, not real work.</strong> It no longer counts context your provider served from its own cache, and the default is now 8M — a few hundred model calls. Settings → Agent offers Off / 2M / 4M / 8M.</li>
+        <li><strong>Switching profile or model while Naseem was working was thrown away.</strong> The menu showed your new choice while the agent kept the old prompt, tools and approval policy — not just for that reply, but for good. Your choice now applies to the next message.</li>
+        <li><strong>The end of a turn left you looking at blank space</strong>, with the answer above you.</li>
       </ul>
     </article>
   </div>
