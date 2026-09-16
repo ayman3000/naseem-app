@@ -85,12 +85,16 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.5.0</h2><span class="tag">Latest</span><span class="date">Sep 15, 2026</span></header>
-      <h3>New in 1.5.0</h3>
+      <header><h2>Naseem 1.6.0</h2><span class="tag">Latest</span><span class="date">Sep 16, 2026</span></header>
+      <h3>New in 1.6.0</h3>
       <ul>
-        <li><strong>Naseem speaks Arabic.</strong> The whole interface — menus, settings, the chat, the Tasks board — in العربية, with the layout mirrored right to left the way macOS does it. Switch in Settings → General → Language; no trip to System Settings, and English is one click back. Your conversations are untouched: the interface changes language, your work doesn't.</li>
-        <li><strong>In Arabic, the app is نسيم.</strong> The name was always an Arabic word; now it's spelled that way in the menu bar and the Dock.</li>
-        <li><strong>Code stays readable.</strong> File paths, code blocks, tool output, model ids and the token counter keep reading left to right inside the mirrored interface, because a path with its leading slash on the wrong side is not a path.</li>
+        <li><strong>Choose how hard the model works.</strong> A new Effort control sets how much a model spends on a reply — and it shapes every part of the answer, not just its thinking, so a lower level also means fewer and shorter tool calls. Pick it per conversation from the composer or the model menu, or set a default in Settings → Agent. Only models that actually accept a level show the control, and each one offers exactly the levels it supports.</li>
+        <li><strong>Every reply says what it was produced at</strong> — <code>Naseem · glm-5.3 · High</code> — so you can ask the same question at two levels and compare the answers later, not from memory.</li>
+      </ul>
+      <h3>Fixed in 1.6.0</h3>
+      <ul>
+        <li><strong>When a provider refuses, it now says why.</strong> Naseem shows the provider's own explanation instead of a bare error code or a wall of JSON. The full response is still there underneath if you need it, and the error stays in the conversation instead of flashing past in a banner.</li>
+        <li><strong>Models your key can't use are no longer offered.</strong> Google has closed the Gemini 2.5 family to new API keys; Naseem hides models a provider has retired, while leaving any you're already using in place.</li>
       </ul>
     </article>
   </div>
