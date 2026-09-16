@@ -95,9 +95,8 @@
 <p class="lead">Naseem is 57 MB. The desktop apps it competes with are a gigabyte and a half, because they carry a browser. This is what is inside instead.</p>
 
 <h3 class="section">Three layers</h3>
-<p>Each layer knows only the one beneath it. That is the whole design, and the reason a change to a wire format never reaches the interface.</p>
-<div class="diagram">
-<svg viewBox="0 0 700 250" role="img" aria-label="Three layers: Naseem, SwiftAgentKit, LLMProviderKit, each depending only downward.">
+<p>The app sits on two Swift packages, each with one job. The lower two are open source — the agent that works on your Mac is built on code anyone can read.</p>
+<div class="diagram"><svg viewBox="0 0 700 250" role="img" aria-label="Three layers: Naseem, SwiftAgentKit, LLMProviderKit, each depending only downward.">
   <defs><style>
     .box{fill:#21252e;stroke:#2c313b;stroke-width:1.5;rx:12}
     .t{fill:#e7e9ee;font:650 15px -apple-system,system-ui,sans-serif}
@@ -125,23 +124,29 @@
 
   <path class="arr" d="M350 74 L350 90"/>
   <path class="arr" d="M350 158 L350 174"/>
-</svg>
-</div>
-<table class="layers">
-  <tr><th style="width:30%">Layer</th><th>What it owns</th></tr>
-  <tr><td><strong>Naseem</strong></td><td>Profiles, approvals, projects, the Mac itself. Never writes an HTTP header.</td></tr>
-  <tr><td><strong>SwiftAgentKit</strong></td><td>The agent loop: turns, tools, context, sub-agents, skills, retry. Knows nothing about macOS.</td></tr>
-  <tr><td><strong>LLMProviderKit</strong></td><td>One provider protocol and the model catalog. Knows nothing about agents.</td></tr>
-</table>
-<p>The two lower layers are open source. The agent that runs your Mac is built on packages anyone can read.</p>
+</svg></div>
 <div class="repos">
   <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit<span>The agent loop</span></a>
   <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit<span>The provider seam</span></a>
 </div>
 
+<h3 class="section">What the harness does</h3>
+<table class="layers">
+  <tr><th style="width:34%">Capability</th><th>What it means for you</th></tr>
+  <tr><td><strong>Tools</strong></td><td>Files, terminal, Python, PDFs, web search and the iOS Simulator, called by the model directly — with your approval gate in front of anything consequential.</td></tr>
+  <tr><td><strong>Context that stays small</strong></td><td>Finished tool output is filed away and fetched back on demand, so a long task is still coherent at its fortieth step.</td></tr>
+  <tr><td><strong>Sub-agents</strong></td><td>Bounded side-tasks run in their own fresh context, so a long investigation does not crowd out the main thread.</td></tr>
+  <tr><td><strong>Memory</strong></td><td>Plain Markdown the agent reads and writes across sessions. Tell it something once.</td></tr>
+  <tr><td><strong>Skills</strong></td><td>Folders of instructions, yours or imported, loaded only when a task calls for them.</td></tr>
+  <tr><td><strong>Any provider</strong></td><td>Anthropic, OpenAI, Google, OpenRouter, Ollama and on-device models behind one interface — switch without losing a feature.</td></tr>
+  <tr><td><strong>Local models</strong></td><td>Ollama and on-device MLX run with no key and no network at all.</td></tr>
+  <tr><td><strong>Effort control</strong></td><td>Ask for less thinking on simple work and more on hard work, per conversation, on models that support it.</td></tr>
+  <tr><td><strong>Streaming</strong></td><td>Answers arrive token by token, with every tool step visible as it happens.</td></tr>
+  <tr><td><strong>Stop, always</strong></td><td>A run can be cancelled between steps, and a stopped run leaves its work where you can see it.</td></tr>
+</table>
+
 <h3 class="section">What happens when you press Return</h3>
-<div class="diagram">
-<svg viewBox="0 0 700 330" role="img" aria-label="A request travelling down through the layers and back.">
+<div class="diagram"><svg viewBox="0 0 700 330" role="img" aria-label="A request travelling down through the layers and back.">
   <defs><style>
     .lane{fill:#1b1e25;stroke:#2c313b;stroke-width:1;rx:10}
     .step{fill:#21252e;stroke:#2c313b;stroke-width:1.4;rx:9}
@@ -191,44 +196,12 @@
   <path class="back" d="M336 261 C 420 261 420 70 336 70"/>
   <text class="sn" x="430" y="168">every turn</text>
 </svg>
-
-  <p class="caption">Every turn takes the same path down and back. Nothing about it is specific to a vendor.</p>
-</div>
-
-<div class="principle">
-  <h2>Long tasks do not run out of room</h2>
-  <p>An agent that reads twenty files fills its own memory and starts forgetting the beginning of the job. Naseem files completed tool output away and keeps a short receipt in view — the agent can still fetch the full text whenever it needs it.</p>
-  <p class="how"><strong>What you get:</strong> a task that is still coherent at turn forty.</p>
-</div>
-
-<div class="principle">
-  <h2>One protocol, every provider</h2>
-  <p>Anthropic, OpenAI, Google, OpenRouter, Ollama and on-device models all arrive through a single interface. An on-device model never builds a network request at all — it satisfies the same protocol in a different way.</p>
-  <p class="how"><strong>What you get:</strong> the same features on every provider, and a new one is days rather than a rewrite.</p>
-</div>
-
-<div class="principle">
-  <h2>Models are asked for what they actually accept</h2>
-  <p>Providers disagree about nearly everything — what "work harder" is called, which levels exist, what a refusal looks like. Naseem keeps a declared list of what each model on each service takes, and asks for something that model can give.</p>
-  <p class="how"><strong>What you get:</strong> a control that offers only the levels your model has, and no failed turn spent finding out.</p>
-</div>
-
-<div class="principle">
-  <h2>A failed request says what went wrong</h2>
-  <p>When a provider refuses, Naseem shows you the provider's own sentence — "this model is no longer available on your plan" — instead of a number. The full response stays underneath for when you need it.</p>
-  <p class="how"><strong>What you get:</strong> an error you can act on, not one you have to search for.</p>
-</div>
-
-<div class="principle">
-  <h2>Parallel work does not trip over itself</h2>
-  <p>Sub-agents that all start at once will all retry at once, and collide again. Naseem spreads its retries apart, and gives up immediately on failures that will never succeed rather than waiting out a schedule.</p>
-  <p class="how"><strong>What you get:</strong> parallel work that finishes, and fast failures when something is genuinely wrong.</p>
+  <p class="caption">Every turn takes the same path down and back, whichever provider is answering.</p>
 </div>
 
 <h3 class="section">Skills load in three stages</h3>
-<p>A skill is a folder someone wrote: a short guide, and whatever reference material it needs. Naseem reads as little of it as the task allows.</p>
-<div class="diagram">
-<svg viewBox="0 0 700 200" role="img" aria-label="Skills load in three stages: name, instructions, then bundled files.">
+<p>A skill is a folder: a short guide, and whatever reference material it needs. Naseem reads as little of it as the task allows.</p>
+<div class="diagram"><svg viewBox="0 0 700 200" role="img" aria-label="Skills load in three stages: name, instructions, then bundled files.">
   <defs><style>
     .b{fill:#21252e;stroke:#2c313b;stroke-width:1.4;rx:11}
     .h{fill:#e7e9ee;font:650 14px -apple-system,system-ui,sans-serif}
@@ -260,19 +233,9 @@
   <path class="ar" d="M214 83 L246 83"/>
   <path class="ar" d="M454 83 L486 83"/>
   <text class="d" x="10" y="170">A skill can carry a library of detail and cost nothing until the moment it is needed.</text>
-</svg>
-</div>
+</svg></div>
 
-<h3 class="section">What this is not</h3>
-<ul class="nots">
-  <li>Not a plugin runtime. Providers are a known set, which is why the app is 57 MB and starts instantly.</li>
-  <li>Not a wrapper around one vendor's SDK. The provider seam is ours, and it is open.</li>
-  <li>Not a browser in a trench coat. There is no Chromium, no web app, no second runtime.</li>
-</ul>
-
-<div class="quote">The architecture exists so that the hard parts — staying coherent on long tasks, behaving the same on every provider, failing legibly — are properties of the system rather than things you hope for.</div>
-
-<p class="caption">Curious about the code? <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> and <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a> are open source. <a href="how-it-works.html">How it works</a> covers the same ground from the outside in.</p>
+<p class="caption">The code is open: <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> and <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a>. <a href="how-it-works.html">How it works</a> covers the same ground from the outside in.</p>
 
 </div></main>
 <footer><div class="wrap">© 2026 Ayman Hamed · <a href="./">Home</a> · <a href="whats-new.html">What's New</a> · <a href="terms.html">Terms of Use</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a></div></footer>
