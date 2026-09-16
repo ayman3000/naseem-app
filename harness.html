@@ -138,8 +138,6 @@
   <tr><td><strong>Sub-agents</strong></td><td>Bounded side-tasks run in their own fresh context, so a long investigation does not crowd out the main thread.</td></tr>
   <tr><td><strong>Memory</strong></td><td>Plain Markdown the agent reads and writes across sessions. Tell it something once.</td></tr>
   <tr><td><strong>Skills</strong></td><td>Folders of instructions, yours or imported, loaded only when a task calls for them.</td></tr>
-  <tr><td><strong>Skills are read before they are trusted</strong></td><td>Import one from a link or a repository and Naseem fetches it, reads it, and tells you what it found before anything is added. Nothing arrives unseen.</td></tr>
-  <tr><td><strong>A switch on every skill</strong></td><td>Turn one off and it stays on disk but leaves the agent's view entirely — no editing, no deleting, no guessing why a run behaved oddly.</td></tr>
   <tr><td><strong>Lessons from what went wrong</strong></td><td>When you refuse an action, or a run recovers from a failure, Naseem proposes a short lesson. You approve it, and it quietly steers later work. The agent gets better at <em>your</em> work without you writing a prompt.</td></tr>
   <tr><td><strong>MCP servers</strong></td><td>Connect external tool servers — filesystem, GitHub, a browser, whatever you run — and decide per server whether its tools need your approval each time.</td></tr>
   <tr><td><strong>Any provider</strong></td><td>Anthropic, OpenAI, Google, OpenRouter, Ollama and on-device models behind one interface — switch without losing a feature.</td></tr>
@@ -148,6 +146,24 @@
   <tr><td><strong>Streaming</strong></td><td>Answers arrive token by token, with every tool step visible as it happens.</td></tr>
   <tr><td><strong>Stop, always</strong></td><td>A run can be cancelled between steps, and a stopped run leaves its work where you can see it.</td></tr>
 </table>
+
+<h3 class="section">You decide what it can do</h3>
+<p>An agent with a terminal on your Mac is only useful if you can say where it stops. Every way Naseem gains a new ability is one you see first, and can take back.</p>
+<div class="principle">
+  <h2>Nothing arrives unseen</h2>
+  <p>Skills come from links and repositories — someone else's instructions, telling your agent how to work. Naseem fetches one, reads it, and reports what it found before anything is added. If it ships code as well as instructions, that is a separate decision you make on its own.</p>
+  <p class="how"><strong>You get:</strong> a look at it before it can act, not after.</p>
+</div>
+<div class="principle">
+  <h2>A switch on everything</h2>
+  <p>Any skill can be turned off. It stays on disk and leaves the agent's view entirely — no editing around it, no deleting it to be sure, no wondering later why a run behaved oddly.</p>
+  <p class="how"><strong>You get:</strong> a way to answer "what could it see when it did that?"</p>
+</div>
+<div class="principle">
+  <h2>Approval per server, not per app</h2>
+  <p>External tool servers connect through MCP — filesystem, GitHub, a browser, whatever you run. Each one decides for itself whether its tools ask you every time, so a server you trust runs freely and a server you are still weighing up does not.</p>
+  <p class="how"><strong>You get:</strong> one blanket setting replaced by a choice per source.</p>
+</div>
 
 <h3 class="section">What happens when you press Return</h3>
 <div class="diagram"><svg viewBox="0 0 700 292" role="img" aria-label="A request travelling down through the layers and back.">
