@@ -114,12 +114,12 @@
 
   <rect class="box" x="20" y="94" width="660" height="62" rx="12"/>
   <text class="t" x="40" y="120">SwiftAgentKit</text>
-  <text class="s" x="40" y="140">The loop — turns, tools, context, sub-agents, skills, retry</text>
+  <text class="s" x="40" y="140">The loop — steps, tools, memory, sub-agents, skills</text>
   <text class="n" x="612" y="122">open</text>
 
   <rect class="box" x="20" y="178" width="660" height="62" rx="12"/>
   <text class="t" x="40" y="204">LLMProviderKit</text>
-  <text class="s" x="40" y="224">The wire — one provider protocol, model catalog, effort vocabularies</text>
+  <text class="s" x="40" y="224">The wire — one interface for every model service</text>
   <text class="n" x="612" y="206">open</text>
 
   <path class="arr" d="M350 74 L350 90"/>
@@ -168,20 +168,20 @@
   <text class="lt" x="20" y="80">AGENT</text>
   <rect class="step" x="90" y="52" width="240" height="34"/>
   <text class="st" x="104" y="68">Assemble the prompt</text>
-  <text class="sn" x="104" y="82">+ a one-line index of every skill</text>
+  <text class="sn" x="104" y="82">plus a one-line list of your skills</text>
 
   <rect class="step" x="90" y="100" width="240" height="34"/>
-  <text class="st" x="104" y="116">File away old tool output</text>
-  <text class="sn" x="104" y="130">receipts stay, full text retrievable</text>
+  <text class="st" x="104" y="116">File away finished work</text>
+  <text class="sn" x="104" y="130">a summary stays, the full text on request</text>
 
   <text class="lt" x="20" y="172">WIRE</text>
   <rect class="step" x="90" y="148" width="240" height="34"/>
-  <text class="st" x="104" y="164">Resolve what this model takes</text>
-  <text class="sn" x="104" y="178">provider + model → effort vocabulary</text>
+  <text class="st" x="104" y="164">Check what this model supports</text>
+  <text class="sn" x="104" y="178">so nothing is asked that it cannot do</text>
 
   <rect class="step" x="90" y="196" width="240" height="34"/>
-  <text class="st" x="104" y="212">Send it, retry transient failure</text>
-  <text class="sn" x="104" y="226">backoff with jitter</text>
+  <text class="st" x="104" y="212">Send it</text>
+  <text class="sn" x="104" y="226">retried if the service stumbles</text>
 
   <text class="lt" x="20" y="268">BACK</text>
   <rect class="step" x="90" y="244" width="240" height="34"/>
