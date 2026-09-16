@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Naseem harness — how a Mac-native AI agent is built</title>
+<meta name="description" content="The architecture behind Naseem: three layers, one request path, context that stays small, and a provider seam built on two open-source Swift packages.">
+<meta property="og:url" content="https://ayman3000.github.io/naseem-app/harness.html">
+<meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ayman3000.github.io/naseem-app/harness.html">
+<link rel="icon" href="assets/icon-256.png">
+<style>
+  :root { --bg: #16181d; --card: #21252e; --line: #2c313b; --fg: #e7e9ee; --muted: #9aa1ad; --dim: #6f7681; --accent: #6fd3d6; --accent2: #8ab4f8; --amber: #e0a458; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--fg); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent2); text-decoration: none; } a:hover { text-decoration: underline; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; background: #00000033; padding: 1px 6px; border-radius: 5px; font-size: .9em; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { position: sticky; top: 0; background: #16181dcc; backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; gap: 12px; height: 60px; }
+  nav img { width: 30px; height: 30px; border-radius: 7px; } nav .brand { font-weight: 700; } nav .spacer { flex: 1; }
+  nav .links a { color: var(--muted); font-size: 14px; margin-left: 20px; }
+  main { padding: 56px 0 80px; }
+  h1 { font-size: 34px; letter-spacing: -.02em; margin-bottom: 8px; }
+  .lead { color: var(--muted); font-size: 18px; margin-bottom: 40px; }
+  .principle { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; margin-bottom: 16px; }
+  .principle h2 { font-size: 19px; margin-bottom: 8px; }
+  .principle p { color: var(--muted); }
+  .principle p + p { margin-top: 8px; }
+  .principle .how { color: var(--fg); font-size: 14.5px; margin-top: 10px; }
+  .principle .how strong { color: var(--accent); font-weight: 650; }
+  h3.section { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); margin: 36px 0 12px; }
+  ul.nots { list-style: none; } ul.nots li { padding: 6px 0 6px 24px; position: relative; color: var(--muted); }
+  ul.nots li::before { content: "✕"; position: absolute; left: 0; color: var(--amber); }
+  .key { color: var(--fg); font-weight: 600; background: linear-gradient(transparent 62%, #6fd3d633 62%); }
+  .flow { background: #00000033; border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px; color: var(--fg); white-space: pre; overflow-x: auto; margin-top: 12px; }
+  .quote { border-left: 3px solid var(--accent); padding: 4px 16px; color: var(--muted); font-style: italic; margin: 28px 0; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--dim); font-size: 13px; }
+
+  /* Site nav — identical on every page (see also scripts/build-docs.py). */
+  nav .links { white-space: nowrap; }
+  nav .brandlink { display:flex; align-items:center; gap:12px; color:var(--fg); }
+  nav .brandlink:hover { text-decoration:none; }
+  /* Phones: the text links fold away, but the download button stays. */
+  /* Mid widths: tighten the menu rather than clip it. */
+  @media (max-width: 1080px){ nav .links a { margin-left: 13px; font-size: 13px; } }
+  @media (max-width: 900px){ nav .links a { margin-left: 10px; font-size: 12.5px; } nav .wrap { gap: 12px; } }
+  @media (max-width: 760px){ nav .links { display: none; } }
+  nav .links a.here { color: var(--fg); font-weight: 600; }
+</style>
+
+<style>
+  /* Page-local: diagrams and the layer table. Everything else is the site's. */
+  .diagram { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+             padding: 20px; margin: 18px 0 22px; overflow-x: auto; }
+  .diagram svg { display: block; width: 100%; height: auto; min-width: 460px; }
+  .caption { color: var(--dim); font-size: 13px; margin-top: 10px; }
+  .layers { width: 100%; border-collapse: collapse; margin: 6px 0 20px; font-size: 14.5px; }
+  .layers th { text-align: left; color: var(--dim); font-size: 12px; text-transform: uppercase;
+               letter-spacing: .06em; font-weight: 650; padding: 0 12px 8px 0;
+               border-bottom: 1px solid var(--line); }
+  .layers td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line);
+               color: var(--muted); vertical-align: top; }
+  .layers td strong { color: var(--fg); }
+  .layers tr:last-child td { border-bottom: 0; }
+  .repos { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 8px; }
+  .repos a { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+             padding: 10px 14px; color: var(--fg); font-size: 14px; font-weight: 600; }
+  .repos a:hover { border-color: var(--accent); text-decoration: none; }
+  .repos a span { display: block; color: var(--dim); font-weight: 400; font-size: 12.5px; margin-top: 2px; }
+</style>
+
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="./" class="brandlink" aria-label="Naseem home">
+    <img src="assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span>
+  </a>
+  <span class="spacer"></span>
+  <span class="links">
+    <a href="./#why">Why Naseem</a>
+    <a href="./#features">Features</a>
+    <a href="./#pricing">Pricing</a>
+    <a href="./how-it-works.html" class="here" aria-current="page">How it works</a>
+    <a href="./philosophy.html">Philosophy</a>
+    <a href="./docs/">Docs</a>
+    <a href="./whats-new.html">What's New</a>
+  </span>
+</div></nav>
+<main><div class="wrap">
+
+<h1>The harness</h1>
+<p class="lead">Naseem is 57 MB. The desktop apps it competes with are a gigabyte and a half, because they carry a browser. This is what is inside instead.</p>
+
+<h3 class="section">Three layers</h3>
+<p>Each layer knows only the one beneath it. That is the whole design, and the reason a change to a wire format never reaches the interface.</p>
+<div class="diagram">
+<svg viewBox="0 0 700 250" role="img" aria-label="Three layers: Naseem, SwiftAgentKit, LLMProviderKit, each depending only downward.">
+  <defs><style>
+    .box{fill:#21252e;stroke:#2c313b;stroke-width:1.5;rx:12}
+    .t{fill:#e7e9ee;font:650 15px -apple-system,system-ui,sans-serif}
+    .s{fill:#9aa1ad;font:12.5px -apple-system,system-ui,sans-serif}
+    .n{fill:#6f7681;font:11.5px ui-monospace,Menlo,monospace}
+    .arr{stroke:#6fd3d6;stroke-width:1.6;fill:none;marker-end:url(#a)}
+  </style>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#6fd3d6"/></marker></defs>
+
+  <rect class="box" x="20" y="10" width="660" height="62" rx="12"/>
+  <text class="t" x="40" y="36">Naseem</text>
+  <text class="s" x="40" y="56">The Mac app — profiles, approvals, projects, the interface</text>
+  <text class="n" x="612" y="38">private</text>
+
+  <rect class="box" x="20" y="94" width="660" height="62" rx="12"/>
+  <text class="t" x="40" y="120">SwiftAgentKit</text>
+  <text class="s" x="40" y="140">The loop — turns, tools, context, sub-agents, skills, retry</text>
+  <text class="n" x="612" y="122">open</text>
+
+  <rect class="box" x="20" y="178" width="660" height="62" rx="12"/>
+  <text class="t" x="40" y="204">LLMProviderKit</text>
+  <text class="s" x="40" y="224">The wire — one provider protocol, model catalog, effort vocabularies</text>
+  <text class="n" x="612" y="206">open</text>
+
+  <path class="arr" d="M350 74 L350 90"/>
+  <path class="arr" d="M350 158 L350 174"/>
+</svg>
+</div>
+<table class="layers">
+  <tr><th style="width:30%">Layer</th><th>What it owns</th></tr>
+  <tr><td><strong>Naseem</strong></td><td>Profiles, approvals, projects, the Mac itself. Never writes an HTTP header.</td></tr>
+  <tr><td><strong>SwiftAgentKit</strong></td><td>The agent loop: turns, tools, context, sub-agents, skills, retry. Knows nothing about macOS.</td></tr>
+  <tr><td><strong>LLMProviderKit</strong></td><td>One provider protocol and the model catalog. Knows nothing about agents.</td></tr>
+</table>
+<p>The two lower layers are open source. The agent that runs your Mac is built on packages anyone can read.</p>
+<div class="repos">
+  <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit<span>The agent loop</span></a>
+  <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit<span>The provider seam</span></a>
+</div>
+
+<h3 class="section">What happens when you press Return</h3>
+<div class="diagram">
+<svg viewBox="0 0 700 330" role="img" aria-label="A request travelling down through the layers and back.">
+  <defs><style>
+    .lane{fill:#1b1e25;stroke:#2c313b;stroke-width:1;rx:10}
+    .step{fill:#21252e;stroke:#2c313b;stroke-width:1.4;rx:9}
+    .lt{fill:#6f7681;font:11px 650 -apple-system,system-ui,sans-serif;letter-spacing:.06em}
+    .st{fill:#e7e9ee;font:13px -apple-system,system-ui,sans-serif}
+    .sn{fill:#9aa1ad;font:11.5px ui-monospace,Menlo,monospace}
+    .down{stroke:#6fd3d6;stroke-width:1.6;fill:none;marker-end:url(#b)}
+    .back{stroke:#8ab4f8;stroke-width:1.6;fill:none;stroke-dasharray:4 3;marker-end:url(#c)}
+  </style>
+  <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#6fd3d6"/></marker>
+  <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#8ab4f8"/></marker></defs>
+
+  <text class="lt" x="20" y="22">YOU</text>
+  <rect class="step" x="90" y="6" width="200" height="30"/>
+  <text class="st" x="104" y="26">A request</text>
+
+  <text class="lt" x="20" y="80">AGENT</text>
+  <rect class="step" x="90" y="52" width="240" height="34"/>
+  <text class="st" x="104" y="68">Assemble the prompt</text>
+  <text class="sn" x="104" y="82">+ a one-line index of every skill</text>
+
+  <rect class="step" x="90" y="100" width="240" height="34"/>
+  <text class="st" x="104" y="116">File away old tool output</text>
+  <text class="sn" x="104" y="130">receipts stay, full text retrievable</text>
+
+  <text class="lt" x="20" y="172">WIRE</text>
+  <rect class="step" x="90" y="148" width="240" height="34"/>
+  <text class="st" x="104" y="164">Resolve what this model takes</text>
+  <text class="sn" x="104" y="178">provider + model → effort vocabulary</text>
+
+  <rect class="step" x="90" y="196" width="240" height="34"/>
+  <text class="st" x="104" y="212">Send it, retry transient failure</text>
+  <text class="sn" x="104" y="226">backoff with jitter</text>
+
+  <text class="lt" x="20" y="268">BACK</text>
+  <rect class="step" x="90" y="244" width="240" height="34"/>
+  <text class="st" x="104" y="260">Stream · tool call · your approval</text>
+  <text class="sn" x="104" y="274">then the next turn</text>
+
+  <path class="down" d="M190 38 L190 48"/>
+  <path class="down" d="M190 88 L190 96"/>
+  <path class="down" d="M190 136 L190 144"/>
+  <path class="down" d="M190 184 L190 192"/>
+  <path class="down" d="M190 232 L190 240"/>
+  <path class="back" d="M336 261 C 420 261 420 70 336 70"/>
+  <text class="sn" x="430" y="168">every turn</text>
+</svg>
+
+  <p class="caption">Every turn takes the same path down and back. Nothing about it is specific to a vendor.</p>
+</div>
+
+<div class="principle">
+  <h2>Long tasks do not run out of room</h2>
+  <p>An agent that reads twenty files fills its own memory and starts forgetting the beginning of the job. Naseem files completed tool output away and keeps a short receipt in view — the agent can still fetch the full text whenever it needs it.</p>
+  <p class="how"><strong>What you get:</strong> a task that is still coherent at turn forty.</p>
+</div>
+
+<div class="principle">
+  <h2>One protocol, every provider</h2>
+  <p>Anthropic, OpenAI, Google, OpenRouter, Ollama and on-device models all arrive through a single interface. An on-device model never builds a network request at all — it satisfies the same protocol in a different way.</p>
+  <p class="how"><strong>What you get:</strong> the same features on every provider, and a new one is days rather than a rewrite.</p>
+</div>
+
+<div class="principle">
+  <h2>Models are asked for what they actually accept</h2>
+  <p>Providers disagree about nearly everything — what "work harder" is called, which levels exist, what a refusal looks like. Naseem keeps a declared list of what each model on each service takes, and asks for something that model can give.</p>
+  <p class="how"><strong>What you get:</strong> a control that offers only the levels your model has, and no failed turn spent finding out.</p>
+</div>
+
+<div class="principle">
+  <h2>A failed request says what went wrong</h2>
+  <p>When a provider refuses, Naseem shows you the provider's own sentence — "this model is no longer available on your plan" — instead of a number. The full response stays underneath for when you need it.</p>
+  <p class="how"><strong>What you get:</strong> an error you can act on, not one you have to search for.</p>
+</div>
+
+<div class="principle">
+  <h2>Parallel work does not trip over itself</h2>
+  <p>Sub-agents that all start at once will all retry at once, and collide again. Naseem spreads its retries apart, and gives up immediately on failures that will never succeed rather than waiting out a schedule.</p>
+  <p class="how"><strong>What you get:</strong> parallel work that finishes, and fast failures when something is genuinely wrong.</p>
+</div>
+
+<h3 class="section">Skills load in three stages</h3>
+<p>A skill is a folder someone wrote: a short guide, and whatever reference material it needs. Naseem reads as little of it as the task allows.</p>
+<div class="diagram">
+<svg viewBox="0 0 700 200" role="img" aria-label="Skills load in three stages: name, instructions, then bundled files.">
+  <defs><style>
+    .b{fill:#21252e;stroke:#2c313b;stroke-width:1.4;rx:11}
+    .h{fill:#e7e9ee;font:650 14px -apple-system,system-ui,sans-serif}
+    .d{fill:#9aa1ad;font:12px -apple-system,system-ui,sans-serif}
+    .c{font:12px ui-monospace,Menlo,monospace}
+    .ar{stroke:#6fd3d6;stroke-width:1.6;fill:none;marker-end:url(#d)}
+  </style>
+  <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#6fd3d6"/></marker></defs>
+
+  <rect class="b" x="10" y="30" width="200" height="106"/>
+  <text class="h" x="28" y="58">Its name</text>
+  <text class="d" x="28" y="80">Always in view, so the</text>
+  <text class="d" x="28" y="97">agent knows it exists</text>
+  <text class="c" x="28" y="122" fill="#6fd3d6">a line each</text>
+
+  <rect class="b" x="250" y="30" width="200" height="106"/>
+  <text class="h" x="268" y="58">Its instructions</text>
+  <text class="d" x="268" y="80">Read only when the</text>
+  <text class="d" x="268" y="97">task actually matches</text>
+  <text class="c" x="268" y="122" fill="#6fd3d6">a page or two</text>
+
+  <rect class="b" x="490" y="30" width="200" height="106"/>
+  <text class="h" x="508" y="58">Its files</text>
+  <text class="d" x="508" y="80">Opened only where the</text>
+  <text class="d" x="508" y="97">instructions point</text>
+  <text class="c" x="508" y="122" fill="#6fd3d6">nothing until then</text>
+
+  <path class="ar" d="M214 83 L246 83"/>
+  <path class="ar" d="M454 83 L486 83"/>
+  <text class="d" x="10" y="170">A skill can carry a library of detail and cost nothing until the moment it is needed.</text>
+</svg>
+</div>
+
+<h3 class="section">What this is not</h3>
+<ul class="nots">
+  <li>Not a plugin runtime. Providers are a known set, which is why the app is 57 MB and starts instantly.</li>
+  <li>Not a wrapper around one vendor's SDK. The provider seam is ours, and it is open.</li>
+  <li>Not a browser in a trench coat. There is no Chromium, no web app, no second runtime.</li>
+</ul>
+
+<div class="quote">The architecture exists so that the hard parts — staying coherent on long tasks, behaving the same on every provider, failing legibly — are properties of the system rather than things you hope for.</div>
+
+<p class="caption">Curious about the code? <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> and <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a> are open source. <a href="how-it-works.html">How it works</a> covers the same ground from the outside in.</p>
+
+</div></main>
+<footer><div class="wrap">© 2026 Ayman Hamed · <a href="./">Home</a> · <a href="whats-new.html">What's New</a> · <a href="terms.html">Terms of Use</a> · <a href="https://www.producthunt.com/p/naseem-2">Community</a></div></footer>
+<script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
