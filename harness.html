@@ -146,7 +146,7 @@
 </table>
 
 <h3 class="section">What happens when you press Return</h3>
-<div class="diagram"><svg viewBox="0 0 700 330" role="img" aria-label="A request travelling down through the layers and back.">
+<div class="diagram"><svg viewBox="0 0 700 292" role="img" aria-label="A request travelling down through the layers and back.">
   <defs><style>
     .lane{fill:#1b1e25;stroke:#2c313b;stroke-width:1;rx:10}
     .step{fill:#21252e;stroke:#2c313b;stroke-width:1.4;rx:9}
@@ -198,42 +198,6 @@
 </svg>
   <p class="caption">Every turn takes the same path down and back, whichever provider is answering.</p>
 </div>
-
-<h3 class="section">Skills load in three stages</h3>
-<p>A skill is a folder: a short guide, and whatever reference material it needs. Naseem reads as little of it as the task allows.</p>
-<div class="diagram"><svg viewBox="0 0 700 200" role="img" aria-label="Skills load in three stages: name, instructions, then bundled files.">
-  <defs><style>
-    .b{fill:#21252e;stroke:#2c313b;stroke-width:1.4;rx:11}
-    .h{fill:#e7e9ee;font:650 14px -apple-system,system-ui,sans-serif}
-    .d{fill:#9aa1ad;font:12px -apple-system,system-ui,sans-serif}
-    .c{font:12px ui-monospace,Menlo,monospace}
-    .ar{stroke:#6fd3d6;stroke-width:1.6;fill:none;marker-end:url(#d)}
-  </style>
-  <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-    <path d="M0 0 L10 5 L0 10 z" fill="#6fd3d6"/></marker></defs>
-
-  <rect class="b" x="10" y="30" width="200" height="106"/>
-  <text class="h" x="28" y="58">Its name</text>
-  <text class="d" x="28" y="80">Always in view, so the</text>
-  <text class="d" x="28" y="97">agent knows it exists</text>
-  <text class="c" x="28" y="122" fill="#6fd3d6">a line each</text>
-
-  <rect class="b" x="250" y="30" width="200" height="106"/>
-  <text class="h" x="268" y="58">Its instructions</text>
-  <text class="d" x="268" y="80">Read only when the</text>
-  <text class="d" x="268" y="97">task actually matches</text>
-  <text class="c" x="268" y="122" fill="#6fd3d6">a page or two</text>
-
-  <rect class="b" x="490" y="30" width="200" height="106"/>
-  <text class="h" x="508" y="58">Its files</text>
-  <text class="d" x="508" y="80">Opened only where the</text>
-  <text class="d" x="508" y="97">instructions point</text>
-  <text class="c" x="508" y="122" fill="#6fd3d6">nothing until then</text>
-
-  <path class="ar" d="M214 83 L246 83"/>
-  <path class="ar" d="M454 83 L486 83"/>
-  <text class="d" x="10" y="170">A skill can carry a library of detail and cost nothing until the moment it is needed.</text>
-</svg></div>
 
 <p class="caption">The code is open: <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> and <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a>. <a href="how-it-works.html">How it works</a> covers the same ground from the outside in.</p>
 
