@@ -85,16 +85,15 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.6.0</h2><span class="tag">Latest</span><span class="date">Sep 16, 2026</span></header>
-      <h3>New in 1.6.0</h3>
+      <header><h2>Naseem 1.7.0</h2><span class="tag">Latest</span><span class="date">Sep 16, 2026</span></header>
+      <h3>New in 1.7.0</h3>
       <ul>
-        <li><strong>Choose how hard the model works.</strong> A new Effort control sets how much a model spends on a reply — and it shapes every part of the answer, not just its thinking, so a lower level also means fewer and shorter tool calls. Pick it per conversation from the composer or the model menu, or set a default in Settings → Agent. Only models that actually accept a level show the control, and each one offers exactly the levels it supports.</li>
-        <li><strong>Every reply says what it was produced at</strong> — <code>Naseem · glm-5.3 · High</code> — so you can ask the same question at two levels and compare the answers later, not from memory.</li>
+        <li><strong>Imported skills keep the files they ship.</strong> Skills shared on GitHub usually come as a folder: a short guide, plus reference documents and sometimes scripts. Naseem used to keep only the guide, so a skill whose steps said "see <code>references/brief.md</code>" arrived half-empty and failed at the first step. The whole folder now comes across, and Naseem reads a reference only when the instructions point at one — so a skill can carry as much detail as it likes without costing you anything until it's needed.</li>
+        <li><strong>Scripts are your call, separately.</strong> A skill that ships executable files now says so at import, and installs them only if you tick the box. They're code from someone else's repository that runs on your Mac, so that decision stays yours rather than riding along with "add these skills".</li>
       </ul>
-      <h3>Fixed in 1.6.0</h3>
+      <h3>Fixed in 1.7.0</h3>
       <ul>
-        <li><strong>When a provider refuses, it now says why.</strong> Naseem shows the provider's own explanation instead of a bare error code or a wall of JSON. The full response is still there underneath if you need it, and the error stays in the conversation instead of flashing past in a banner.</li>
-        <li><strong>Models your key can't use are no longer offered.</strong> Google has closed the Gemini 2.5 family to new API keys; Naseem hides models a provider has retired, while leaving any you're already using in place.</li>
+        <li><strong>Naseem identifies itself.</strong> When you use a ChatGPT subscription, Naseem now tells the service that it's Naseem, rather than borrowing another tool's name. Nothing changes in how it works — but your account activity now reflects what's actually making the requests.</li>
       </ul>
     </article>
   </div>
