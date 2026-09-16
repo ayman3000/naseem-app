@@ -138,6 +138,10 @@
   <tr><td><strong>Sub-agents</strong></td><td>Bounded side-tasks run in their own fresh context, so a long investigation does not crowd out the main thread.</td></tr>
   <tr><td><strong>Memory</strong></td><td>Plain Markdown the agent reads and writes across sessions. Tell it something once.</td></tr>
   <tr><td><strong>Skills</strong></td><td>Folders of instructions, yours or imported, loaded only when a task calls for them.</td></tr>
+  <tr><td><strong>Skills are read before they are trusted</strong></td><td>Import one from a link or a repository and Naseem fetches it, reads it, and tells you what it found before anything is added. Nothing arrives unseen.</td></tr>
+  <tr><td><strong>A switch on every skill</strong></td><td>Turn one off and it stays on disk but leaves the agent's view entirely — no editing, no deleting, no guessing why a run behaved oddly.</td></tr>
+  <tr><td><strong>Lessons from what went wrong</strong></td><td>When you refuse an action, or a run recovers from a failure, Naseem proposes a short lesson. You approve it, and it quietly steers later work. The agent gets better at <em>your</em> work without you writing a prompt.</td></tr>
+  <tr><td><strong>MCP servers</strong></td><td>Connect external tool servers — filesystem, GitHub, a browser, whatever you run — and decide per server whether its tools need your approval each time.</td></tr>
   <tr><td><strong>Any provider</strong></td><td>Anthropic, OpenAI, Google, OpenRouter, Ollama and on-device models behind one interface — switch without losing a feature.</td></tr>
   <tr><td><strong>Local models</strong></td><td>Ollama and on-device MLX run with no key and no network at all.</td></tr>
   <tr><td><strong>Effort control</strong></td><td>Ask for less thinking on simple work and more on hard work, per conversation, on models that support it.</td></tr>
