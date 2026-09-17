@@ -86,15 +86,21 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.7.0</h2><span class="tag">Latest</span><span class="date">Sep 16, 2026</span></header>
-      <h3>New in 1.7.0</h3>
+      <header><h2>Naseem 1.8.0</h2><span class="tag">Latest</span><span class="date">Sep 17, 2026</span></header>
+      <h3>New in 1.8.0</h3>
       <ul>
-        <li><strong>Imported skills keep the files they ship.</strong> Skills shared on GitHub usually come as a folder: a short guide, plus reference documents and sometimes scripts. Naseem used to keep only the guide, so a skill whose steps said "see <code>references/brief.md</code>" arrived half-empty and failed at the first step. The whole folder now comes across, and Naseem reads a reference only when the instructions point at one — so a skill can carry as much detail as it likes without costing you anything until it's needed.</li>
-        <li><strong>Scripts are your call, separately.</strong> A skill that ships executable files now says so at import, and installs them only if you tick the box. They're code from someone else's repository that runs on your Mac, so that decision stays yours rather than riding along with "add these skills".</li>
+        <li><strong>Attach a PDF and ask about it.</strong> Drop a document on the composer, or pick it with the paperclip. Naseem reads only the pages your question needs, so a long report costs you nothing until it's actually opened — and answers cite the page they came from, so you can check them.</li>
+        <li><strong>Scanned documents, read on your Mac.</strong> A PDF that's really a photograph of paper has no text inside it at all. Naseem reads it anyway, in thirty languages including Arabic, using macOS itself — the document never leaves your machine. Read once, it's instant every time after. <em>(Pro)</em></li>
+        <li><strong>Charts and diagrams.</strong> When the answer is in a picture rather than in words — which quarter was strongest, where a flowchart branches — Naseem can look at the page instead of only reading it. It asks you first, every single time, and names the page and what it will cost. <em>(Pro)</em></li>
+        <li><strong>Documents belong to the project.</strong> Attach a contract in one chat and the next chat in that project already knows it's there. The same file attached again is still one file on disk.</li>
+        <li><strong>Attachments show in the Artifacts pane</strong>, so a document stays one click away after the conversation has scrolled on — with a preview inside Naseem.</li>
       </ul>
-      <h3>Fixed in 1.7.0</h3>
+      <h3>Fixed in 1.8.0</h3>
       <ul>
-        <li><strong>Naseem identifies itself.</strong> When you use a ChatGPT subscription, Naseem now tells the service that it's Naseem, rather than borrowing another tool's name. Nothing changes in how it works — but your account activity now reflects what's actually making the requests.</li>
+        <li><strong>An approval no longer freezes the window.</strong> It used to be a dialog over everything: on the Tasks board, one chat asking a question stopped every other chat until you answered. Approvals now wait quietly in the conversation that raised them, with an <strong>Allow for this conversation</strong> option for the ones you're tired of confirming.</li>
+        <li><strong>Approvals say what they're approving</strong> — "Look at page 2 of report.pdf?" — with the exact details one click away.</li>
+        <li><strong>Anything that spends money always asks</strong>, even in a conversation set to run without asking, and the card explains why it stopped.</li>
+        <li><strong>Saved images are named for what they show</strong> rather than after the tool that produced them.</li>
       </ul>
     </article>
   </div>
