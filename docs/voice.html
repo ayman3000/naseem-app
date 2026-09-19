@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chats &amp; Projects — Naseem docs, the Mac-native AI agent</title>
-<meta name="description" content="Chats &amp; Projects — documentation for Naseem, the native macOS AI agent that runs commands, edits files and drives Mac apps behind an approval gate.">
+<title>Voice — Naseem docs, the Mac-native AI agent</title>
+<meta name="description" content="Talk to Naseem and let it talk back: replies read aloud, hands-free dictation, sending by saying its name or by pausing, and ElevenLabs voices with your own key.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://ayman3000.github.io/naseem-app/docs/conversations.html">
-<meta property="og:title" content="Chats &amp; Projects — Naseem docs">
-<meta property="og:description" content="Chats &amp; Projects — documentation for Naseem, the native macOS AI agent.">
-<meta property="og:url" content="https://ayman3000.github.io/naseem-app/docs/conversations.html">
+<link rel="canonical" href="https://ayman3000.github.io/naseem-app/docs/voice.html">
+<meta property="og:title" content="Voice — Naseem docs">
+<meta property="og:description" content="Replies read aloud, hands-free dictation, and ElevenLabs voices with your own key.">
+<meta property="og:url" content="https://ayman3000.github.io/naseem-app/docs/voice.html">
 <meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/icon-256.png">
@@ -100,8 +100,8 @@
   <aside>
     <h4>Documentation</h4>
     <a href="index.html">Get Started</a>
-    <a href="conversations.html" class="active">Chats &amp; Projects</a>
-    <a href="voice.html">Voice</a>
+    <a href="conversations.html">Chats &amp; Projects</a>
+    <a href="voice.html" class="active">Voice</a>
     <a href="profiles.html">Profiles</a>
     <a href="tools.html">Tools &amp; Approval</a>
     <a href="agentic.html">Simulator &amp; Mac</a>
@@ -114,40 +114,40 @@
     <a href="../whats-new.html">What's New ↗</a>
   </aside>
   <main>
-    <h1>Chats &amp; Projects</h1>
-    <h2 id="conversations">Conversations</h2>
+    <h1>Voice</h1>
+<blockquote><strong>Talk to Naseem, and let it talk back.</strong> Everything here is off until you turn it on, and everything runs on your Mac unless you choose otherwise.</blockquote>
+<h2 id="naseem-speaks">Naseem speaks</h2>
 <ul>
-  <li><strong>⌘N</strong> starts a new chat; <strong>⇧⌘N</strong> opens a second window. Every chat keeps its own model and streams independently.</li>
-  <li>Pin, rename, and delete from the sidebar; <strong>⌘F</strong> searches inside a chat, the sidebar field searches across all of them.</li>
-  <li>A <strong>green dot</strong> beside a chat means it is running now; a <strong>grey dot</strong> means it ran earlier this session. The trail clears when you quit.</li>
-  <li>Each reply shows the model, duration, and token/cost figures; expand the activity card to see every step the agent took.</li>
-  <li><strong>Return</strong> sends; <strong>Shift+Return</strong> starts a new line. The field grows with your text, then scrolls.</li>
-  <li>Attach images with the paperclip, drag-and-drop, or <strong>⌘V</strong> (up to 6); click a thumbnail to enlarge, copy, or remove it.</li>
-  <li>The right pane shows the project's <strong>Files</strong> and the run's <strong>Artifacts</strong>; select one to preview it. Code and config files are syntax-colored, images and PDFs render inline, and <strong>Open</strong> hands anything to its own app.</li>
-  <li><strong>Share or export a chat</strong> — right-click it in the sidebar: <strong>Share…</strong> opens the macOS share sheet (Mail, Messages, AirDrop, Notes), <strong>Copy as Markdown</strong> puts it on the clipboard, <strong>Export as Markdown…</strong> saves a file (also <strong>⇧⌘E</strong>). By default that is the conversation only — what you and Naseem said, no tool calls. <strong>With Tool Details</strong> offers the same three with one line per tool call, for when someone needs the trail. <strong>File → Import Conversation…</strong> brings a file back as a new chat, in its project if the name matches.</li>
+  <li><strong>Read one reply.</strong> Every answer has a speaker button next to Copy. Click it and Naseem reads that reply; click again to stop. Code blocks and tables are skipped — they only make sense on screen.</li>
+  <li><strong>Read every reply.</strong> Turn on <strong>Reply aloud</strong> in Settings ▸ Voice, or click the speaker icon in the toolbar (it's the same switch). Naseem then reads each reply as it finishes. Choose what it reads under <strong>Read</strong>: the opening — the first sentences — or the whole reply.</li>
+  <li><strong>The right language, by itself.</strong> Naseem picks a voice that matches the reply, so an Arabic answer is read in Arabic and an English one in English. No setting needed.</li>
+  <li><strong>A word when you're away.</strong> Turn on <strong>Speak a summary when Naseem isn't in front</strong> and a run that finishes while you're in another app tells you what it did — one sentence. It never talks over you while you're reading.</li>
+  <li><strong>Stop at any time.</strong> Click the speaker button on the message, the toolbar icon, or Stop in Settings ▸ Voice. If you were dictating, the microphone comes straight back.</li>
 </ul>
-<h2 id="how-a-run-works-start-to-finish">How a run works, start to finish</h2>
+<h2 id="you-speak">You speak</h2>
 <ul>
-  <li><strong>You send a request.</strong> The chat model — the one in the header menu — reads it together with your project notes, the profile's instructions and the tools it may use.</li>
-  <li><strong>It plans and works.</strong> It reads files, runs commands, drives the Simulator, and so on, asking first where approval is required. If the job has independent side tasks and sub-agents are on (Pro), it hands each one to a <strong>sub-agent</strong>: a fresh helper with only that task, running on the sub-agent model. You see <em>N sub-agents working</em> while they run; only their summaries come back to the chat model.</li>
-  <li><strong>The chat model writes the answer.</strong> Every reply you see is written by the chat model — never by a sub-agent, never by the reviewer.</li>
-  <li><strong>Checks run before you see it.</strong> Built-in checks first: did it actually use tools when the task needed them, and does every file it says it created exist on disk. Then, if your profile names a <strong>review model</strong> (Pro), that model reads the request, the answer and the list of tool calls, and returns pass or fail with a reason.</li>
-  <li><strong>Pass</strong> — the answer is shown to you unchanged. The reviewer adds nothing to a good answer.</li>
-  <li><strong>Fail</strong> — the reason goes back to the chat model, not to you, as <em>not complete yet, here is why; reply with the complete answer</em>. The chat model fixes it, by itself or by delegating again, and the checks run once more. You see the send-back as a small note in the activity card.</li>
-  <li><strong>It always ends.</strong> At most two reviews and three send-backs per run; after that the run stops and shows the chat model's last answer, so a strict reviewer can never trap a run.</li>
-  <li><strong>Afterwards</strong>, Usage &amp; Cost lists every call by model: the chat model's turns, the sub-agents' calls, and the reviewer's call.</li>
+  <li><strong>Start.</strong> Click the microphone in the composer. The first time, macOS asks to allow the microphone and speech recognition — say yes to both.</li>
+  <li><strong>It keeps listening.</strong> The mic stays on until you click it again, so you never touch the keyboard between messages. What it hears lands in the composer for you to read; it never sends by itself unless you ask it to.</li>
+  <li><strong>Two ways to send, hands-free.</strong> Both are in Settings ▸ Voice ▸ Listening; use either or both.
+    <ul>
+      <li><strong>Say its name.</strong> End with the word <em>Naseem</em> (or <em>نسيم</em>) and the message goes; the name itself isn't sent. On by default. Turn it off if you say the name in your sentences.</li>
+      <li><strong>Just pause.</strong> With <strong>Send after a pause</strong> on, going quiet for a few seconds sends. The last second shows a countdown under the composer, and saying anything cancels it. Off by default — leave it off if you pause to think mid-sentence.</li>
+    </ul>
+  </li>
+  <li><strong>Naseem waits its turn.</strong> After a message goes, the mic rests while Naseem answers (the line under the composer says so) and comes back on its own for the next message — after the reply is read out when Reply aloud is on, or as soon as it's written when it isn't. Naseem never dictates its own voice back into the composer.</li>
+  <li><strong>Where your voice goes.</strong> Under the composer, Naseem tells you whether your voice is recognised on this Mac or by Apple. That depends on the language you chose in <strong>Microphone language</strong> and what your Mac has installed; when it's on this Mac, your voice never leaves it.</li>
+  <li><strong>Typed and spoken mix.</strong> Anything already in the composer stays; dictation is added after it. macOS's own Dictation key works in the composer too.</li>
 </ul>
-<h2 id="project-notes">Project notes</h2>
+<h2 id="voices">Voices</h2>
 <ul>
-  <li><strong>Naseem keeps notes inside each project</strong>, in a <code>naseem/</code> folder you can read, edit, and commit: <strong>project.md</strong> (what it is, stack, how to build and test), <strong>roadmap.md</strong> (Done, In progress, Next, Known issues) and <strong>journal.md</strong> (one line per run).</li>
-  <li><strong>Start with the card</strong> — in a new project chat, <em>Set up this project</em> writes the first two files from the code. After that, every chat reads them first, the start cards come from the roadmap's Next items, and Naseem updates roadmap.md and journal.md after runs that change the project.</li>
+  <li><strong>This Mac</strong> is the default engine: free, offline, in every language macOS speaks. Pick a specific voice or leave it on <em>Best available for each language</em>, and set the speed. Better voices can be downloaded in System Settings ▸ Accessibility ▸ Spoken Content.</li>
+  <li><strong>ElevenLabs</strong>, with your own key. <em>(Pro)</em> Switch <strong>Engine</strong> in Settings ▸ Voice, paste your ElevenLabs API key, and choose a voice — their stock voices are listed, and your own cloned or library voices join them when the key is allowed to read voices; a voice ID can also be pasted directly. Pick <strong>Flash</strong> for the fastest, cheapest speech or <strong>Multilingual</strong> for the best Arabic. The key stays in your Keychain and goes only to ElevenLabs; every sentence is billed to your ElevenLabs account, never to Naseem.</li>
 </ul>
-<h2 id="projects">Projects</h2>
+<h2 id="who-its-for">Who it's for</h2>
 <ul>
-  <li>A <strong>project</strong> groups related chats around a shared working directory — every chat in the project reads and writes the same folder.</li>
-  <li>Use one project with several chats (e.g. one per profile) to run a small team over the same workspace.</li>
-  <li>A new chat inside a project starts with cards about <strong>that project</strong>, drawn from its notes (see <em>Project notes</em> above). Set the projects folder in Settings → General so new projects land where you keep code.</li>
-  <li>Right-click a project → <strong>Color</strong> to tint its folder icon and name so it stands out in a long list.</li>
+  <li>Anyone who thinks faster than they type, or is away from the keyboard: cooking, driving the Simulator, reading a printed page.</li>
+  <li>People who can't use a keyboard all day. Naseem can be run by voice from the first word to the spoken reply.</li>
+  <li>Language learners: dictate in the language you're learning, hear the reply in it, and switch the microphone language to match.</li>
 </ul>
   </main>
 </div>
