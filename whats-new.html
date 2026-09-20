@@ -86,7 +86,25 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.11.0</h2><span class="tag">Latest</span><span class="date">Sep 20, 2026</span></header>
+      <header><h2>Naseem 1.12.0</h2><span class="tag">Latest</span><span class="date">Sep 20, 2026</span></header>
+      <h3>New in 1.12.0</h3>
+      <ul>
+        <li><strong>Documents are read once.</strong> Point Naseem at a folder of proposals, specifications or reports and it reads each file a single time, writing notes you can open yourself: what the document is, the facts that matter with the page or slide they came from, and the questions it leaves open. Everything afterwards works from those notes, so the same file is never read twice and a long PDF does not fill the conversation. Read it again tomorrow and it costs nothing.</li>
+        <li><strong>A model chosen for reading.</strong> Settings ▸ Models has a <strong>Reading model</strong>: pick something with a long context and a low price, or a local model to keep the document on your Mac entirely. Leave it alone and Naseem picks a sensible one for you.</li>
+        <li><strong>A skill for starting from documents.</strong> Give Naseem a folder and a mission and it reads everything, writes the project description and the first three steps, then stops and asks you the questions only you can answer.</li>
+        <li><strong>Skills are yours to choose.</strong> The skills Naseem ships with now start switched off, because a skill changes how Naseem works and not just what it knows. Turn on the ones that match your work; two are marked as recommended, and one button turns those on. Every run names the skill it followed under the reply, where one click turns it off again.</li>
+        <li><strong>A Privacy chapter</strong>, in the manual and in the app: what stays on your Mac, everything that ever leaves it, and why. <a href="https://aymanhamed.com/apps/naseem/privacy">The full policy</a> is one click from Settings.</li>
+        <li><strong>Integrations fold away.</strong> Each one is a card showing its state at a glance, and a new button at the bottom sends the developer the integration you actually need.</li>
+      </ul>
+      <h3>Fixed in 1.12.0</h3>
+      <ul>
+        <li><strong>Naseem no longer treats documents like code.</strong> Asking it to read a folder of files used to pull in a code-review procedure, split the work between helpers and read the same document several times over. It now reads them properly, once.</li>
+        <li><strong>Helpers are no longer handed tools they cannot use.</strong> A helper working on a model that cannot see images is no longer given an image to look at, and a helper that fails says so plainly instead of reporting success.</li>
+        <li><strong>Documents come back even when the reading model thinks too long.</strong></li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.11.0</h2><span class="date">Sep 20, 2026</span></header>
       <h3>New in 1.11.0</h3>
       <ul>
         <li><strong>Your Mac&#39;s apps.</strong> Turn them on one at a time in Settings ▸ Integrations ▸ Apple apps, and then just ask: what&#39;s on today, what came in this morning, find that note, remind me tomorrow at nine. Naseem uses the apps already on your Mac, with every account they sync — Gmail and Outlook included — so there is no account to connect and no key to paste. Nothing is fetched from the internet by Naseem, and nothing leaves your machine. <a href="docs/apps.html">How it works</a>. <em>(Free)</em></li>
