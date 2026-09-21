@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCP Servers — Naseem docs, the Mac-native AI agent</title>
-<meta name="description" content="MCP Servers — documentation for Naseem, the native macOS AI agent that runs commands, edits files and drives Mac apps behind an approval gate.">
+<title>Privacy — Naseem docs, the Mac-native AI agent</title>
+<meta name="description" content="Privacy — documentation for Naseem, the native macOS AI agent that runs commands, edits files and drives Mac apps behind an approval gate.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://ayman3000.github.io/naseem-app/docs/mcp.html">
-<meta property="og:title" content="MCP Servers — Naseem docs">
-<meta property="og:description" content="MCP Servers — documentation for Naseem, the native macOS AI agent.">
-<meta property="og:url" content="https://ayman3000.github.io/naseem-app/docs/mcp.html">
+<link rel="canonical" href="https://ayman3000.github.io/naseem-app/docs/privacy.html">
+<meta property="og:title" content="Privacy — Naseem docs">
+<meta property="og:description" content="Privacy — documentation for Naseem, the native macOS AI agent.">
+<meta property="og:url" content="https://ayman3000.github.io/naseem-app/docs/privacy.html">
 <meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/icon-256.png">
@@ -100,7 +100,7 @@
   <aside>
     <h4>Documentation</h4>
     <a href="index.html">Get Started</a>
-    <a href="privacy.html">Privacy</a>
+    <a href="privacy.html" class="active">Privacy</a>
     <a href="conversations.html">Chats &amp; Projects</a>
     <a href="voice.html">Voice</a>
     <a href="profiles.html">Profiles</a>
@@ -108,7 +108,7 @@
     <a href="apps.html">Your Mac&#x27;s apps</a>
     <a href="agentic.html">Simulator &amp; Mac</a>
     <a href="memory.html">Memory &amp; Skills</a>
-    <a href="mcp.html" class="active">MCP Servers</a>
+    <a href="mcp.html">MCP Servers</a>
     <a href="quickAsk.html">Quick Ask</a>
     <a href="freePro.html">Free vs Pro</a>
     <a href="beta.html">Beta Features</a>
@@ -116,13 +116,32 @@
     <a href="../whats-new.html">What's New ↗</a>
   </aside>
   <main>
-    <h1>MCP Servers</h1>
-    <div class="card"><h2>Any MCP server</h2><p>Connect Model Context Protocol servers (web search, Canva, chrome-devtools, …) from Settings → MCP; their tools bridge straight into your chats.</p></div>
-<h2 id="setup">Setup</h2>
+    <h1>Privacy</h1>
+    <blockquote><strong>Naseem has no servers.</strong> No account, no telemetry, no analytics, nothing sent to the developer. Your keys stay in your Keychain, your files stay on your Mac, and what leaves goes to the service you chose, on your own key and your own bill.</blockquote>
+<h2 id="what-stays-here">What stays here</h2>
 <ul>
-  <li>Settings → <strong>MCP</strong> → add a server (stdio or HTTP) — or paste a whole JSON config into the editor.</li>
-  <li>Server secrets/env are stored in the <strong>Keychain</strong>.</li>
-  <li>Each server has its own <strong>require-approval</strong> toggle (on by default).</li>
+  <li><strong>Your conversations, projects, memory, skills and settings</strong> are files and a database on this Mac. Nothing is uploaded, and there is nothing to sign in to.</li>
+  <li><strong>Your API keys</strong> live in the macOS Keychain and are sent only to the service they belong to.</li>
+  <li><strong>Your files, terminal and Mac apps</strong> are read on this machine. What Naseem reads goes into the conversation you are having and nowhere else.</li>
+  <li><strong>On-device models.</strong> If you run a local model through MLX or Ollama, the whole conversation stays on your Mac.</li>
+</ul>
+<h2 id="what-leaves-and-where-it-goes">What leaves, and where it goes</h2>
+<p>Naming these is the point: a promise is only worth what its exceptions admit.</p>
+<ul>
+  <li><strong>The AI provider you picked</strong> receives your request, because that is the product. It goes straight from your Mac to them, on your key and your account, under their privacy policy. Naseem never routes it through anything of its own.</li>
+  <li><strong>Checking for updates</strong> fetches a file from GitHub, the same as any download.</li>
+  <li><strong>Activating Pro</strong> checks the licence key with Gumroad once. Payment is handled entirely by Gumroad.</li>
+  <li><strong>A public list of model context sizes</strong> is fetched and cached, with nothing about you in the request.</li>
+  <li><strong>Web search, Telegram and ElevenLabs</strong> exist only if you paste your own key, and reach only that service.</li>
+  <li><strong>Dictation</strong> is recognised on this Mac when the language allows it, and by Apple when it does not. Naseem tells you which, under the composer, every time it listens.</li>
+  <li><strong>Writing to the developer.</strong> The feedback and integration-request notes are ordinary emails you can read before sending, carrying the version, your plan and your macOS version, and nothing else.</li>
+</ul>
+<h2 id="you-stay-in-control">You stay in control</h2>
+<ul>
+  <li><strong>You decide what Naseem may touch.</strong> Your files, your terminal and the apps you switched on, and nothing you did not allow. macOS asks for each permission separately, and you can take any of them back at any time in System Settings.</li>
+  <li><strong>Anything that changes something asks you first</strong>, with a card that names the file, the message or the appointment before it happens. Sending an email, spending money on a paid service, or deleting your own data asks every single time, even in a conversation you set to run without asking.</li>
+  <li><strong>Nothing here is hidden.</strong> Everything Naseem can reach is listed above, and anyone who wants to confirm it can watch what the app connects to.</li>
+  <li><strong>The full policy</strong> is at <a href="https://aymanhamed.com/apps/naseem/privacy">aymanhamed.com/apps/naseem/privacy</a>.</li>
 </ul>
   </main>
 </div>

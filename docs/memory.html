@@ -100,11 +100,12 @@
   <aside>
     <h4>Documentation</h4>
     <a href="index.html">Get Started</a>
+    <a href="privacy.html">Privacy</a>
     <a href="conversations.html">Chats &amp; Projects</a>
     <a href="voice.html">Voice</a>
-    <a href="apps.html">Your Mac&#39;s apps</a>
     <a href="profiles.html">Profiles</a>
     <a href="tools.html">Tools &amp; Approval</a>
+    <a href="apps.html">Your Mac&#x27;s apps</a>
     <a href="agentic.html">Simulator &amp; Mac</a>
     <a href="memory.html" class="active">Memory &amp; Skills</a>
     <a href="mcp.html">MCP Servers</a>
@@ -121,6 +122,16 @@
   <li>Tell it your name or preferences once; it remembers in every future chat.</li>
   <li>Memory is plain Markdown under <code>~/Library/Application Support/Naseem</code> — inspect or edit it anytime.</li>
 </ul>
+<h2 id="each-project-keeps-its-own-memory">Each project keeps its own memory</h2>
+<ul>
+  <li><strong>What Naseem learns inside a project stays with that project.</strong> A decision, a convention, the order you want the phases done in — filed under the project, and brought back when you open it. Work on something else and it is not in the room.</li>
+  <li><strong>What it learns about you is not filed anywhere in particular.</strong> Your name, how you like a plan written, that you want to be told what to do next — those hold whatever you are working on, so they stay in the general set and come with you everywhere.</li>
+  <li><strong>Why it matters.</strong> A list that mixes the two gets longer every month, and eventually every conversation opens with a briefing about eleven other products. Worse, one project's decisions read as standing truth in another, and an agent handed them will act on them.</li>
+  <li><strong>A chat with no project</strong> sees the general memory alone, which is what you want for a passing question.</li>
+  <li><strong>See and move what is filed where.</strong> The brain icon → <strong>Memory</strong> groups facts by owner: the general ones first, then one group per project. Every line has a <strong>Move…</strong> button — file a stray fact under the project it belongs to, or promote one that turned out to be true everywhere.</li>
+  <li><strong>Nothing moved when you updated.</strong> Everything Naseem already knew is still in the general set. Move what belongs to a project when you feel like it; there is no hurry and nothing is lost either way.</li>
+  <li><strong>If it ever seems to have forgotten something</strong>, it is usually filed under another project. Open the Memory tab and move it across.</li>
+</ul>
 <h2 id="lessons-from-failures">Lessons from failures</h2>
 <ul>
   <li>When a run hits friction — a denied action, a failure it recovered from, a guardrail — Naseem proposes a <strong>lesson</strong>; approved lessons quietly steer future runs.</li>
@@ -131,8 +142,10 @@
   <li>Naseem turns recurring multi-step tasks and corrected mistakes into reusable, keyword-triggered <strong>skills</strong> (via <code>learn_skill</code>, Pro).</li>
   <li>Import skills or whole skill collections from URLs and repos — human-review gated.</li>
   <li>Browse what it knows in the <strong>Knowledge inspector</strong> (memory / skills / tools).</li>
-  <li><strong>Switch any skill on or off</strong> — every skill in the brain icon → <strong>Skills</strong> has a switch. Off keeps the file and its text but hides the skill from the model, so a run cannot pick it. Regular skills ship on.</li>
-  <li><strong>Trial skills</strong> — a skill marked <strong>TRIAL</strong> ships switched off, because it changes how a run works. Turn it on per skill; it is offered to the model only after that.</li>
+  <li><strong>Switch any skill on or off</strong> — every skill in the brain icon → <strong>Skills</strong> has a switch. Off keeps the file and its text but hides the skill from the model, so a run cannot pick it.</li>
+  <li><strong>The skills Naseem ships with start off.</strong> A skill is a procedure Naseem follows whenever it judges a request fits, so it changes how Naseem works rather than only what it knows. Turn on the ones that match your work. Two are marked <strong>RECOMMENDED</strong> — one makes Naseem prove a change works before calling it done, the other keeps a project's plan current — and one button turns both on.</li>
+  <li><strong>Every run names the skill it followed</strong>, under the reply's header. If a skill steered a run the wrong way, one click there turns it off for future runs.</li>
+  <li><strong>Skills say what they are not for.</strong> The code-review skill refuses a folder with no source rather than treating your documents like a codebase.</li>
   <li><strong>Codebase review (trial)</strong> — hands the reading to sub-agents so the main model never loads the code: it sizes the job first, uses one reviewer for a small project and one per dimension for a large one, and each writes findings to a file under <code>naseem/reviews/&lt;date&gt;/</code>. Every finding is then re-checked against the cited lines and the ones that don't survive are thrown out, so you get a short list with file and line rather than a long plausible one. In approval mode it tells you the plan first — files, lines, how many reviewers, roughly how many calls — and asks whether you want the full review, reviewers without verification, or a quick single-pass look. In Autonomous mode it prints the plan and goes.</li>
 </ul>
   </main>

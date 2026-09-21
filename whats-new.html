@@ -86,7 +86,23 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.12.0</h2><span class="tag">Latest</span><span class="date">Sep 20, 2026</span></header>
+      <header><h2>Naseem 1.13.0</h2><span class="tag">Latest</span><span class="date">Sep 21, 2026</span></header>
+      <h3>New in 1.13.0</h3>
+      <ul>
+        <li><strong>Slack.</strong> Ask what happened in a channel overnight, find the thread about the pricing change, see who asked about the release date. Naseem reads Slack as you, so it sees the channels you are in and nothing more, and there is no bot to invite anywhere. Posting is written in the conversation first and asks you every time, even in a chat set to run without asking — everyone in the channel sees it and it cannot be taken back. <a href="docs/tools.html">How it works</a>. <em>(Pro)</em></li>
+        <li><strong>Each project keeps its own memory.</strong> What Naseem learns inside a project — a decision, a convention, the order you want things done in — is filed under that project and brought back when you open it. What it learns about you stays with you everywhere. The Memory tab shows what is filed where, and every line can be moved in either direction. Nothing moved when you updated. <a href="docs/memory.html">How it works</a>.</li>
+        <li><strong>The same PDF is only ever read once.</strong> Two helpers working on the same document now share what the first one extracted, instead of each doing the work again.</li>
+      </ul>
+      <h3>Fixed in 1.13.0</h3>
+      <ul>
+        <li><strong>Stop stops.</strong> Pressing stop while Naseem was inside a long step used to wait for that step to finish before it took effect. It now takes effect the moment you press it. Quitting no longer waits either: it saves what was written so far and closes.</li>
+        <li><strong>The transcript holds still.</strong> On models that call a dozen tools at once, the conversation could flash blank and back again while the steps landed. It stays where you are now, and tells you how many tools are running.</li>
+        <li><strong>Reading a file no longer costs more than it should.</strong> Naseem used to fetch long files in very small pieces — cheap-looking, and in fact the most expensive way to read, because every step re-sends the whole conversation. Ordinary files now come back in one go.</li>
+        <li><strong>Your Python is judged by the Python that will run it.</strong> A file Naseem wrote could be rejected as damaged when it was perfectly good, because it was being checked against the version of Python macOS ships rather than the one Naseem actually uses. And a genuine mistake now says what is wrong instead of asking for the same thing again.</li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.12.0</h2><span class="date">Sep 20, 2026</span></header>
       <h3>New in 1.12.0</h3>
       <ul>
         <li><strong>Documents are read once.</strong> Point Naseem at a folder of proposals, specifications or reports and it reads each file a single time, writing notes you can open yourself: what the document is, the facts that matter with the page or slide they came from, and the questions it leaves open. Everything afterwards works from those notes, so the same file is never read twice and a long PDF does not fill the conversation. Read it again tomorrow and it costs nothing.</li>

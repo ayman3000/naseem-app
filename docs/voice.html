@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Voice — Naseem docs, the Mac-native AI agent</title>
-<meta name="description" content="Talk to Naseem and let it talk back: replies read aloud, hands-free dictation, sending by saying its name or by pausing, and ElevenLabs voices with your own key.">
+<meta name="description" content="Voice — documentation for Naseem, the native macOS AI agent that runs commands, edits files and drives Mac apps behind an approval gate.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://ayman3000.github.io/naseem-app/docs/voice.html">
 <meta property="og:title" content="Voice — Naseem docs">
-<meta property="og:description" content="Replies read aloud, hands-free dictation, and ElevenLabs voices with your own key.">
+<meta property="og:description" content="Voice — documentation for Naseem, the native macOS AI agent.">
 <meta property="og:url" content="https://ayman3000.github.io/naseem-app/docs/voice.html">
 <meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -100,11 +100,12 @@
   <aside>
     <h4>Documentation</h4>
     <a href="index.html">Get Started</a>
+    <a href="privacy.html">Privacy</a>
     <a href="conversations.html">Chats &amp; Projects</a>
     <a href="voice.html" class="active">Voice</a>
-    <a href="apps.html">Your Mac&#39;s apps</a>
     <a href="profiles.html">Profiles</a>
     <a href="tools.html">Tools &amp; Approval</a>
+    <a href="apps.html">Your Mac&#x27;s apps</a>
     <a href="agentic.html">Simulator &amp; Mac</a>
     <a href="memory.html">Memory &amp; Skills</a>
     <a href="mcp.html">MCP Servers</a>
@@ -116,7 +117,7 @@
   </aside>
   <main>
     <h1>Voice</h1>
-<blockquote><strong>Talk to Naseem, and let it talk back.</strong> Everything here is off until you turn it on, and everything runs on your Mac unless you choose otherwise.</blockquote>
+    <blockquote><strong>Talk to Naseem, and let it talk back.</strong> Everything here is off until you turn it on, and everything runs on your Mac unless you choose otherwise.</blockquote>
 <h2 id="naseem-speaks">Naseem speaks</h2>
 <ul>
   <li><strong>Read one reply.</strong> Every answer has a speaker button next to Copy. Click it and Naseem reads that reply; click again to stop. Code blocks and tables are skipped — they only make sense on screen.</li>
@@ -129,12 +130,9 @@
 <ul>
   <li><strong>Start.</strong> Click the microphone in the composer. The first time, macOS asks to allow the microphone and speech recognition — say yes to both.</li>
   <li><strong>It keeps listening.</strong> The mic stays on until you click it again, so you never touch the keyboard between messages. What it hears lands in the composer for you to read; it never sends by itself unless you ask it to.</li>
-  <li><strong>Two ways to send, hands-free.</strong> Both are in Settings ▸ Voice ▸ Listening; use either or both.
-    <ul>
-      <li><strong>Say its name.</strong> End with the word <em>Naseem</em> (or <em>نسيم</em>) and the message goes; the name itself isn't sent. On by default. Turn it off if you say the name in your sentences.</li>
-      <li><strong>Just pause.</strong> With <strong>Send after a pause</strong> on, going quiet for a few seconds sends. The last second shows a countdown under the composer, and saying anything cancels it. Off by default — leave it off if you pause to think mid-sentence.</li>
-    </ul>
-  </li>
+  <li><strong>Two ways to send, hands-free.</strong> Both are in Settings ▸ Voice ▸ Listening; use either or both.</li>
+  <li><strong>Say its name.</strong> End with the word <em>Naseem</em> (or <em>نسيم</em>) and the message goes; the name itself isn't sent. On by default. Turn it off if you say the name in your sentences.</li>
+  <li><strong>Just pause.</strong> With <strong>Send after a pause</strong> on, going quiet for a few seconds sends. The last second shows a countdown under the composer, and saying anything cancels it. Off by default — leave it off if you pause to think mid-sentence.</li>
   <li><strong>Naseem waits its turn.</strong> After a message goes, the mic rests while Naseem answers (the line under the composer says so) and comes back on its own for the next message — after the reply is read out when Reply aloud is on, or as soon as it's written when it isn't. Naseem never dictates its own voice back into the composer.</li>
   <li><strong>Where your voice goes.</strong> Under the composer, Naseem tells you whether your voice is recognised on this Mac or by Apple. That depends on the language you chose in <strong>Microphone language</strong> and what your Mac has installed; when it's on this Mac, your voice never leaves it.</li>
   <li><strong>Typed and spoken mix.</strong> Anything already in the composer stays; dictation is added after it. macOS's own Dictation key works in the composer too.</li>
@@ -147,7 +145,7 @@
   <li><strong>Arabic-native voices</strong> come from the ElevenLabs <strong>Voice Library</strong>. Click <strong>Browse the Voice Library…</strong> to see the most-used voices for the chosen language, with accent and gender, and <strong>Add</strong> the one you like — it goes into your ElevenLabs account and becomes the selected voice. Listing and adding voices cost nothing; only speaking does.</li>
   <li><strong>Your key needs voice permissions for that.</strong> When you create the key on elevenlabs.io (Developers ▸ API Keys), set <em>Voices</em> to <strong>Read and Write</strong>, and keep <em>Text to Speech</em> on. A key made without those permissions still speaks with the stock voices, but Naseem will tell you it cannot list or add voices.</li>
 </ul>
-<h2 id="who-its-for">Who it's for</h2>
+<h2 id="who-it-s-for">Who it's for</h2>
 <ul>
   <li>Anyone who thinks faster than they type, or is away from the keyboard: cooking, driving the Simulator, reading a printed page.</li>
   <li>People who can't use a keyboard all day. Naseem can be run by voice from the first word to the spoken reply.</li>

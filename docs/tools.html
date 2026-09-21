@@ -100,11 +100,12 @@
   <aside>
     <h4>Documentation</h4>
     <a href="index.html">Get Started</a>
+    <a href="privacy.html">Privacy</a>
     <a href="conversations.html">Chats &amp; Projects</a>
     <a href="voice.html">Voice</a>
-    <a href="apps.html">Your Mac&#39;s apps</a>
     <a href="profiles.html">Profiles</a>
     <a href="tools.html" class="active">Tools &amp; Approval</a>
+    <a href="apps.html">Your Mac&#x27;s apps</a>
     <a href="agentic.html">Simulator &amp; Mac</a>
     <a href="memory.html">Memory &amp; Skills</a>
     <a href="mcp.html">MCP Servers</a>
@@ -129,10 +130,22 @@
   <li><strong>Terminal</strong> — a real shell, streamed output.</li>
   <li><strong>Filesystem</strong> — read, write, list, search; patch files with diffs.</li>
   <li><strong>Python</strong> — run scripts for data work and chart generation.</li>
-  <li><strong>PDF</strong> — info, extract, merge, split.</li>
+  <li><strong>Word, PowerPoint, Excel</strong> — attach a <code>.docx</code>, <code>.pptx</code> or <code>.xlsx</code> and ask about it; slides and sheets are labelled, and spreadsheets come back as tables. Read on your Mac, with nothing to install (Pro).</li>
+  <li><strong>PDF</strong> — attach a document and ask about it: page-by-page text, scanned pages read on-device, merge and split. Charts and diagrams can be looked at rather than only read (Pro, and it asks first).</li>
+  <li><strong>Documents, read once.</strong> A long PDF, proposal or spreadsheet is read by the <strong>reading model</strong> (Settings ▸ Models), which writes notes — what it is, the facts that matter with their page or slide, open questions — under the project's <code>naseem/reading</code> folder. The conversation, and any helper Naseem delegates to, works from those notes instead of each re-reading the file. Unchanged files are never read twice. Word, PowerPoint and Excel are Pro; PDFs and text files work on Free.</li>
   <li><strong>Vision</strong> — attach images; vision-capable models describe and analyze them.</li>
   <li><strong>Web search</strong> — live results with your own free Tavily/Brave key (Settings → Tool APIs).</li>
   <li><strong>Query data (jq)</strong> — the agent queries a large JSONL/JSON file (logs, event histories) with a <code>jq</code> filter and gets back only the matching records — no loading the whole file into context.</li>
+</ul>
+<h2 id="slack">Slack</h2>
+<ul>
+  <li><strong>Read your workspace.</strong> "What happened in #incidents overnight?", "Find the thread about the pricing change", "Who asked about the release date?" Naseem reads Slack <strong>as you</strong>, so it sees the channels you are in and nothing else, and there is no bot to invite anywhere.</li>
+  <li><strong>Post, once you have read it.</strong> Ask for a message and Naseem writes it in the conversation first. Sending it asks you every time, even in a chat set to run without asking, because everyone in the channel sees it and it cannot be taken back.</li>
+  <li><strong>Setting it up.</strong> Create a Slack app in your own workspace at api.slack.com/apps, add the scopes listed in Settings ▸ Integrations ▸ Slack under <em>User Token Scopes</em>, install it, and paste the token beginning <code>xoxp-</code>. The token lives in your Keychain and goes only to Slack. <em>(Pro)</em></li>
+</ul>
+<h2 id="your-mac-s-apps">Your Mac's apps</h2>
+<ul>
+  <li>Naseem can read and write Mail, Calendar, Reminders, Notes and Contacts on this Mac, once you turn each one on in Settings ▸ Integrations. See the <strong>Your Mac's apps</strong> chapter for what to ask for, what asks you first, and how permissions work.</li>
 </ul>
   </main>
 </div>
