@@ -101,6 +101,7 @@
     <h4>Documentation</h4>
     <a href="index.html">Get Started</a>
     <a href="privacy.html">Privacy</a>
+    <a href="howNaseemWorks.html">How Naseem Works</a>
     <a href="conversations.html">Chats &amp; Projects</a>
     <a href="voice.html">Voice</a>
     <a href="profiles.html">Profiles</a>
@@ -153,7 +154,7 @@
 <h2 id="sub-agents-telegram-pro">Sub-agents &amp; Telegram (Pro)</h2>
 <ul>
   <li><strong>Sub-agent delegation</strong> — the agent spawns focused child agents for big side tasks and works in parallel. The transcript says so plainly: a <em>sub-agents working</em> line with a spinner while they run, and one card per sub-agent you can expand for its steps.</li>
-  <li><strong>Models by phase</strong> — plan and verify on the strong model, execute on the cheap one. In a custom profile (Profiles → Edit) pick a <strong>sub-agent model</strong> — child agents run on it; the default is the helper model, a fast sibling of your chat model — and optionally a <strong>review model</strong>, a judge that checks the final answer against the tool trail before the agent may say it is done, at most twice per run. Both are Pro.</li>
+  <li><strong>Model roles</strong> — an optional <strong>planner</strong> plans multi-step tasks, the main model does the work, <strong>sub-agents</strong> take delegated pieces (Automatic: the helper model, a fast sibling of your main model), and an optional <strong>reviewer</strong> checks the final answer against the tool trail before the agent may say it is done, at most twice per run. Set them in Settings → Models, each with its own effort; a custom profile can override them. Every card names its model, and a failed sub-agent model falls back to your main model. See <strong>How Naseem Works</strong>. Sub-agents and the reviewer are Pro.</li>
   <li><strong>Telegram remote</strong> — talk to your agent from your phone, including remote Approve/Deny of gated tool calls (Settings → Integrations).</li>
 </ul>
   </main>
