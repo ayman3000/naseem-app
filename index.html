@@ -134,10 +134,14 @@
   .msg-ai { max-width: 88%; padding: 12px 16px; border-radius: 14px 14px 14px 4px; background: var(--bg); font-size: 14px; line-height: 1.5; }
   .steps { display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 12px; background: var(--bg); font-family: var(--mono); font-size: 12.5px; }
   .step { display: flex; gap: 12px; align-items: center; padding: 8px 10px; border-radius: 8px; }
-  .step.live { background: var(--surface); }
   .step .ok { color: var(--accent); display: flex; }
   .step .spin { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent); flex-shrink: 0; }
-  .step .n { width: 96px; flex-shrink: 0; font-weight: 500; }
+  .review { display: flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; color: var(--accent); }
+  .review .ok { display: flex; }
+  .hero-demo { display: flex; flex-direction: column; gap: 14px; }
+  .real-note { align-self: center; font-size: 13px; color: var(--muted); }
+  .real-note:hover { color: var(--accent); opacity: 1; }
+  .step .n { width: 112px; flex-shrink: 0; font-weight: 500; }
   .step .d { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   /* Equation */
@@ -154,11 +158,13 @@
 
   /* Sections */
   section.block .wrap { display: flex; flex-direction: column; gap: 56px; padding-block: 112px; }
-  .head2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: end; }
+  .head2 { display: flex; flex-direction: column; gap: 20px; max-width: 900px; }
   .head2 > div { display: flex; flex-direction: column; gap: 16px; }
-  .head2 > .legend { flex-direction: row; justify-self: end; align-self: end; }
+  .head2 > .legend { flex-direction: row; }
   .h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4.4vw, 60px); line-height: 1; }
-  .lead { font-size: 18px; line-height: 1.6; color: var(--text2); }
+  .h2 .ln { display: block; }
+  .nw { white-space: nowrap; }
+  .lead { font-size: 18px; line-height: 1.6; color: var(--text2); max-width: 680px; }
 
   /* Proof */
   .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 96px 40px; }
@@ -262,7 +268,7 @@
     .grid4, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 900px) {
-    .hero .wrap, .band .wrap, .head2, .equation .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .hero .wrap, .band .wrap, .equation .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
     .hero .wrap { padding-block: 48px 64px; }
     section.block .wrap, .band .wrap, .pricing .wrap { padding-block: 72px; }
     .shots, .plans { grid-template-columns: minmax(0, 1fr); }
@@ -387,23 +393,27 @@
       <p class="not-mac" id="not-mac">Naseem is a Mac app (macOS 14+). On Windows or a phone? <a href="https://www.producthunt.com/p/naseem-2">Follow Naseem on Product Hunt</a> for updates, or send yourself the link for later.</p>
     </div>
 
-    <div class="window" role="img" aria-label="Naseem building an app, launching it in the iOS Simulator and checking the Arabic layout">
+    <div class="hero-demo">
+    <div class="window" role="img" aria-label="A real Naseem run: it planned the fix, edited weather.py, had a sub-agent write tests, ran them — 5 passed — and a reviewer passed the work">
       <div class="titlebar">
         <span class="dot" style="background:#EE6A5F"></span><span class="dot" style="background:#F5BE4F"></span><span class="dot" style="background:#62C554"></span>
-        <span class="t">WeatherApp · Software Engineer</span>
-        <span class="chip">Ask first</span>
+        <span class="t">weather-cli · Software Engineer</span>
+        <span class="chip">Autonomous</span>
       </div>
       <div class="chat">
-        <div class="msg-me">Build the app, launch it in the Simulator, and check the Arabic layout.</div>
+        <div class="msg-me">In ~/NaseemDemo/weather-cli: the temperatures in FORECASTS are Celsius but the CLI prints them as °F. Fix the unit, add a <span class="nw">--fahrenheit</span> flag that converts, have a sub-agent write tests for both units in test_weather.py, then run the tests. Don't commit.</div>
         <div class="steps">
-          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">read_file</span><span class="d">Sources/ForecastView.swift</span></div>
-          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">run_shell</span><span class="d">xcodebuild -scheme WeatherApp</span></div>
-          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">sim_launch</span><span class="d">iPhone 17 Pro · WeatherApp</span></div>
-          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">sim_tap</span><span class="d">Button "<span lang="ar">العربية</span>"</span></div>
-          <div class="step live"><span class="spin"></span><span class="n">sim_ui</span><span class="d">checking the right-to-left layout…</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">make_plan</span><span class="d">6 steps, each with a check</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">read_file</span><span class="d">weather.py, test_weather.py</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">edit_file</span><span class="d">weather.py · adds --fahrenheit</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">delegate_task</span><span class="d">write the unit tests</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">run_shell</span><span class="d">python3 -m unittest → 5 OK</span></div>
         </div>
-        <div class="msg-ai">Build passed and the app is running. Switching to Arabic now — I'll confirm the layout from the screen's elements before calling it done.</div>
+        <div class="msg-ai"><strong>Tests:</strong> all 5 passed. No git commands were run — changes are left in the working tree for you to review.</div>
+        <div class="review"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Review · passed</div>
       </div>
+    </div>
+    <a class="real-note" href="#see-it">A real run, not a mockup — see it below ↓</a>
     </div>
   </div>
 </header>
@@ -428,32 +438,32 @@
       <span class="kicker">See it work</span>
       <h2 class="h2" id="see-it-h">Real runs, <em class="hl">not mockups.</em></h2>
     </div>
-    <p class="lead">Every picture below is a real Naseem chat on an ordinary model, captured as it happened. Click any of them to see it full size.</p>
+    <p class="lead">Every picture below is from a real Naseem chat on an ordinary model, captured as it happened. Click one to see the whole chat.</p>
   </div>
   <div class="shots">
     <figure>
-      <div class="frame"><img class="zoom" src="assets/shots/hero.webp" alt="Naseem fixed a Python CLI: its plan, what changed in each file, 5 tests passing, and a reviewer that checked the result" width="1400" height="1511" loading="lazy"></div>
-      <figcaption><b>Plan, work, prove it</b><span>It fixed the bug, had a sub-agent write the tests, ran them, and a reviewer checked the work before it said done.</span></figcaption>
+      <div class="frame"><img class="zoom" src="assets/shots/crop-tests.webp" data-full="assets/shots/hero.webp" alt="Naseem’s answer: what changed in weather.py, the four tests a sub-agent added, all 5 tests passed, and the review passed" width="1410" height="730" loading="lazy"></div>
+      <figcaption><b>Plan, work, prove it</b><span>It fixed the bug, had a sub-agent write the tests, ran them — 5 passed — and a reviewer checked the work before it said done.</span></figcaption>
     </figure>
     <figure>
-      <div class="frame"><img class="zoom" src="assets/shots/diff.webp" alt="The Changes card showing the line-by-line diff of the edited file" width="1400" height="1511" loading="lazy"></div>
+      <div class="frame"><img class="zoom" src="assets/shots/crop-diff.webp" data-full="assets/shots/diff.webp" alt="The Changes card with the red and green lines of the weather.py diff" width="1400" height="720" loading="lazy"></div>
       <figcaption><b>Every change, line by line</b><span>The Changes card shows exactly what was edited, file by file. Nothing is committed — that stays yours.</span></figcaption>
     </figure>
     <figure>
-      <div class="frame"><img class="zoom" src="assets/shots/git-asks.webp" alt="Naseem asking before a git commit, with Allow and Don't allow buttons" width="1400" height="1511" loading="lazy"></div>
+      <div class="frame"><img class="zoom" src="assets/shots/crop-git.webp" data-full="assets/shots/git-asks.webp" alt="Asked to commit, Naseem shows the exact git command and waits for Allow or Don’t allow" width="1465" height="592" loading="lazy"></div>
       <figcaption><b>Git history asks first</b><span>Even when a chat runs tools on its own, commits, pushes and resets always wait for your yes.</span></figcaption>
     </figure>
     <figure>
-      <div class="frame clear"><img class="zoom" src="assets/shots/subagents.webp" alt="Sub-agents at work, each on its own research task, with its model and tool calls shown" width="1640" height="1580" loading="lazy"></div>
-      <figcaption><b>Sub-agents</b><span>Hand pieces of a task to focused sub-agents; each one's steps stay visible as it works.</span></figcaption>
+      <div class="frame"><img class="zoom" src="assets/shots/crop-subagents.webp" data-full="assets/shots/subagents.webp" alt="Sub-agents at work, each on its own research task, with its model and tool calls shown" width="1520" height="620" loading="lazy"></div>
+      <figcaption><b>Sub-agents</b><span>Hand pieces of a task to focused sub-agents; each one’s steps stay visible as it works.</span></figcaption>
     </figure>
     <figure class="wide">
-      <div class="frame clear"><img class="zoom" src="assets/shots/simulator.webp" alt="Naseem next to the iOS Simulator, having opened Settings, General, About and read the iOS version" width="1800" height="1245" loading="lazy"></div>
+      <div class="frame clear"><img class="zoom" src="assets/shots/simulator.webp" data-full="assets/shots/simulator.webp" alt="Naseem next to the iOS Simulator, having opened Settings, General, About and read the iOS version" width="1800" height="1245" loading="lazy"></div>
       <figcaption><b>Drives the iOS Simulator</b><span>Asked for the iOS version, it opened Settings → General → About on an iPhone 17 Pro and read it off the screen.</span></figcaption>
     </figure>
     <figure class="wide">
-      <div class="frame clear"><img class="zoom" src="assets/shots/mac-app.webp" alt="Naseem next to Calculator showing 1,234 × 5,678 = 7,006,652" width="1800" height="939" loading="lazy"></div>
-      <figcaption><b>Uses your Mac apps</b><span>It pressed Calculator's own buttons to work out 1,234 × 5,678 — then checked the display before answering.</span></figcaption>
+      <div class="frame clear"><img class="zoom" src="assets/shots/mac-app.webp" data-full="assets/shots/mac-app.webp" alt="Naseem next to Calculator showing 1,234 × 5,678 = 7,006,652" width="1800" height="939" loading="lazy"></div>
+      <figcaption><b>Uses your Mac apps</b><span>It pressed Calculator’s own buttons to work out 1,234 × 5,678 — then checked the display before answering.</span></figcaption>
     </figure>
   </div>
 </div></section>
@@ -462,19 +472,19 @@
   <div class="head2">
     <div>
       <span class="kicker">Why Naseem is different</span>
-      <h2 class="h2" id="why-h">Most assistants stop at an answer. <em class="hl">Naseem keeps going.</em></h2>
+      <h2 class="h2" id="why-h"><span class="ln">Most assistants stop at an answer.</span> <span class="ln"><em class="hl">Naseem keeps going.</em></span></h2>
     </div>
     <p class="lead">Inspect the project, make the change, run the tools, read the results, verify, and fix — on your real files, in your real terminal.</p>
   </div>
   <div class="grid4">
     <div class="item"><span class="num">01</span><h3>Works with your real files</h3><p>Inspect, read, patch and create files on disk. No copy-pasting between a chat window and your editor.</p></div>
     <div class="item"><span class="num">02</span><h3>Has a real terminal</h3><p>git, xcodebuild, package managers, tests, scripts, Python. Your Mac's actual environment, not a browser sandbox.</p></div>
-    <div class="item"><span class="num">03</span><h3>Drives the iOS Simulator natively</h3><p>It sees the app's real buttons and labels and acts on them by name — not by guessing from screenshots.</p></div>
-    <div class="item"><span class="num">04</span><h3>Automates native Mac apps</h3><p>The same approach through Apple's Accessibility, for GUI-only apps like Notes, Mail and System Settings.</p></div>
+    <div class="item"><span class="num">03</span><h3>Drives the Simulator</h3><p>It sees the app's real buttons and labels and acts on them by name — not by guessing from screenshots.</p></div>
+    <div class="item"><span class="num">04</span><h3>Drives native Mac apps</h3><p>The same approach through Apple's Accessibility, for GUI-only apps like Notes, Mail and System Settings.</p></div>
     <div class="item"><span class="num">05</span><h3>Proves, doesn't assert</h3><p>A "done" is a claim to check. A file that isn't on disk sends the reply back; a tap on a changed screen is refused.</p></div>
     <div class="item"><span class="num">06</span><h3>Stays fast on long tasks</h3><p>Hundreds of steps without the conversation getting heavier and slower with every one.</p></div>
-    <div class="item"><span class="num">07</span><h3>Nothing claimed before it ships</h3><p>Feedback from the <a href="https://www.producthunt.com/p/naseem-2">forum</a> has become releases within hours. A principle the app doesn't keep counts as a bug.</p></div>
-    <div class="item"><span class="num">08</span><h3>The conductor, not the orchestra</h3><p>Written entirely in Swift. It stays light while Xcode, the Simulator and the model do the heavy lifting.</p></div>
+    <div class="item"><span class="num">07</span><h3>Nothing claimed early</h3><p>Feedback from the <a href="https://www.producthunt.com/p/naseem-2">forum</a> has become releases within hours. A principle the app doesn't keep counts as a bug.</p></div>
+    <div class="item"><span class="num">08</span><h3>Conductor, not orchestra</h3><p>Written entirely in Swift. It stays light while Xcode, the Simulator and the model do the heavy lifting.</p></div>
   </div>
 </div></section>
 
@@ -502,7 +512,7 @@
 </div></section>
 
 <section class="block" id="features" aria-labelledby="features-h"><div class="wrap">
-  <div class="head2" style="align-items:end">
+  <div class="head2">
     <div>
       <span class="kicker">Everything in the box</span>
       <h2 class="h2" id="features-h">Free is the agent you supervise.<br><em class="hl">Pro is the agent you hand work to.</em></h2>
@@ -627,7 +637,7 @@
     var big = box.querySelector('img');
     document.querySelectorAll('img.zoom').forEach(function (im) {
       im.addEventListener('click', function () {
-        big.src = im.currentSrc || im.src;
+        big.src = im.dataset.full || im.currentSrc || im.src;
         big.alt = im.alt;
         box.classList.add('open');
         box.setAttribute('aria-hidden', 'false');
