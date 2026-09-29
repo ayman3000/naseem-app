@@ -140,8 +140,8 @@
   .lead { font-size: 18px; line-height: 1.6; color: var(--text2); }
 
   /* Proof */
-  .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
-  figure { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 96px 40px; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 16px; }
   figure.wide { grid-column: 1 / -1; }
   .frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--line2); background: #1C2426; box-shadow: var(--shadow); cursor: zoom-in; }
   .frame img { width: 100%; height: auto; }
@@ -244,6 +244,7 @@
     .hero .wrap { padding-block: 48px 64px; }
     section.block .wrap, .band .wrap, .pricing .wrap { padding-block: 72px; }
     .shots, .plans { grid-template-columns: minmax(0, 1fr); }
+    .shots { row-gap: 64px; }
     .final, .foot { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 600px) {
@@ -423,11 +424,11 @@
       <figcaption><b>Sub-agents</b><span>Hand pieces of a task to focused sub-agents; each one's steps stay visible as it works.</span></figcaption>
     </figure>
     <figure class="wide">
-      <div class="frame clear"><img class="zoom" src="assets/shots/simulator.webp" alt="Naseem next to the iOS Simulator, having opened Settings, General, About and read the iOS version" width="1800" height="1272" loading="lazy"></div>
+      <div class="frame clear"><img class="zoom" src="assets/shots/simulator.webp" alt="Naseem next to the iOS Simulator, having opened Settings, General, About and read the iOS version" width="1800" height="1245" loading="lazy"></div>
       <figcaption><b>Drives the iOS Simulator</b><span>Asked for the iOS version, it opened Settings → General → About on an iPhone 17 Pro and read it off the screen.</span></figcaption>
     </figure>
     <figure class="wide">
-      <div class="frame clear"><img class="zoom" src="assets/shots/mac-app.webp" alt="Naseem next to Calculator showing 1,234 × 5,678 = 7,006,652" width="1800" height="972" loading="lazy"></div>
+      <div class="frame clear"><img class="zoom" src="assets/shots/mac-app.webp" alt="Naseem next to Calculator showing 1,234 × 5,678 = 7,006,652" width="1800" height="939" loading="lazy"></div>
       <figcaption><b>Uses your Mac apps</b><span>It pressed Calculator's own buttons to work out 1,234 × 5,678 — then checked the display before answering.</span></figcaption>
     </figure>
   </div>
