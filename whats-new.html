@@ -86,7 +86,20 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.13.10</h2><span class="tag">Latest</span><span class="date">Sep 29, 2026</span></header>
+      <header><h2>Naseem 1.14.0</h2><span class="tag">Latest</span><span class="date">Sep 29, 2026</span></header>
+      <p>Sub-agents, side by side.</p>
+      <h3>New in 1.14.0</h3>
+      <ul>
+        <li><strong>Sub-agents now work at the same time.</strong> Independent tasks run in parallel instead of one after another.</li>
+      </ul>
+      <h3>Fixed in 1.14.0</h3>
+      <ul>
+        <li><strong>A more dependable reviewer.</strong> It no longer reports “didn’t answer” by mistake, and it sees the commands each step ran.</li>
+        <li><strong>OpenAI models keep their reasoning between tool steps,</strong> so long tasks stay on track.</li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.13.10</h2><span class="date">Sep 29, 2026</span></header>
       <h3>New in 1.13.10</h3>
       <ul>
         <li><strong>Leaner messages.</strong> Naseem now sends only the tools a chat needs; Calendar, documents, Slack and automation tools load when you ask for them.</li>

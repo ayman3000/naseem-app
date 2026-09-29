@@ -2,10 +2,10 @@
   <img src="assets/icon-256.png" width="128" alt="Naseem icon">
 </p>
 
-<h1 align="center">Naseem · نسيم</h1>
+<h1 align="center">Naseem · نسيم — AI agent for Mac</h1>
 
 <p align="center"><b>The Mac-native AI agent that does the work, not just the chat.</b><br>
-A fast, lightweight agent for macOS — a gentle breeze against the heavy, hot Electron assistants.</p>
+Naseem is a fast, lightweight AI agent for Mac — a gentle breeze against the heavy, hot Electron assistants.</p>
 
 <p align="center">
   <a href="https://ayman3000.github.io/naseem-app/"><b>🌐 Website</b></a>
@@ -79,7 +79,7 @@ The hard part of an agent isn't answering — it's staying useful over hundreds 
 
 - **Free — forever, no account, no card:** chat with every provider (Anthropic, OpenAI, Gemini, Ollama, local MLX), conversations & projects, web search, vision, core tools with approval, MCP, memory & skills, Quick Ask, Assistant + Writer profiles.
 - **Pro:** simulator driving, Mac computer use, sub-agents, Telegram remote, self-improving skills, Pro profiles + custom authoring. Personal license, up to 3 Macs. **One-time purchase, no subscription.**
-- Every install starts with a **30-day full-feature trial** — no card; the app keeps working on Free afterward.
+- Every install starts with a **14-day Pro trial** — no card; the app keeps working on Free afterward.
 
 Because Naseem uses your own models and API keys, buying Pro doesn't lock you into another monthly AI bill.
 
