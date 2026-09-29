@@ -86,11 +86,22 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.13.9</h2><span class="tag">Latest</span><span class="date">Sep 28, 2026</span></header>
-      <h3>Fixed in 1.13.9</h3>
+      <header><h2>Naseem 1.13.10</h2><span class="tag">Latest</span><span class="date">Sep 29, 2026</span></header>
+      <h3>New in 1.13.10</h3>
       <ul>
-        <li><strong>Imported skills work as intended.</strong> Skills from popular collections, like the delegate skills, now import with their description, so Naseem knows when to use them — whether you add a whole collection or a single skill from a URL.</li>
-        <li><strong>No more “None” cards.</strong> An empty column on a project’s task board no longer shows a placeholder as a task.</li>
+        <li><strong>Leaner messages.</strong> Naseem now sends only the tools a chat needs; Calendar, documents, Slack and automation tools load when you ask for them.</li>
+        <li><strong>Project chats start informed.</strong> Your project’s rules (<code>AGENTS.md</code>, <code>CLAUDE.md</code> or <code>naseem/rules.md</code>) and notes come loaded, so work starts right away instead of re-reading them.</li>
+        <li><strong>Your notes are safe.</strong> Naseem’s automatic roadmap and journal updates only add and move items — they never delete anything.</li>
+        <li><strong>Checks that really ran.</strong> If your project declares a gate command, Naseem runs it before calling the work done.</li>
+        <li><strong>Clearer changes.</strong> The Changes card shows what’s committed, and lists apart any files someone else changed while it worked.</li>
+        <li><strong>Asks before risky git commands.</strong> Stash, checkout, restore, clean and rebase now ask first, even in chats that run without asking.</li>
+        <li><strong>Skills bring their tools.</strong> A skill that names the tools it needs loads them with it.</li>
+      </ul>
+      <h3>Fixed in 1.13.10</h3>
+      <ul>
+        <li><strong>GPT-5 models with your OpenAI key.</strong> They now work with tools and your chosen effort; the model list shows only chat models, and GPT-5.6 appears as Sol, Terra and Luna.</li>
+        <li><strong>Fewer failed edits.</strong> A simpler edit tool and clearer error messages mean far fewer retries.</li>
+        <li><strong>No more endless thinking.</strong> A step that only thinks for 10 minutes is told to act.</li>
       </ul>
     </article>
     <article class="release">
