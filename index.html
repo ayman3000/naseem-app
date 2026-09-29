@@ -17,120 +17,247 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://ayman3000.github.io/naseem-app/">
 <link rel="icon" href="assets/icon-256.png">
+<meta name="color-scheme" content="light dark">
 <style>
+@font-face{font-family:'Geist';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/geist-normal-400-700.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/geist-mono-normal-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Geist Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/geist-mono-normal-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-serif-italic-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-serif-normal-400.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Naskh Arabic';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/noto-naskh-arabic-normal-600.woff) format('woff');unicode-range:U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1}
   :root {
-    --bg: #16181d; --bg2: #1c1f26; --card: #21252e; --line: #2c313b;
-    --fg: #e7e9ee; --muted: #9aa1ad; --dim: #6f7681;
-    --accent: #6fd3d6; --accent2: #8ab4f8; --amber: #e0a458;
-    --radius: 14px;
+    --bg: #F3F5F1; --surface: #FFFFFF; --surface2: #F8FAF8;
+    --ink: #0F1A1C; --text2: #3E4D4A; --text3: #4A5856; --muted: #5B6B68; --faint: #9AAAA6;
+    --line: #DCE2DE; --line2: #C9D3CF; --line3: #E6EBE8;
+    --accent: #0E7C7B; --accent-soft: #DCEDEA; --accent-line: #B7D8D3; --accent-ink: #0B5D5C;
+    --btn-bg: #0F1A1C; --btn-fg: #FFFFFF;
+    --band: #0F1A1C; --band-ink: #E9F0ED; --band-text: #AEBDB9; --band-muted: #8FA19D; --band-line: #25393D; --band-accent: #7FC8C2;
+    --shadow: 0 30px 60px -20px rgba(15,26,28,.22), 0 2px 6px rgba(15,26,28,.06);
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    --arabic: 'Noto Naskh Arabic', 'Geeza Pro', serif;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0F1A1C; --surface: #16262A; --surface2: #1A2C30;
+      --ink: #E9F0ED; --text2: #C3D0CC; --text3: #AEBDB9; --muted: #8FA19D; --faint: #5E7370;
+      --line: #25393D; --line2: #3C575B; --line3: #22363A;
+      --accent: #7FC8C2; --accent-soft: #1B3A3C; --accent-line: #3E6B6B; --accent-ink: #7FC8C2;
+      --btn-bg: #E9F0ED; --btn-fg: #0F1A1C;
+      --band: #0A1315; --band-line: #22363A;
+      --shadow: 0 30px 60px -20px rgba(0,0,0,.5), 0 2px 6px rgba(0,0,0,.3);
+    }
+  }
+  * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--fg);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--accent2); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .wrap { max-width: 940px; margin: 0 auto; padding: 0 24px; }
-  code { font-family: ui-monospace, "SF Mono", Menlo, monospace; background: #00000033; padding: 1px 6px; border-radius: 5px; font-size: .9em; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: .85; }
+  p a, .lead a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3, p { margin: 0; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding-inline: 80px; }
+  .serif { font-family: var(--serif); font-weight: 400; }
+  em.hl { font-style: italic; color: var(--accent); }
+  .kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; color: var(--accent-ink); text-transform: uppercase; }
+  .ar { font-family: var(--arabic); font-weight: 600; }
 
-  /* Nav */
-  nav { position: sticky; top: 0; z-index: 10; background: #16181dcc; backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-  nav .wrap { display: flex; align-items: center; gap: 20px; height: 60px; flex-wrap: nowrap; }
-  nav img { width: 30px; height: 30px; border-radius: 7px; }
-  nav .brand { font-weight: 700; letter-spacing: .2px; }
-  nav .spacer { flex: 1; }
-  nav .links a { color: var(--muted); font-size: 14px; margin-left: 20px; }
-  nav .links a:hover { color: var(--fg); text-decoration: none; }
-  /* Phones: the text links fold away, but the download button stays. */
-  /* Mid widths: tighten the menu rather than clip it. */
-  @media (max-width: 1080px){ nav .links a { margin-left: 13px; font-size: 13px; } }
-  @media (max-width: 900px){ nav .links a { margin-left: 10px; font-size: 12.5px; } nav .wrap { gap: 12px; } }
-  @media (max-width: 760px){ nav .links { display: none; } }
-
-  /* Buttons */
-  .btn { display: inline-block; padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid transparent; }
-  .btn.primary { background: var(--accent); color: #0c1417; }
-  .btn.primary:hover { filter: brightness(1.08); text-decoration: none; }
-  .btn.ghost { border-color: var(--line); color: var(--fg); }
-  .btn.ghost:hover { border-color: var(--accent); text-decoration: none; }
+  /* Banner + nav */
+  .banner { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 40px; padding: 8px 16px; background: var(--band); color: #E6EEEB; font-size: 13px; text-align: center; }
+  .pill { padding: 2px 8px; border-radius: 999px; background: #0E7C7B; color: #fff; font-size: 11px; font-weight: 600; letter-spacing: .04em; }
+  nav.top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 18px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 36px; height: 36px; border-radius: 9px; }
+  .brand b { font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+  .brand .ar { font-size: 18px; color: var(--muted); }
+  .links { display: flex; gap: 28px; font-size: 14px; color: var(--text2); }
+  .nav-cta { display: flex; gap: 8px; align-items: center; }
+  .nav-cta .ghost { font-size: 14px; color: var(--text2); padding: 10px 14px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+  .btn-dark { background: var(--btn-bg); color: var(--btn-fg); }
+  .btn-light { background: var(--surface); color: var(--ink); border: 1px solid var(--line2); }
+  .btn-sm { font-size: 14px; padding: 11px 18px; }
+  .btn-lg { font-size: 16px; padding: 16px 24px; min-height: 52px; }
+  .btn .price { font-weight: 400; color: var(--muted); }
+  .menu { display: none; position: relative; }
+  .menu summary { list-style: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; }
+  .menu summary::-webkit-details-marker { display: none; }
+  .menu .panel { position: absolute; right: 0; top: 52px; display: flex; flex-direction: column; min-width: 220px; padding: 8px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .menu .panel a { padding: 12px 14px; border-radius: 8px; font-size: 15px; }
+  .menu .panel a:hover { background: var(--bg); opacity: 1; }
 
   /* Hero */
-  header.hero { text-align: center; padding: 84px 0 64px; background: radial-gradient(120% 90% at 50% -10%, #1e2a2e 0%, var(--bg) 60%); }
-  header.hero img.logo { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 12px 40px #0006; }
-  header.hero h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; letter-spacing: -.5px; margin: 22px 0 6px; }
-  header.hero .ar { color: var(--dim); font-weight: 500; font-size: 20px; }
-  header.hero p.tag { font-size: clamp(17px, 2.6vw, 21px); color: var(--fg); max-width: 640px; margin: 14px auto 6px; }
-  header.hero p.sub { color: var(--muted); max-width: 620px; margin: 0 auto 28px; }
-  header.hero .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  header.hero .fine { color: var(--dim); font-size: 13px; margin-top: 16px; }
-  header.hero .shot { margin-top: 44px; }
-  header.hero .shot img, header.hero .shot video { width: 100%; max-width: 900px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 24px 70px #0008; display: block; margin: 0 auto; }
-  header.hero .shot .cap { color: var(--dim); font-size: 13px; margin-top: 12px; }
-  .section-shot { margin-top: 26px; text-align: center; }
-  .section-shot img { width: 100%; max-width: 560px; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 44px #0006; display: inline-block; }
-  .section-shot .cap { color: var(--dim); font-size: 13px; margin-top: 12px; }
-  .yt { position: relative; width: 100%; max-width: 900px; margin: 0 auto; aspect-ratio: 16/9; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 24px 70px #0008; }
-  .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
-  /* Any content image can be clicked to zoom */
-  img.zoom, .shot video { cursor: zoom-in; }
-  .lightbox { position: fixed; inset: 0; z-index: 100; background: #0b0d10ee; display: none; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out; }
-  .lightbox.open { display: flex; }
-  .lightbox img { max-width: 96vw; max-height: 92vh; border-radius: 10px; box-shadow: 0 30px 90px #000a; }
+  .hero { position: relative; overflow: hidden; }
+  .hero .waves { position: absolute; left: 0; top: 40px; width: 100%; height: 620px; pointer-events: none; stroke: var(--line2); }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center; padding-block: 88px 104px; }
+  .hero-copy { display: flex; flex-direction: column; gap: 28px; }
+  .badge { display: inline-flex; gap: 8px; align-items: center; align-self: flex-start; padding: 6px 14px 6px 6px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 13px; color: var(--text2); }
+  .badge .v { padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+  .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(50px, 6.4vw, 92px); line-height: .96; letter-spacing: -.02em; }
+  .hero .sub { max-width: 540px; font-size: 19px; line-height: 1.55; color: var(--text2); }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .facts { display: flex; gap: 8px 20px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .not-mac { display: none; font-size: 14px; color: var(--text2); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; }
+  .not-mac.show { display: block; }
+
+  /* App mock */
+  .window { border-radius: 16px; background: var(--surface); border: 1px solid var(--line2); box-shadow: var(--shadow); overflow: hidden; }
+  .titlebar { display: flex; align-items: center; gap: 8px; padding: 14px 16px; border-bottom: 1px solid var(--line3); background: var(--surface2); }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .titlebar .t { flex-grow: 1; text-align: center; font-size: 13px; font-weight: 500; color: var(--text2); }
+  .chip { padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); font-size: 11px; font-weight: 600; }
+  .chat { display: flex; flex-direction: column; gap: 16px; padding: 24px; }
+  .msg-me { align-self: flex-end; max-width: 78%; padding: 12px 16px; border-radius: 14px 14px 4px 14px; background: var(--btn-bg); color: var(--btn-fg); font-size: 14px; line-height: 1.5; }
+  .msg-ai { max-width: 88%; padding: 12px 16px; border-radius: 14px 14px 14px 4px; background: var(--bg); font-size: 14px; line-height: 1.5; }
+  .steps { display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 12px; background: var(--bg); font-family: var(--mono); font-size: 12.5px; }
+  .step { display: flex; gap: 12px; align-items: center; padding: 8px 10px; border-radius: 8px; }
+  .step.live { background: var(--surface); }
+  .step .ok { color: var(--accent); display: flex; }
+  .step .spin { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent); flex-shrink: 0; }
+  .step .n { width: 96px; flex-shrink: 0; font-weight: 500; }
+  .step .d { color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Equation */
+  .equation { background: var(--surface); border-block: 1px solid var(--line); }
+  .equation .wrap { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 64px; align-items: center; padding-block: 56px; }
+  .equation h2 { font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1.05; margin-bottom: 10px; }
+  .equation p { font-size: 15px; color: var(--text3); }
+  .eq { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .eq div { display: flex; flex-direction: column; gap: 6px; }
+  .eq b { font-size: 30px; font-weight: 600; letter-spacing: -.02em; }
+  .eq b.hl { color: var(--accent); }
+  .eq small { font-size: 13px; color: var(--muted); }
+  .eq .plus { font-family: var(--serif); font-size: 44px; color: var(--faint); }
 
   /* Sections */
-  section { padding: 56px 0; border-top: 1px solid var(--line); }
-  section h2 { font-size: clamp(23px, 3.4vw, 30px); font-weight: 700; letter-spacing: -.3px; margin-bottom: 8px; }
-  section .lead { color: var(--muted); max-width: 720px; margin-bottom: 32px; }
+  section.block .wrap { display: flex; flex-direction: column; gap: 56px; padding-block: 112px; }
+  .head2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: end; }
+  .head2 > div { display: flex; flex-direction: column; gap: 16px; }
+  .head2 > .legend { flex-direction: row; justify-self: end; align-self: end; }
+  .h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4.4vw, 60px); line-height: 1; }
+  .lead { font-size: 18px; line-height: 1.6; color: var(--text2); }
 
-  .equation { text-align: center; font-size: clamp(18px, 3vw, 24px); font-weight: 600; color: var(--fg); background: var(--bg2); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; margin-bottom: 14px; }
-  .equation .plus { color: var(--accent); }
-  .equation-note { text-align: center; color: var(--muted); }
+  /* Proof */
+  .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 32px; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  figure.wide { grid-column: 1 / -1; }
+  .frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--line2); background: #1C2426; box-shadow: var(--shadow); cursor: zoom-in; }
+  .frame img { width: 100%; height: auto; }
+  .frame.clear { background: transparent; border: none; box-shadow: none; }
+  figcaption { display: flex; flex-direction: column; gap: 4px; }
+  figcaption b { font-size: 17px; font-weight: 600; }
+  figcaption span { font-size: 15px; color: var(--text3); }
 
-  .rows { display: grid; gap: 16px; }
-  .row { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
-  .row h3 { font-size: 17px; margin-bottom: 4px; }
-  .row p { color: var(--muted); }
+  /* Why */
+  .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 32px; }
+  .item { display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 1px solid var(--ink); }
+  .item .num { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+  .item h3 { font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+  .item p { font-size: 15px; color: var(--text3); }
 
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  @media (max-width: 640px){ .grid { grid-template-columns: 1fr; } }
-  .feat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; }
-  .feat .t { font-weight: 650; margin-bottom: 3px; }
-  .feat .t .pro { color: var(--amber); font-size: 12px; font-weight: 700; border: 1px solid var(--amber); border-radius: 5px; padding: 1px 6px; margin-left: 8px; vertical-align: middle; }
-  .feat .d { color: var(--muted); font-size: 14.5px; }
+  /* Dark band */
+  .band { background: var(--band); color: var(--band-ink); }
+  .band .wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px; align-items: center; padding-block: 112px; }
+  .band .kicker { color: var(--band-accent); }
+  .band .col { display: flex; flex-direction: column; gap: 40px; }
+  .band .col > div:first-child { display: flex; flex-direction: column; gap: 16px; }
+  .band h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4vw, 56px); line-height: 1.02; }
+  .band p { font-size: 17px; line-height: 1.6; color: var(--band-text); }
+  .band .pairs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .band .pairs h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .band .pairs p { font-size: 14px; line-height: 1.55; }
+  .band figure .frame { border-color: var(--band-line); }
+  .band figcaption span { color: var(--band-text); }
+  .roles { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-family: var(--mono); font-size: 13px; color: var(--band-text); }
+  .roles span.r { padding: 6px 12px; border-radius: 999px; background: #1F3337; color: var(--band-ink); }
+
+  /* Box */
+  .legend { display: flex; gap: 16px; font-size: 13px; color: var(--text3); flex-shrink: 0; }
+  .legend span { display: flex; gap: 8px; align-items: center; }
+  .sw { width: 10px; height: 10px; border-radius: 3px; }
+  .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .card { display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); }
+  .card.pro { background: var(--accent-soft); border-color: var(--accent-line); }
+  .card .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .card h3 { font-size: 17px; font-weight: 600; }
+  .card .tag { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--accent-ink); white-space: nowrap; }
+  .card .tag.beta { color: var(--muted); }
+  .card p { font-size: 14px; line-height: 1.55; color: var(--text3); }
+  .latest { font-size: 15px; color: var(--text3); padding: 16px 20px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); }
 
   /* Pricing */
-  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  @media (max-width: 640px){ .price-grid { grid-template-columns: 1fr; } }
-  .plan { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
-  .plan.pro { border-color: var(--accent); }
-  .plan h3 { font-size: 20px; margin-bottom: 2px; }
-  .plan .p { font-size: 28px; font-weight: 800; margin: 8px 0 2px; }
-  .plan .p small { font-size: 14px; font-weight: 500; color: var(--muted); }
-  .plan ul { list-style: none; margin: 16px 0 20px; }
-  .plan li { padding: 5px 0 5px 24px; position: relative; color: var(--muted); font-size: 14.5px; }
-  .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); }
-  .plan .note { color: var(--dim); font-size: 13px; margin-top: 10px; }
-  .plan .was { color: var(--dim); text-decoration: line-through; font-weight: 600; font-size: 20px; margin-right: 8px; }
-  .plan .offer { color: var(--amber); font-weight: 650; font-size: 14px; margin-top: 2px; }
-  .hero-offer { margin-top: 10px; font-size: 14px; color: var(--amber); font-weight: 600; }
-  .hero-offer .was { color: var(--dim); text-decoration: line-through; font-weight: 500; margin-right: 4px; }
-  .not-mac { display: none; margin-top: 10px; font-size: 14px; color: var(--muted); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
-  .not-mac.show { display: inline-block; }
+  .pricing { background: var(--surface); border-top: 1px solid var(--line); }
+  .pricing .wrap { display: flex; flex-direction: column; align-items: center; gap: 48px; padding-block: 112px; text-align: center; }
+  .pricing .intro { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .pricing .intro p { max-width: 620px; font-size: 17px; color: var(--text3); }
+  .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; width: 100%; max-width: 1000px; text-align: left; }
+  .plan { display: flex; flex-direction: column; gap: 28px; padding: 40px; border-radius: 24px; background: var(--bg); border: 1px solid var(--line); }
+  .plan.pro { background: #0F1A1C; color: #E9F0ED; border-color: #0F1A1C; }
+  .plan .name { font-size: 16px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .plan .offer { padding: 4px 12px; border-radius: 999px; background: #0E7C7B; color: #fff; font-size: 12px; font-weight: 600; }
+  .plan .amount { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .plan .amount .big { font-family: var(--serif); font-size: 72px; line-height: 1; }
+  .plan .amount s { font-size: 20px; color: #8FA19D; }
+  .plan .amount small { font-size: 15px; color: var(--muted); }
+  .plan.pro .amount small { color: #AEBDB9; }
+  .plan ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: var(--text2); flex-grow: 1; }
+  .plan.pro ul { color: #D2DDD9; }
+  .plan .btn { padding: 16px; font-size: 16px; }
+  .plan.pro .btn { background: #FFFFFF; color: #0F1A1C; }
+  .plan .note { text-align: center; font-size: 13px; color: #AEBDB9; }
 
-  footer { border-top: 1px solid var(--line); padding: 40px 0 60px; color: var(--muted); font-size: 14px; }
-  footer .cols { display: flex; gap: 40px; flex-wrap: wrap; justify-content: space-between; }
-  footer a { color: var(--muted); }
-  footer a:hover { color: var(--fg); }
-  footer .copy { color: var(--dim); margin-top: 28px; font-size: 13px; }
+  /* Footer */
+  footer { background: var(--band); color: var(--band-ink); }
+  footer .wrap { display: flex; flex-direction: column; gap: 80px; padding-block: 120px 48px; }
+  .final { display: flex; justify-content: space-between; align-items: end; gap: 48px; }
+  .final > div { display: flex; flex-direction: column; gap: 20px; }
+  .final h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(52px, 6vw, 84px); line-height: .98; }
+  .final h2 em { font-style: italic; color: var(--band-accent); }
+  .final p { max-width: 560px; font-size: 15px; line-height: 1.6; color: var(--band-text); }
+  .final .btn { background: #FFFFFF; color: #0F1A1C; font-size: 17px; padding: 18px 28px; }
+  .foot { display: flex; justify-content: space-between; gap: 48px; padding-top: 32px; border-top: 1px solid var(--band-line); font-size: 14px; color: var(--band-text); }
+  .foot .about { display: flex; flex-direction: column; gap: 10px; max-width: 520px; }
+  .foot .about b { color: var(--band-ink); font-size: 16px; display: flex; gap: 10px; align-items: center; }
+  .foot .about b .ar { color: var(--band-muted); }
+  .foot .about span { font-size: 13px; line-height: 1.6; color: var(--band-muted); }
+  .foot .about a { text-decoration: underline; text-underline-offset: 3px; }
+  .foot .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 40px; align-content: start; }
 
-  /* Site nav — identical on every page (see also scripts/build-docs.py). */
-  nav .links { white-space: nowrap; }
-  nav .brandlink { display:flex; align-items:center; gap:12px; color:var(--fg); }
-  nav .brandlink:hover { text-decoration:none; }
-  nav .links a.here { color: var(--fg); font-weight: 600; }
+  /* Lightbox */
+  .lightbox { position: fixed; inset: 0; z-index: 50; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(8,14,15,.88); cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 100%; border-radius: 10px; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  @media (max-width: 1100px) {
+    .wrap { padding-inline: 40px; }
+    .links { display: none; }
+    .menu { display: block; }
+    .nav-cta .ghost { display: none; }
+    .grid4, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 900px) {
+    .hero .wrap, .band .wrap, .head2, .equation .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .hero .wrap { padding-block: 48px 64px; }
+    section.block .wrap, .band .wrap, .pricing .wrap { padding-block: 72px; }
+    .shots, .plans { grid-template-columns: minmax(0, 1fr); }
+    .final, .foot { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding-inline: 20px; }
+    .brand .ar { display: none; }
+    .nav-cta .btn-sm { display: none; }
+    .grid4, .cards, .band .pairs { grid-template-columns: minmax(0, 1fr); }
+    .ctas .btn { width: 100%; }
+    .hero .sub { font-size: 16px; }
+    .plan { padding: 28px; }
+    .foot .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .step .n { width: 84px; }
+    .eq { justify-content: flex-start; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -172,208 +299,281 @@
 </head>
 <body>
 
-<a href="https://www.producthunt.com/p/naseem-2" target="_blank" rel="noopener"
-   style="display:block;text-align:center;padding:10px 16px;background:linear-gradient(90deg,#da552f,#ea7b52);color:#fff;font-weight:600;font-size:15px;text-decoration:none;">
-  🚀 Naseem launched on Product Hunt — join the community forum: questions, wins, what's next →
+<a class="banner" href="https://www.producthunt.com/p/naseem-2" target="_blank" rel="noopener">
+  <span class="pill">NEW</span>
+  <span>Naseem launched on Product Hunt — join the community forum: questions, wins, what's next</span>
+  <span aria-hidden="true">→</span>
 </a>
 
-<nav><div class="wrap">
-  <a href="./" class="brandlink" aria-label="Naseem home">
-    <img src="assets/icon-256.png" alt="Naseem"><span class="brand">Naseem</span>
+<nav class="top" aria-label="Main"><div class="wrap">
+  <a href="./" class="brand" aria-label="Naseem home">
+    <img src="assets/icon-256.png" alt="" width="36" height="36">
+    <b>Naseem</b><span class="ar" lang="ar">نسيم</span>
   </a>
-  <span class="spacer"></span>
-  <span class="links">
+  <div class="links">
     <a href="#why">Why Naseem</a>
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="how-it-works.html">How it works</a>
-    <a href="harness.html">Harness</a>
     <a href="philosophy.html">Philosophy</a>
     <a href="docs/">Docs</a>
     <a href="whats-new.html">What's New</a>
-  </span>
+  </div>
+  <div class="nav-cta">
+    <a class="ghost" href="https://www.producthunt.com/p/naseem-2" target="_blank" rel="noopener">Community</a>
+    <a class="btn btn-dark btn-sm" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <details class="menu">
+      <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg></summary>
+      <div class="panel">
+        <a href="#why">Why Naseem</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="harness.html">Harness</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="docs/">Docs</a>
+        <a href="whats-new.html">What's New</a>
+        <a href="https://www.producthunt.com/p/naseem-2" target="_blank" rel="noopener">Community</a>
+      </div>
+    </details>
+  </div>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <img class="logo" src="assets/icon-256.png" alt="Naseem icon">
-  <h1>Naseem <span class="ar">· نسيم</span></h1>
-  <p class="tag"><strong>The Mac-native AI agent that does the work, not just the chat.</strong></p>
-  <p class="sub">A fast, lightweight agent for macOS — a gentle breeze against the heavy, hot Electron assistants. Chat with any major model or fully on-device, and let it safely act on your Mac.</p>
-  <div class="cta">
-    <a class="btn primary" data-goatcounter-click="download-dmg" data-goatcounter-title="Download DMG" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">⬇ Download for macOS</a>
-    <a class="btn ghost" data-goatcounter-click="buy-pro" data-goatcounter-title="Get Naseem Pro" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
-  </div>
-  <p class="fine">Free plan · No account · No subscription · Bring your own AI key</p>
-  <p class="not-mac" id="not-mac">Naseem is a Mac app (macOS 14+). On Windows or a phone? <a href="https://www.producthunt.com/p/naseem-2">Follow Naseem on Product Hunt</a> for updates, or send yourself the link for later.</p>
-  <p class="hero-offer" data-hero-offer>Naseem Pro: <span class="was">$49</span>$29 lifetime — launch price ends September 30</p>
-  <p style="margin-top:14px;"><a href="https://www.producthunt.com/products/naseem-2/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-naseem&#0045;2" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1306216&theme=light" alt="Naseem - A&#0032;native&#0032;AI&#0032;agent&#0032;that&#0032;does&#0032;real&#0032;work&#0032;on&#0032;your&#0032;Mac | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a></p>
-  <div class="shot">
-    <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/ITIlQa9m5Kw" title="Naseem in Action: AI Agent Controls the iOS Simulator" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <p class="cap">Naseem in action — building, launching, and driving a real app in the iOS Simulator.</p>
-  </div>
-  <div class="shot" style="margin-top:36px;">
-    <video src="assets/subagents.mp4" poster="assets/subagents-poster.jpg"
-           autoplay muted loop playsinline preload="metadata"
-           aria-label="Naseem delegating three research tasks to sub-agents in parallel and composing the results"></video>
-    <p class="cap">Watch Naseem fan one request out to three sub-agents in parallel, then compose the results — while its own context stays tiny.</p>
-  </div>
-  <div class="section-shot" style="margin-top:36px;">
-    <img class="zoom" src="assets/app-overview.png" alt="Naseem building, installing, launching and driving a real app in the iOS Simulator — sim_build_install, sim_launch, sim_ui and screenshots in the transcript" loading="lazy" style="max-width:900px;">
-    <p class="cap">Debug your app by asking: Naseem builds, installs, launches, taps through the UI, and screenshots the iOS Simulator — natively.</p>
-  </div>
-</div></header>
+<main>
+<header class="hero">
+  <svg class="waves" viewBox="0 0 1440 620" preserveAspectRatio="none" fill="none" stroke-width="1.2" stroke-linecap="round" aria-hidden="true">
+    <path d="M-40 420 C 260 360, 420 480, 720 400 S 1180 300, 1500 360"/>
+    <path d="M-40 470 C 300 410, 460 540, 760 450 S 1200 360, 1500 420"/>
+    <path d="M-40 520 C 320 470, 520 590, 820 500 S 1220 420, 1500 480"/>
+  </svg>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="badge"><span class="v" id="version">1.13.10</span><span>Native Swift · No Electron · macOS 14+</span></div>
+      <h1>The Mac agent that <em class="hl">does the work</em>, not just the chat.</h1>
+      <p class="sub">A fast, lightweight agent for macOS — a gentle breeze against heavy, hot Electron assistants. Chat with any major model or fully on-device, and let it safely act on your Mac.</p>
+      <div class="ctas">
+        <a class="btn btn-dark btn-lg" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 11l6 6 6-6"/><path d="M5 20h14"/></svg>
+          Download for macOS
+        </a>
+        <a class="btn btn-light btn-lg" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro <span class="price" data-hero-price><s>$49</s> $29</span></a>
+      </div>
+      <div class="facts"><span>Free plan</span><span>No account</span><span>No subscription</span><span>Bring your own AI key</span></div>
+      <p class="not-mac" id="not-mac">Naseem is a Mac app (macOS 14+). On Windows or a phone? <a href="https://www.producthunt.com/p/naseem-2">Follow Naseem on Product Hunt</a> for updates, or send yourself the link for later.</p>
+    </div>
 
-<section id="what"><div class="wrap">
-  <h2>An agent, not just a chat window</h2>
-  <p class="lead">A powerful model alone isn't an agent — it needs a harness. Naseem is that harness, plus one thing browser-bound assistants don't have: <strong>your Mac</strong>.</p>
-  <div class="equation">LLM <span class="plus">+</span> Agent Harness <span class="plus">+</span> Your Mac</div>
-  <p class="equation-note">The model provides the intelligence. The harness gives it agency. Your Mac gives it the power to act.</p>
-</div></section>
-
-<section id="why"><div class="wrap">
-  <h2>Why Naseem is different</h2>
-  <p class="lead">Most AI assistants stop at generating an answer. Naseem is built to <strong>continue</strong> — inspect the project, make the change, run the tools, read the results, verify, and fix.</p>
-  <div class="rows">
-    <div class="row"><h3>It works with your real files</h3><p>Inspect, read, patch, and create files on disk. No copy-pasting between a chat window and your editor.</p></div>
-    <div class="row"><h3>It has a real terminal</h3><p><code>git</code>, <code>xcodebuild</code>, package managers, tests, scripts, Python. Not a browser sandbox — your Mac's actual environment.</p></div>
-    <div class="row"><h3>It drives the iOS Simulator natively</h3><p>The way the best browser agents work: it reads the app's <strong>accessibility tree as text</strong> and acts on named elements — not by screenshotting and guessing. Faster, cheaper, and far more precise. Other coding agents shell out to <code>simctl</code> one command at a time; Naseem keeps one live connection and talks to your app.</p></div>
-    <div class="row"><h3>It automates native Mac apps</h3><p>The same tree-first approach through Apple's Accessibility APIs — for GUI-only apps (Notes, Mail, System Settings) that have no CLI or API.</p></div>
-    <div class="row"><h3>It proves, it doesn't assert</h3><p>A "done" is a claim to check: a reply that says it created a file is sent back if the file isn't on disk, a Simulator tap on a screen that has changed is refused, and a scheduled rule that ran no check is refused too. The menu bar shows when the last rule ran; a status file on disk says the same. The app is the status page — no server to trust.</p></div>
-    <div class="row"><h3>Its prompt stays bounded, however long the task</h3><p>Finished tool work is folded out of the live context right away, so a conversation with hundreds of steps still runs on a small prompt — and your own Usage &amp; Cost window shows it. <a href="how-it-works.html">How it works</a>.</p></div>
-    <div class="row"><h3>Nothing is claimed before it ships</h3><p>Feedback from the <a href="https://www.producthunt.com/p/naseem-2">forum</a> has become releases within hours, several times. Every release is documented, and the <a href="philosophy.html">philosophy page</a> is written so that a principle the app doesn't keep counts as a bug.</p></div>
-    <div class="row"><h3>It's the conductor, not the orchestra</h3><p>Written entirely in Swift — no Electron, no embedded browser, no Node runtime. During a full build-and-test run it stays light while Xcode, the Simulator, and the model do the heavy lifting.</p></div>
+    <div class="window" role="img" aria-label="Naseem building an app, launching it in the iOS Simulator and checking the Arabic layout">
+      <div class="titlebar">
+        <span class="dot" style="background:#EE6A5F"></span><span class="dot" style="background:#F5BE4F"></span><span class="dot" style="background:#62C554"></span>
+        <span class="t">WeatherApp · Software Engineer</span>
+        <span class="chip">Ask first</span>
+      </div>
+      <div class="chat">
+        <div class="msg-me">Build the app, launch it in the Simulator, and check the Arabic layout.</div>
+        <div class="steps">
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">read_file</span><span class="d">Sources/ForecastView.swift</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">run_shell</span><span class="d">xcodebuild -scheme WeatherApp</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">sim_launch</span><span class="d">iPhone 17 Pro · WeatherApp</span></div>
+          <div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">sim_tap</span><span class="d">Button "<span lang="ar">العربية</span>"</span></div>
+          <div class="step live"><span class="spin"></span><span class="n">sim_ui</span><span class="d">checking the right-to-left layout…</span></div>
+        </div>
+        <div class="msg-ai">Build passed and the app is running. Switching to Arabic now — I'll confirm the layout from the screen's elements before calling it done.</div>
+      </div>
+    </div>
   </div>
-  <div class="section-shot">
-    <img class="zoom" src="assets/simulator-live.jpg" alt="Naseem next to the iOS Simulator — the agent's debugging summary on the left, the finished bilingual weather app it built showing live Cairo weather on the right" loading="lazy" style="max-width:900px;">
-    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">A real session: Naseem built and debugged this bilingual weather app, then verified it live in the Simulator.</p>
-  </div>
-</div></section>
+</header>
 
-<section id="whats-new"><div class="wrap">
-  <h2>What's New</h2>
-  <p class="lead" id="latest-teaser">Naseem updates itself, and every release is documented. See <a href="whats-new.html">what's new</a>.</p>
-  <div class="section-shot">
-    <img class="zoom" src="assets/usage-memory.png" alt="Naseem's Usage window — per-model token and cost breakdown, and the Memory panel showing a 174 MB live footprint with attribution" loading="lazy" style="max-width:560px;">
-    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Tokens and cost per model, and the app's real footprint — measured, not promised.</p>
+<section class="equation" aria-label="What makes an agent"><div class="wrap">
+  <div>
+    <h2>An agent, not just a chat window.</h2>
+    <p>A powerful model alone isn't an agent — it needs a harness. Naseem is that harness, plus the one thing browser-bound assistants don't have.</p>
+  </div>
+  <div class="eq">
+    <div><b>LLM</b><small>the intelligence</small></div>
+    <span class="plus" aria-hidden="true">+</span>
+    <div><b>Agent harness</b><small>the agency</small></div>
+    <span class="plus" aria-hidden="true">+</span>
+    <div><b class="hl">Your Mac</b><small>the power to act</small></div>
   </div>
 </div></section>
 
-<section id="longtask"><div class="wrap">
-  <h2>Built to stay sharp on long tasks</h2>
-  <p class="lead">The hard part of an agent isn't answering — it's staying useful over hundreds of steps without drowning in its own context or losing the plot.</p>
-  <div class="rows">
-    <div class="row"><h3>Small, stable, cache-friendly context</h3><p>Completed tool outputs collapse to compact receipts (full text always retrievable on demand), and the request prefix stays byte-identical between steps — so your provider's prompt cache does the work. Cheaper, faster long sessions; on a subscription your quota lasts far longer.</p></div>
-    <div class="row"><h3>Memory that survives restarts</h3><p>Build logs, test runs, and search results persist across app launches. Ask about yesterday's failed build and the agent pulls up the actual log.</p></div>
-    <div class="row"><h3>Stays on mission</h3><p>Each conversation carries an objective the agent re-reads on every step, with progress checkpoints so it stops grinding a stubborn subproblem and reports back.</p></div>
-    <div class="row"><h3>Crash-safe runs</h3><p>Quit or crash mid-task and completed steps are preserved and clearly marked; <em>continue</em> resumes with memory of what was done.</p></div>
+<section class="block" id="see-it" aria-labelledby="see-it-h"><div class="wrap">
+  <div class="head2">
+    <div>
+      <span class="kicker">See it work</span>
+      <h2 class="h2" id="see-it-h">Real runs, <em class="hl">not mockups.</em></h2>
+    </div>
+    <p class="lead">Every picture below is a real Naseem chat on an ordinary model, captured as it happened. Click any of them to see it full size.</p>
   </div>
-  <div class="section-shot">
-    <img class="zoom" src="assets/lessons.png" alt="Naseem's Lessons panel — durable lessons the agent captured from failed or corrected runs, awaiting your review" loading="lazy">
-    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Naseem captures lessons from failed or corrected runs — you review what it keeps.</p>
-  </div>
-</div></section>
-
-<section id="features"><div class="wrap">
-  <h2>Everything in the box</h2>
-  <p class="lead">Free is the agent you chat with and supervise. Pro is the agent you hand work to.</p>
-  <div class="grid">
-    <div class="feat"><div class="t">Profiles</div><div class="d">Per-conversation personas — Assistant, Writer, Software Engineer, QA, Automation — each with its own tools and approval policy. All five on Free; only the Simulator and Mac-driving capabilities inside them are Pro.</div></div>
-    <div class="feat"><div class="t">iOS Simulator driving <span class="pro">PRO</span></div><div class="d">Boot, build, install, tap/type/swipe through the real UI tree, read logs, screenshot. Debug your app by asking.</div></div>
-    <div class="feat"><div class="t">Mac computer use <span class="pro">PRO</span></div><div class="d">Drive GUI-only Mac apps natively via Accessibility — allowlisted per conversation, approved per action.</div></div>
-    <div class="feat"><div class="t">Sub-agent delegation <span class="pro">PRO</span></div><div class="d">Spawn focused child agents for big side-tasks and work in parallel, with live nested traces.</div></div>
-    <div class="feat"><div class="t">Telegram remote <span class="pro">PRO</span></div><div class="d">Talk to your agent from your phone — including remote Approve/Deny of gated tool calls.</div></div>
-    <div class="feat"><div class="t">Web search</div><div class="d">A built-in <code>web_search</code> tool for current events, docs, and prices — bring your own free Tavily or Brave key.</div></div>
-    <div class="feat"><div class="t">On-device inference (MLX)</div><div class="d">Fully local Apple-Silicon inference — no network, no cloud, private by construction.</div></div>
-    <div class="feat"><div class="t">Native tools</div><div class="d">Real terminal, filesystem with diff-based patching, Python, PDF — behind per-call approval.</div></div>
-    <div class="feat"><div class="t">MCP</div><div class="d">Connect any Model Context Protocol server; paste-whole-JSON config editor.</div></div>
-    <div class="feat"><div class="t">Memory &amp; skills</div><div class="d">Cross-conversation memory; recurring tasks become reusable skills; lessons learned from failed runs.</div></div>
-    <div class="feat"><div class="t">Rules <span class="pro">PRO</span> <span class="pro" style="border-color:var(--dim);color:var(--dim)">BETA</span></div><div class="d">Scheduled agent runs that stay quiet until something needs you, refuse to say "all clear" without running the check, and send a weekly heartbeat with real run counts. The menu bar shows the age of the last run; a status file mirrors it.</div></div>
-    <div class="feat"><div class="t">Start cards &amp; project notes</div><div class="d">A new chat opens with six tasks Naseem can do right now — in a project, drawn from notes it keeps in <code>naseem/</code> (project, roadmap, journal) that you can read, edit, and commit.</div></div>
-    <div class="feat"><div class="t">Autonomy per chat</div><div class="d">Ask-first or run-unattended, decided per conversation from a badge in the header. Profiles can only lock it down, never loosen it.</div></div>
-    <div class="feat"><div class="t">Vision for any model</div><div class="d">A text-only chat model still inspects screenshots: your chosen vision model describes them, and the agent treats that as its own eyes.</div></div>
-    <div class="feat"><div class="t">OpenRouter &amp; every provider</div><div class="d">Anthropic, OpenAI, Gemini, OpenRouter (hundreds of models, one key), Ollama Cloud, local Ollama, on-device MLX. Prices and capabilities from the providers' own catalogs.</div></div>
-    <div class="feat"><div class="t">Usage &amp; Cost <span class="pro" style="border-color:var(--dim);color:var(--dim)">BETA</span></div><div class="d">Measured tokens per call, live prices, and a memory footprint panel — with a helper model doing background chores so your chat model isn't wasted on them.</div></div>
-  </div>
-  <div class="section-shot">
-    <img class="zoom" src="assets/skills.png" alt="Naseem's Skills library — reusable procedures like project-builder and github-workflow, importable and reviewable" loading="lazy">
-    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">Skills teach Naseem how you want recurring work done — reviewed before you trust them.</p>
+  <div class="shots">
+    <figure>
+      <div class="frame"><img class="zoom" src="assets/shots/hero.webp" alt="Naseem fixed a Python CLI: its plan, what changed in each file, 5 tests passing, and a reviewer that checked the result" width="1400" height="1511" loading="lazy"></div>
+      <figcaption><b>Plan, work, prove it</b><span>It fixed the bug, had a sub-agent write the tests, ran them, and a reviewer checked the work before it said done.</span></figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><img class="zoom" src="assets/shots/diff.webp" alt="The Changes card showing the line-by-line diff of the edited file" width="1400" height="1511" loading="lazy"></div>
+      <figcaption><b>Every change, line by line</b><span>The Changes card shows exactly what was edited, file by file. Nothing is committed — that stays yours.</span></figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><img class="zoom" src="assets/shots/git-asks.webp" alt="Naseem asking before a git commit, with Allow and Don't allow buttons" width="1400" height="1511" loading="lazy"></div>
+      <figcaption><b>Git history asks first</b><span>Even when a chat runs tools on its own, commits, pushes and resets always wait for your yes.</span></figcaption>
+    </figure>
+    <figure>
+      <div class="frame clear"><img class="zoom" src="assets/shots/subagents.webp" alt="Sub-agents at work, each on its own research task, with its model and tool calls shown" width="1640" height="1580" loading="lazy"></div>
+      <figcaption><b>Sub-agents</b><span>Hand pieces of a task to focused sub-agents; each one's steps stay visible as it works.</span></figcaption>
+    </figure>
+    <figure class="wide">
+      <div class="frame clear"><img class="zoom" src="assets/shots/simulator.webp" alt="Naseem next to the iOS Simulator, having opened Settings, General, About and read the iOS version" width="1800" height="1272" loading="lazy"></div>
+      <figcaption><b>Drives the iOS Simulator</b><span>Asked for the iOS version, it opened Settings → General → About on an iPhone 17 Pro and read it off the screen.</span></figcaption>
+    </figure>
+    <figure class="wide">
+      <div class="frame clear"><img class="zoom" src="assets/shots/mac-app.webp" alt="Naseem next to Calculator showing 1,234 × 5,678 = 7,006,652" width="1800" height="972" loading="lazy"></div>
+      <figcaption><b>Uses your Mac apps</b><span>It pressed Calculator's own buttons to work out 1,234 × 5,678 — then checked the display before answering.</span></figcaption>
+    </figure>
   </div>
 </div></section>
 
-<section id="pricing"><div class="wrap">
-  <h2>Free to start. Pro if it earns it.</h2>
-  <p class="lead">Because Naseem uses your own models and API keys, buying Pro doesn't lock you into another monthly AI bill.</p>
-  <div class="price-grid">
+<section class="block" id="why" aria-labelledby="why-h"><div class="wrap">
+  <div class="head2">
+    <div>
+      <span class="kicker">Why Naseem is different</span>
+      <h2 class="h2" id="why-h">Most assistants stop at an answer. <em class="hl">Naseem keeps going.</em></h2>
+    </div>
+    <p class="lead">Inspect the project, make the change, run the tools, read the results, verify, and fix — on your real files, in your real terminal.</p>
+  </div>
+  <div class="grid4">
+    <div class="item"><span class="num">01</span><h3>Works with your real files</h3><p>Inspect, read, patch and create files on disk. No copy-pasting between a chat window and your editor.</p></div>
+    <div class="item"><span class="num">02</span><h3>Has a real terminal</h3><p>git, xcodebuild, package managers, tests, scripts, Python. Your Mac's actual environment, not a browser sandbox.</p></div>
+    <div class="item"><span class="num">03</span><h3>Drives the iOS Simulator natively</h3><p>It sees the app's real buttons and labels and acts on them by name — not by guessing from screenshots.</p></div>
+    <div class="item"><span class="num">04</span><h3>Automates native Mac apps</h3><p>The same approach through Apple's Accessibility, for GUI-only apps like Notes, Mail and System Settings.</p></div>
+    <div class="item"><span class="num">05</span><h3>Proves, doesn't assert</h3><p>A "done" is a claim to check. A file that isn't on disk sends the reply back; a tap on a changed screen is refused.</p></div>
+    <div class="item"><span class="num">06</span><h3>Stays fast on long tasks</h3><p>Hundreds of steps without the conversation getting heavier and slower with every one.</p></div>
+    <div class="item"><span class="num">07</span><h3>Nothing claimed before it ships</h3><p>Feedback from the <a href="https://www.producthunt.com/p/naseem-2">forum</a> has become releases within hours. A principle the app doesn't keep counts as a bug.</p></div>
+    <div class="item"><span class="num">08</span><h3>The conductor, not the orchestra</h3><p>Written entirely in Swift. It stays light while Xcode, the Simulator and the model do the heavy lifting.</p></div>
+  </div>
+</div></section>
+
+<section class="band" aria-labelledby="long-h"><div class="wrap">
+  <div class="col">
+    <div>
+      <span class="kicker">Long-task engineering</span>
+      <h2 id="long-h">Built to stay sharp over hundreds of steps.</h2>
+      <p>The hard part of an agent isn't answering — it's staying useful without drowning in its own context or losing the plot.</p>
+    </div>
+    <div class="pairs">
+      <div><h3>Light on every step</h3><p>Finished work doesn't pile up, so a long run stays quick and affordable.</p></div>
+      <div><h3>Memory that survives restarts</h3><p>Ask about yesterday's failed build and the agent pulls up the actual log.</p></div>
+      <div><h3>Stays on mission</h3><p>It keeps the goal in view on every step, and stops to report back instead of grinding.</p></div>
+      <div><h3>Crash-safe runs</h3><p>Quit mid-task and completed steps are kept; continue picks up with memory of what was done.</p></div>
+    </div>
+  </div>
+  <figure>
+    <div class="frame"><img class="zoom" src="assets/shots/roles.webp" alt="Naseem Settings, Models: How Naseem works — Planner, Main model, Sub-agents, Reviewer" width="1800" height="1315" loading="lazy"></div>
+    <figcaption>
+      <div class="roles"><span class="r">Planner</span>→<span class="r">Main model</span>→<span class="r">Sub-agents</span>→<span class="r">Reviewer</span></div>
+      <span>Give each role its own model: a strong one to plan and review, a cheaper one for the bulk of the work.</span>
+    </figcaption>
+  </figure>
+</div></section>
+
+<section class="block" id="features" aria-labelledby="features-h"><div class="wrap">
+  <div class="head2" style="align-items:end">
+    <div>
+      <span class="kicker">Everything in the box</span>
+      <h2 class="h2" id="features-h">Free is the agent you supervise.<br><em class="hl">Pro is the agent you hand work to.</em></h2>
+    </div>
+    <div class="legend"><span><span class="sw" style="background:var(--surface);border:1px solid var(--line2)"></span>Free</span><span><span class="sw" style="background:var(--accent-soft);border:1px solid var(--accent)"></span>Pro</span></div>
+  </div>
+  <div class="cards">
+    <div class="card pro"><div class="top"><h3>iOS Simulator driving</h3><span class="tag">PRO</span></div><p>Boot, build, install, tap and swipe through the real UI, read logs, take screenshots.</p></div>
+    <div class="card pro"><div class="top"><h3>Mac computer use</h3><span class="tag">PRO</span></div><p>Drive GUI-only Mac apps via Accessibility — allowlisted per chat, approved per action.</p></div>
+    <div class="card pro"><div class="top"><h3>Sub-agent delegation</h3><span class="tag">PRO</span></div><p>Hand focused pieces of a task to child agents, with their steps shown live.</p></div>
+    <div class="card pro"><div class="top"><h3>Telegram remote</h3><span class="tag">PRO</span></div><p>Talk to your agent from your phone, including remote Approve / Deny.</p></div>
+    <div class="card pro"><div class="top"><h3>Rules</h3><span class="tag">PRO · BETA</span></div><p>Scheduled runs that stay quiet until something needs you — and never say "all clear" without running the check.</p></div>
+    <div class="card"><h3>Profiles</h3><p>Assistant, Writer, Software Engineer, QA, Automation — each with its own tools and approval policy.</p></div>
+    <div class="card"><h3>On-device inference</h3><p>Fully local Apple-Silicon inference with MLX. No network, private by construction.</p></div>
+    <div class="card"><h3>Native tools</h3><p>Terminal, files with diff-based patching, Python, PDF — behind per-call approval.</p></div>
+    <div class="card"><h3>Every provider</h3><p>Anthropic, OpenAI, Gemini, OpenRouter, Ollama Cloud, local Ollama, on-device MLX.</p></div>
+    <div class="card"><h3>MCP</h3><p>Connect any Model Context Protocol server with a paste-whole-JSON config editor.</p></div>
+    <div class="card"><h3>Memory &amp; skills</h3><p>Cross-conversation memory; recurring tasks become reusable skills you review.</p></div>
+    <div class="card"><h3>Web search</h3><p>Built-in web search for news, docs and prices — bring a free Tavily or Brave key.</p></div>
+    <div class="card"><h3>Autonomy per chat</h3><p>Ask-first or unattended, set per conversation. Profiles can lock it down, never loosen it.</p></div>
+    <div class="card"><h3>Vision for any model</h3><p>A text-only model still inspects screenshots through your chosen vision model.</p></div>
+    <div class="card"><h3>Start cards &amp; notes</h3><p>New chats open with tasks drawn from the project notes Naseem keeps for you.</p></div>
+    <div class="card"><div class="top"><h3>Usage &amp; Cost</h3><span class="tag beta">BETA</span></div><p>Measured tokens per call, live prices and a memory-footprint panel.</p></div>
+  </div>
+  <p class="latest" id="latest-teaser">Naseem updates itself, and every release is documented. See <a href="whats-new.html">what's new</a>.</p>
+</div></section>
+
+<section class="pricing" id="pricing" aria-labelledby="pricing-h"><div class="wrap">
+  <div class="intro">
+    <span class="kicker">Pricing</span>
+    <h2 class="h2" id="pricing-h">Free to start. <em class="hl">Pro if it earns it.</em></h2>
+    <p>Naseem uses your own models and API keys, so buying Pro doesn't lock you into another monthly AI bill.</p>
+  </div>
+  <div class="plans">
     <div class="plan">
-      <h3>Free</h3>
-      <div class="p">$0 <small>no card</small></div>
+      <div><div class="name">Free</div><div class="amount"><span class="big">$0</span><small>no card</small></div></div>
       <ul>
-        <li>Every provider (Anthropic, OpenAI, Gemini, OpenRouter, Ollama, local MLX)</li>
+        <li>Every provider, including local MLX</li>
         <li>Conversations &amp; up to 3 projects</li>
         <li>Web search, vision, artifacts</li>
         <li>Core tools with approval, MCP</li>
         <li>Memory &amp; skills, Quick Ask</li>
       </ul>
-      <a class="btn ghost" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download Free</a>
-      <p class="note">No account. No card.</p>
+      <a class="btn btn-light" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download Free</a>
     </div>
     <div class="plan pro">
-      <h3>Pro</h3>
-      <div class="p" data-price><span class="was">$49</span>$29 <small>lifetime</small></div>
-      <div class="offer" data-offer>Launch price — ends September 30</div>
+      <div>
+        <div class="name">Pro <span class="offer" data-offer>Launch price · ends Sept 30</span></div>
+        <div class="amount" data-price><span class="big">$29</span><s>$49</s><small>lifetime</small></div>
+      </div>
       <ul>
         <li>iOS Simulator automation</li>
         <li>Native Mac computer use</li>
         <li>Sub-agent delegation</li>
         <li>Telegram remote access</li>
         <li>Self-improving skills &amp; custom profiles</li>
-        <li>Unlimited projects</li>
-        <li>Personal license, up to 3 Macs</li>
+        <li>Unlimited projects · up to 3 Macs</li>
       </ul>
-      <a class="btn primary" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
-      <p class="note">14-day Pro trial · No credit card · No subscription. Keeps working on Free afterward.</p>
-      <p class="note" style="margin-top:6px">The Free feature set may change in future versions. A version you already have never loses features it shipped with.</p>
+      <a class="btn" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
+      <span class="note">14-day Pro trial · No credit card · No subscription</span>
     </div>
   </div>
-  <div class="section-shot">
-    <img class="zoom" src="assets/profiles.png" alt="Naseem's Profiles settings — built-in Assistant, Writer, Software Engineer, QA Engineer and Automation/Ops profiles, with custom profiles available in Pro" loading="lazy" style="max-width:560px;">
-    <p class="cap" style="color:var(--dim);font-size:13px;margin-top:12px;">All five built-in profiles in Free; the Simulator and Mac-driving capabilities inside them are Pro. Duplicate and customize your own with Pro.</p>
-  </div>
 </div></section>
-
-<section id="get"><div class="wrap">
-  <h2>Get started</h2>
-  <p class="lead">Requirements: macOS 14 or later, Apple Silicon or Intel. Bring an API key (OpenAI / Anthropic / Gemini), or run Ollama, or nothing at all with on-device MLX. iOS Simulator automation requires Xcode. The app is Developer ID-signed, notarized, and updates itself.</p>
-  <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;">
-    <a class="btn primary" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">⬇ Download for macOS</a>
-    <a class="btn ghost" href="whats-new.html">What's new</a>
-  </div>
-</div></section>
+</main>
 
 <footer><div class="wrap">
-  <div class="cols">
+  <div class="final">
     <div>
-      <strong>Naseem</strong><br>
-      The Mac-native agent that does the work.
+      <h2>Let a breeze<br><em>do the work.</em></h2>
+      <p>macOS 14 or later, Apple Silicon or Intel. Bring an API key, run Ollama, or nothing at all with on-device MLX. Simulator automation requires Xcode. Developer ID-signed, notarized, self-updating.</p>
     </div>
-    <div>
-      <a href="https://github.com/ayman3000/naseem-app/releases">Download</a> ·
-      <a href="https://aymanhamed.gumroad.com/l/naseem">Buy Pro</a> ·
-      <a href="https://aymanhamed.com/support">Support</a> ·
-      <a href="https://www.producthunt.com/p/naseem-2" target="_blank" rel="noopener">Community</a> ·
-      <a href="philosophy.html">Philosophy</a> ·
-      <a href="how-it-works.html">How it works</a> ·
-      <a href="docs/">Docs</a><br>
-      <a href="https://aymanhamed.com/apps/naseem/privacy">Privacy Policy</a> ·
+    <a class="btn" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 11l6 6 6-6"/><path d="M5 20h14"/></svg>
+      Download for macOS
+    </a>
+  </div>
+  <div class="foot">
+    <div class="about">
+      <b>Naseem <span class="ar" lang="ar">نسيم</span></b>
+      <span>Built on open source: <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> · <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a>. © 2026 Ayman Hamed. Naseem is intentionally unsandboxed so its terminal is a real terminal — the safety boundary is you: every consequential action asks first.</span>
+    </div>
+    <div class="cols">
+      <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+      <a href="philosophy.html">Philosophy</a>
+      <a href="https://aymanhamed.com/apps/naseem/privacy">Privacy Policy</a>
+      <a href="https://aymanhamed.gumroad.com/l/naseem">Buy Pro</a>
+      <a href="how-it-works.html">How it works</a>
       <a href="terms.html">Terms of Use</a>
-    </div>
-    <div>
-      Built on open source:<br>
-      <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> ·
-      <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a>
+      <a href="https://aymanhamed.com/support">Support</a>
+      <a href="docs/">Docs</a>
+      <a href="https://www.producthunt.com/p/naseem-2" target="_blank" rel="noopener">Community</a>
+      <a href="harness.html">Harness</a>
+      <a href="whats-new.html">What's New</a>
+      <a href="https://github.com/ayman3000/naseem-app/releases">All releases</a>
     </div>
   </div>
-  <p class="copy">© 2026 Ayman Hamed. "Naseem" and the breeze logo are trademarks of Ayman Hamed. Naseem is intentionally unsandboxed so its terminal is a real terminal — the safety boundary is you: every consequential action asks first.</p>
 </div></footer>
 
 <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
@@ -394,7 +594,6 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   })();
 </script>
-
 <script>
   fetch('https://api.github.com/repos/ayman3000/naseem-app/releases/latest')
     .then(function (r) { return r.ok ? r.json() : null; })
@@ -405,6 +604,9 @@
       var el = document.getElementById('latest-teaser');
       if (el) el.innerHTML = '<strong>Latest: ' + (rel.name || rel.tag_name).replace(/[<>&]/g, '') + '</strong>' +
         (first ? ' — ' + first.replace(/[<>&]/g, '') : '') + '. See <a href="whats-new.html">everything that\'s new</a>.';
+      var v = document.getElementById('version');
+      var tag = (rel.tag_name || '').replace(/^v/, '');
+      if (v && /^\d+\.\d+\.\d+$/.test(tag)) v.textContent = tag;
     }).catch(function () {});
 </script>
 <script>
@@ -412,10 +614,9 @@
     var ends = new Date(2026, 8, 30, 23, 59, 59);   // September 30, local time
     if (new Date() <= ends) return;
     var p = document.querySelector('[data-price]');
-    if (p) p.innerHTML = '$49 <small>lifetime</small>';
+    if (p) p.innerHTML = '<span class="big">$49</span><small>lifetime</small>';
     var o = document.querySelector('[data-offer]'); if (o) o.remove();
-    var h = document.querySelector('[data-hero-offer]');
-    if (h) h.innerHTML = 'Naseem Pro: $49 lifetime — one-time, no subscription';
+    var h = document.querySelector('[data-hero-price]'); if (h) h.textContent = '$49';
   })();
 </script>
 <script>
