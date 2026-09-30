@@ -39,6 +39,7 @@
         <a href="docs/">Docs</a>
         <a href="whats-new.html">What's New</a>
         <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
         <a href="philosophy.html">Philosophy</a>
         <a href="https://www.producthunt.com/p/naseem-2">Community</a>
       </div>
@@ -52,7 +53,7 @@
 
   <div class="principle">
     <h2>1. Context that stays small</h2>
-    <p>Long tasks die of context bloat: every file read and every build log lands in the prompt until the model forgets the objective. Naseem compacts completed tool work while keeping the full output as artifacts the model can retrieve when it needs them. Compaction is designed to preserve prompt-cache efficiency rather than constantly rewriting the conversation history, so a long session keeps hitting your provider's cache instead of paying full price every turn.</p>
+    <p>Long tasks die of context bloat: every file read and every build log lands in the prompt until the model forgets the objective. Naseem compacts completed tool work while keeping the full output as artifacts the model can retrieve when it needs them. The conversation the model sees stays stable from one step to the next, so a long session keeps its speed and does not cost more with every turn.</p>
     <p>When a run stops making progress, Naseem pauses instead of spending turns indefinitely. It shows the objective and what it tried, and your next message continues the run from there.</p>
     <p>Memory across conversations is stored locally as readable markdown. Reveal in Finder shows you everything Naseem remembers.</p>
     <p class="how"><strong>See it:</strong> the tool trail in any run · the brain icon in the toolbar → Memory → Reveal in Finder.</p>
@@ -135,6 +136,7 @@ Naseem servers: none.   Telemetry: none.</div>
     <a href="terms.html">Terms of Use</a>
     <a href="https://aymanhamed.com/support">Support</a>
     <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
     <a href="https://www.producthunt.com/p/naseem-2">Community</a>
   </div>
 </div></footer>

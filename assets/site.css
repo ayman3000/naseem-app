@@ -117,6 +117,13 @@ body.terms main p, body.terms main li { color: var(--text3); }
 body.terms main ul { padding-left: 22px; margin: 8px 0; }
 body.terms main strong { color: var(--ink); }
 
+/* Tables and captions on the content pages (Harness, Benchmarks) */
+.page table.layers { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 14.5px; }
+.page table.layers th { text-align: left; font-family: var(--mono); font-weight: 400; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 0 12px 8px 0; border-bottom: 1px solid var(--line); }
+.page table.layers td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); color: var(--text3); vertical-align: top; }
+.page table.layers td strong { color: var(--ink); }
+.page table.layers tr:last-child td { border-bottom: 0; }
+.page .caption { color: var(--muted); font-size: 13px; margin: 6px 0 4px; }
 /* Harness diagrams: their own dark fills, redrawn in the page's palette. */
 svg .box { fill: var(--surface); stroke: var(--line2); }
 svg .t { fill: var(--ink); }
