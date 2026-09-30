@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benchmarks — Naseem vs Claude Code and Hermes, same model, same tasks</title>
+<meta name="description" content="Naseem compared with Claude Code and Hermes on six coding tasks with the same model (kimi-k2.6): pass rates, time, tokens, and the run it lost.">
+<meta property="og:url" content="https://ayman3000.github.io/naseem-app/benchmarks.html">
+<meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ayman3000.github.io/naseem-app/benchmarks.html">
+<link rel="icon" href="assets/icon-256.png">
+<link rel="stylesheet" href="assets/site.css">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body class="page">
+<nav class="top" aria-label="Main"><div class="bar">
+  <a href="./" class="brand" aria-label="Naseem home"><img src="assets/icon-256.png" alt="" width="32" height="32"><b>Naseem</b><span class="ar" lang="ar">نسيم</span></a>
+  <div class="links">
+    <a href="./#features">Features</a>
+    <a href="./#pricing">Pricing</a>
+    <a href="how-it-works.html" class="here" aria-current="page">How it works</a>
+    <a href="docs/">Docs</a>
+    <a href="whats-new.html">What's New</a>
+  </div>
+  <div class="cta">
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme">
+      <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    </button>
+    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <details class="menu">
+      <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg></summary>
+      <div class="panel">
+        <a href="./#features">Features</a>
+        <a href="./#pricing">Pricing</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="docs/">Docs</a>
+        <a href="whats-new.html">What's New</a>
+        <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+      </div>
+    </details>
+  </div>
+</div></nav>
+<main><div class="wrap">
+  <h1>Benchmarks</h1>
+  <p class="lead">Same model, same tasks, hidden tests: Naseem is on par with Claude Code and Hermes on speed and tokens. Here is the whole picture, including the run it lost.</p>
+
+  <h3 class="section">Setup</h3>
+  <p>Six coding tasks, each a small real repository with a user-style request and hidden tests. All three harnesses used the same model, <code>kimi-k2.6:cloud</code> through Ollama. Naseem 1.14.0 ran at Medium reasoning; Claude Code and Hermes ran from the command line at their defaults. Time is each harness's own run time; tokens are input tokens including cache reads. Sep 29–30, 2026.</p>
+
+  <h3 class="section">Five tasks, one run each</h3>
+  <p>These five are the tasks Naseem's own release check uses, so Naseem has been developed against them. Read them as a best case for Naseem.</p>
+  <div style="overflow-x:auto">
+  <table class="layers">
+    <thead><tr><th>Task</th><th>Naseem</th><th>Claude Code</th><th>Hermes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>t02</strong> · Python bug fix</td><td>pass · 96 s · 120K</td><td>pass · 91 s · 179K</td><td>pass · 89 s · 112K</td></tr>
+      <tr><td><strong>t12</strong> · TypeScript crash</td><td>pass · 53 s · 104K</td><td>pass · 86 s · 139K</td><td>pass · 93 s · 121K</td></tr>
+      <tr><td><strong>t13</strong> · Swift package setup</td><td>pass (2nd run) · 128 s · 240K</td><td>pass · 154 s · 255K</td><td>fail · 264 s · 363K</td></tr>
+      <tr><td><strong>t08</strong> · Swift build repair</td><td>pass · 298 s · 230K</td><td>pass · 320 s · 230K</td><td>pass · 310 s · 199K</td></tr>
+      <tr><td><strong>t11</strong> · Swift behaviour change</td><td>pass · 520 s · 441K</td><td>pass · 487 s · 707K</td><td>pass · 431 s · 241K</td></tr>
+      <tr><td><strong>Total</strong></td><td>5/5 · 1,095 s · 1.14M</td><td>5/5 · 1,138 s · 1.51M</td><td>4/5 · 1,187 s · 1.04M</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="caption">Time in seconds, then input tokens. Naseem's t13 failed on its first run (it edited the tests instead of the package) and passed on a rerun; Hermes made the same mistake on its one run.</p>
+
+  <h3 class="section">A task Naseem was never tuned on, two runs each</h3>
+  <p>t05 asks for a new feature in a TypeScript app: a Slack notification channel with a given message format. Naseem had never been developed against it.</p>
+  <div style="overflow-x:auto">
+  <table class="layers">
+    <thead><tr><th>Harness</th><th>Results</th><th>Average time</th><th>Average calls</th><th>Average input tokens</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Naseem</strong></td><td>fail, pass</td><td>281 s</td><td>19</td><td>288K</td></tr>
+      <tr><td><strong>Claude Code</strong></td><td>pass, pass</td><td>201 s</td><td>18</td><td>350K</td></tr>
+      <tr><td><strong>Hermes</strong></td><td>pass, pass</td><td>361 s</td><td>34</td><td>725K</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="caption">Naseem's failed run passed 9 of the 10 hidden tests; the one it missed wanted the Slack link on the line right after the text, with no blank line, which the request did not say.</p>
+
+  <h3 class="section">What it shows</h3>
+  <div class="principle"><h2>On par, not ahead</h2><p>On tasks it was tuned for, Naseem is fastest on three of five and sends the fewest tokens on four. On the fresh task it sits between the two CLIs on time and tokens and dropped one run of two. A week before these runs it was about twice as slow as both CLIs; that gap is gone.</p></div>
+  <div class="principle"><h2>Correctness comes from checking</h2><p>The failures on both sides came from the model taking a shortcut, such as editing tests to make them pass, or guessing an unstated format. The harness that checks the work against the request catches the first kind; nothing catches the second every time.</p></div>
+  <div class="principle"><h2>The remaining gap is call count</h2><p>On the hard tasks Naseem makes more model calls (27 on t11 against 22 and 13). Each is short, so time stays close, but fewer, better-planned calls would cut time and cost. That is the next thing to fix.</p></div>
+
+  <h3 class="section">Limitations</h3>
+  <ul class="nots">
+    <li>One run per task on the five, two on the sixth: differences under about 20% are noise.</li>
+    <li>Naseem's author wrote the tasks and the benchmark, and Naseem was developed against five of the six.</li>
+    <li>One model only. Claude Code is built around Claude models and ran a third-party model here; every harness may do better on its own.</li>
+    <li>Settings differ slightly: Naseem at Medium reasoning, the CLIs at their defaults; Claude Code ran with a scoped tool permission list.</li>
+  </ul>
+  <p class="caption">Raw run logs, hidden-test output and per-run metrics are kept with the benchmark. Ask on the <a href="https://www.producthunt.com/p/naseem-2">community forum</a> if you want them.</p>
+</div></main>
+<footer class="site"><div class="inner">
+  <div class="about">
+    <b>Naseem <span class="ar" lang="ar">نسيم</span></b>
+    <span>AI agent for Mac. © 2026 Ayman Hamed.</span>
+  </div>
+  <div class="cols">
+    <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="https://aymanhamed.com/apps/naseem/privacy">Privacy Policy</a>
+    <a href="https://aymanhamed.gumroad.com/l/naseem">Buy Pro</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="https://aymanhamed.com/support">Support</a>
+    <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
+    <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+  </div>
+</div></footer>
+<script src="assets/site.js"></script>
+<script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
