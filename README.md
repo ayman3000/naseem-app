@@ -94,7 +94,7 @@ The full manual ships inside the app: **Help → Naseem Manual** (⌘?), includi
 
 ## Requirements
 
-- macOS 14 or later, on Apple Silicon or Intel.
+- macOS 15 or later, on Apple Silicon or Intel.
 - One model source: an API key (OpenAI / Anthropic / Gemini), or Ollama, or nothing at all (on-device MLX).
 - iOS Simulator automation requires Xcode.
 
