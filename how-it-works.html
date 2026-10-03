@@ -69,14 +69,14 @@
   <div class="principle">
     <h2>3. Eyes for any model</h2>
     <p>Most good coding models are text-only. When a screenshot arrives and the chat model cannot see, Naseem sends the image to the vision model you chose and hands the description back to the chat model as its own inspection. If no vision model is configured, the agent is required to say on the first line of its reply that it could not see the image — no silent guessing. The vision call's tokens are recorded in Usage &amp; Cost like everything else.</p>
-    <p class="how"><strong>See it:</strong> Settings → General → Vision model (provider and model) · the "inspected for you by …" block in the trail.</p>
+    <p class="how"><strong>See it:</strong> Settings → Models → Vision model (provider and model) · the "inspected for you by …" block in the trail.</p>
   </div>
 
   <div class="principle">
     <h2>4. Suggestions from your project, not a template</h2>
     <p>Each project has a readable <code>naseem/</code> folder with project context, a roadmap, and journal notes — plain markdown you can edit and commit. Naseem uses that context to generate start cards from the actual state of your project rather than a generic list.</p>
     <p>Suggestions run on the helper model so they don't consume your chat model's time or budget: a reasoning model once spent thirty seconds and its whole token budget thinking about six one-line cards.</p>
-    <p class="how"><strong>See it:</strong> <code>naseem/</code> in any project folder · Settings → General → Helper model · the start panel of a new chat.</p>
+    <p class="how"><strong>See it:</strong> <code>naseem/</code> in any project folder · Settings → Models → Helper model · the start panel of a new chat.</p>
   </div>
 
   <div class="principle">
