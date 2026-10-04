@@ -57,7 +57,23 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.16.0</h2><span class="tag">Latest</span><span class="date">Oct 3, 2026</span></header>
+      <header><h2>Naseem 1.17.0</h2><span class="tag">Latest</span><span class="date">Oct 4, 2026</span></header>
+      <p>Long chats that stay sharp.</p>
+      <h3>New in 1.17.0</h3>
+      <ul>
+        <li><strong>Work as long as you like in one chat.</strong> When a conversation gets long, Naseem summarizes the older messages for the model and keeps the recent ones word for word. Long tasks stay fast and affordable, and the model keeps track of what you asked.</li>
+        <li><strong>Nothing you wrote is lost.</strong> Your whole conversation stays on screen. A thin line marks where the summary ends; click <strong>View summary</strong> to read exactly what the model sees. Your own requests and exact file paths are kept as you wrote them.</li>
+        <li><strong>Do it whenever you want.</strong> Type <strong>/compact</strong> in any chat, or add what matters most: <code>/compact keep the API design</code>. It’s also in the ⋮ menu.</li>
+        <li><strong>Choose when it happens</strong> in Settings → Agent → Compact conversations at. Auto picks the right moment for each model.</li>
+        <li><strong>Clearer steps.</strong> Each step in a reply now shows what it worked on — the file it read, the command it ran — and how it went, like “run_shell swift test — exit 0”.</li>
+      </ul>
+      <h3>Fixed in 1.17.0</h3>
+      <ul>
+        <li><strong>Enhanced long-context summarization.</strong> Very long chats no longer quietly forget how they started: earlier messages are summarized instead of dropped. And if a model says a chat is too long, Naseem summarizes and tries again on its own instead of stopping with an error.</li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.16.0</h2><span class="date">Oct 3, 2026</span></header>
       <p>Naseem makes images.</p>
       <h3>New in 1.16.0</h3>
       <ul>
