@@ -57,7 +57,19 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.17.1</h2><span class="tag">Latest</span><span class="date">Oct 4, 2026</span></header>
+      <header><h2>Naseem 1.17.2</h2><span class="tag">Latest</span><span class="date">Oct 5, 2026</span></header>
+      <p>Smoother on real projects.</p>
+      <h3>Fixed in 1.17.2</h3>
+      <ul>
+        <li><strong>Web projects go smoother.</strong> Naseem can now edit config files that allow comments, like <code>tsconfig.json</code> and VS Code settings, instead of refusing them and working around it.</li>
+        <li><strong>No more reading the same file in circles.</strong> When a long file or log is too big to show at once, Naseem now knows exactly which part it hasn’t seen and fetches just that part.</li>
+        <li><strong>New apps come with the basics.</strong> Ask Naseem to build an app or a page and it includes what you’d expect — a title, a readable layout, clear labels — while still asking before adding features you didn’t request.</li>
+        <li><strong>Clearer times.</strong> A paused reply shows how long the work ran, instead of “0 ms”.</li>
+        <li><strong>Ollama cloud models recognized.</strong> Models named like <code>qwen3-coder:480b-cloud</code> now get their real context size and can run helpers in parallel.</li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.17.1</h2><span class="date">Oct 4, 2026</span></header>
       <p>Write on more than one line.</p>
       <h3>Fixed in 1.17.1</h3>
       <ul>
