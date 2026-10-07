@@ -73,22 +73,33 @@
     <h2 id="cross-conversation-memory">Cross-conversation memory</h2>
 <ul>
   <li>Tell it your name or preferences once; it remembers in every future chat.</li>
+  <li><strong>It notes during the chat and files after the reply.</strong> While it works, Naseem only jots down what seems worth keeping. When the reply is done, a separate step decides where each note belongs — about you, this project, or everywhere — merges it with what is already known, and leaves out one-off details. The chat never waits for it.</li>
   <li>Memory is plain Markdown under <code>~/Library/Application Support/Naseem</code> — inspect or edit it anytime.</li>
+</ul>
+<h2 id="naseem-s-profile">Naseem's profile</h2>
+<ul>
+  <li><strong>AGENT.md is who Naseem is:</strong> its name, its mission, its tone, and principles you asked for. Edit it in the brain icon → <strong>Memory</strong>, or just ask — "call yourself Nemo", "be more formal". Naseem changes it only when you ask, one part at a time, and never rewrites the rest.</li>
+  <li><strong>USER.md is about you only:</strong> your name, your work, the languages you speak and where you are. How you want Naseem to answer is one of its principles, in AGENT.md. One line per item; a new value replaces the old one instead of piling up.</li>
 </ul>
 <h2 id="each-project-keeps-its-own-memory">Each project keeps its own memory</h2>
 <ul>
-  <li><strong>What Naseem learns inside a project stays with that project.</strong> A decision, a convention, the order you want the phases done in — filed under the project, and brought back when you open it. Work on something else and it is not in the room.</li>
-  <li><strong>What it learns about you is not filed anywhere in particular.</strong> Your name, how you like a plan written, that you want to be told what to do next — those hold whatever you are working on, so they stay in the general set and come with you everywhere.</li>
-  <li><strong>Why it matters.</strong> A list that mixes the two gets longer every month, and eventually every conversation opens with a briefing about eleven other products. Worse, one project's decisions read as standing truth in another, and an agent handed them will act on them.</li>
+  <li><strong>A project's memory lives in the project.</strong> Decisions and facts that stay true go into <code>naseem/memory.md</code> inside the project's folder, and how to avoid mistakes there goes into <code>naseem/lessons.md</code> — next to <code>project.md</code>, <code>roadmap.md</code> and <code>journal.md</code>. Plain Markdown: open them in any editor, commit them with git, take them to another Mac. Your edits win: Naseem reads the file again before every change.</li>
+  <li><strong>Every message sees the current files.</strong> A short <code>memory.md</code> is read whole; a long one by its titles, and Naseem reads an entry when it needs it. An edit you make outside Naseem counts from the next message.</li>
+  <li><strong>What it learns about you is not filed anywhere in particular.</strong> Your name, how you like a plan written, that you want to be told what to do next — those hold whatever you are working on, so they come with you everywhere.</li>
   <li><strong>A chat with no project</strong> sees the general memory alone, which is what you want for a passing question.</li>
-  <li><strong>See and move what is filed where.</strong> The brain icon → <strong>Memory</strong> groups facts by owner: the general ones first, then one group per project. Every line has a <strong>Move…</strong> button — file a stray fact under the project it belongs to, or promote one that turned out to be true everywhere.</li>
-  <li><strong>Nothing moved when you updated.</strong> Everything Naseem already knew is still in the general set. Move what belongs to a project when you feel like it; there is no hurry and nothing is lost either way.</li>
-  <li><strong>If it ever seems to have forgotten something</strong>, it is usually filed under another project. Open the Memory tab and move it across.</li>
+  <li><strong>See and refile.</strong> The brain icon → <strong>Memory</strong> shows Naseem's profile and USER.md (both editable — ⌘S saves), the facts that hold everywhere, and each project's <code>memory.md</code> with <strong>Open file</strong>. <strong>Belongs to</strong> a project moves a fact into that project's file. In <strong>Lessons</strong>, <strong>Applies to</strong> a project moves the lesson into its <code>lessons.md</code>.</li>
+  <li><strong>Older project memory.</strong> Facts and lessons filed before this version stay in Naseem's own memory, and keep working, until you move them: <strong>Move project memory…</strong> in the Memory tab shows one item per project. You approve or skip each, everything is backed up first, and nothing you skip moves. A project without a folder stays where it is.</li>
+  <li><strong>Keep them out of git</strong> if you prefer: right-click the project → <strong>Keep Naseem's project files out of git</strong>. It adds <code>naseem/</code> to the repository's local exclude list — never your <code>.gitignore</code> — and turning it off removes exactly that line. If you already excluded <code>naseem/</code> there yourself, the item shows as on and Naseem leaves your line alone.</li>
+  <li><strong>Recently filed</strong> lists every change — filed after a reply, made by Naseem at your request, or made by you — with <strong>Undo</strong>. If the entry changed since, Undo asks first. If a project's folder can't be found, Undo waits until it is back; if only the file was deleted, Undo says so. If a project's folder can't be written, what Naseem noted waits and is tried again later.</li>
+  <li><strong>Tidy up memory</strong> proposes moves, merges and removals for memory that grew mixed. You approve or skip each one; nothing changes until you apply, and your memory folder is copied to <code>memory-backups</code> first.</li>
 </ul>
 <h2 id="lessons-from-failures">Lessons from failures</h2>
 <ul>
-  <li>When a run hits friction — a denied action, a failure it recovered from, a guardrail — Naseem proposes a <strong>lesson</strong>; approved lessons quietly steer future runs.</li>
-  <li>Pending lessons appear as a banner below the chat; review, edit, or delete them in the Knowledge inspector's <strong>Lessons</strong> tab (auto-approve toggle in Settings → Integrations).</li>
+  <li>When a run hits a real mistake — an action you denied, a failure it had to work around, a guardrail — Naseem may file <strong>one lesson</strong>: a short rule it follows from then on. A flaky moment is not a lesson: tools that only read are tried once more automatically.</li>
+  <li>Each lesson <strong>applies</strong> somewhere: everywhere, one project, or one kind of tool (Simulator, Mail…). A chat only gets the lessons that apply to it.</li>
+  <li>See, edit, move or delete them in the brain icon → <strong>Lessons</strong>. A project's own lessons are in its <code>naseem/lessons.md</code> — <strong>Open</strong> at the bottom of the tab opens it for the selected chat's project. Every lesson filed or changed shows in <strong>Memory → Recently filed</strong>, with <strong>Undo</strong>.</li>
+  <li>Turn learning off for one project (benchmarks, experiments) from its menu in the sidebar: <strong>Learn lessons here</strong>. Turn it off everywhere in Settings → Integrations → <strong>Capture lessons from failures</strong>.</li>
+  <li>Lessons from an earlier version: <strong>Tidy up lessons</strong> proposes what to keep, merge or remove, for you to review. Your lessons are backed up first.</li>
 </ul>
 <h2 id="self-improving-skills">Self-improving skills</h2>
 <ul>
