@@ -57,7 +57,23 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.19.0</h2><span class="tag">Latest</span><span class="date">Oct 10, 2026</span></header>
+      <header><h2>Naseem 1.20.0</h2><span class="tag">Latest</span><span class="date">Oct 10, 2026</span></header>
+      <p>Longer chats, fewer interruptions, and clearer costs.</p>
+      <h3>New in 1.20.0</h3>
+      <ul>
+        <li><strong>Long chats &amp; cache.</strong> Naseem now lets a chat you’re working in grow to about 250K tokens before summarizing its older part, because your provider already keeps a chat you’re using in its cache. Come back to a long chat after a break and Naseem summarizes it in the background while answering you. Choose a strategy in <strong>Settings → Agent → Long chats &amp; cache</strong>: Auto, Keep more detail, Save cost, Custom or Off. Hover over the token counter in any chat to see the rule in force.</li>
+        <li><strong>Usage shows what the cache saved.</strong> The by-day chart now splits each day’s tokens into <em>From cache</em>, <em>New</em> and <em>Not reported</em>, and the Tokens in card shows the share served from cache.</li>
+        <li><strong>Costs are back, for Claude.</strong> Estimated costs are shown again, counting cached tokens at their real, lower price. For now they’re shown for Claude (Anthropic) only, whose prices Naseem has checked against a real bill; other providers show “—” until theirs are verified.</li>
+      </ul>
+      <h3>Better in 1.20.0</h3>
+      <ul>
+        <li><strong>Fewer “I’ve paused” stops.</strong> When a task repeats itself or hits errors, Naseem first tells the model to change approach. It only pauses and asks you if that doesn’t help.</li>
+        <li><strong>Simulator problems explained.</strong> Launching an app on a simulator that isn’t booted now says so at once, instead of waiting; a slow simulator driver tells the model what to check.</li>
+        <li><strong>The token counter after a relaunch</strong> shows the chat’s real size, or an estimate marked with “~” until the first reply.</li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.19.0</h2><span class="date">Oct 10, 2026</span></header>
       <p>Faster replies in long chats, and long tasks that keep going.</p>
       <h3>Better in 1.19.0</h3>
       <ul>
