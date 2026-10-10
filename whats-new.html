@@ -57,7 +57,25 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.18.2</h2><span class="tag">Latest</span><span class="date">Oct 8, 2026</span></header>
+      <header><h2>Naseem 1.19.0</h2><span class="tag">Latest</span><span class="date">Oct 10, 2026</span></header>
+      <p>Faster replies in long chats, and long tasks that keep going.</p>
+      <h3>Better in 1.19.0</h3>
+      <ul>
+        <li><strong>Faster, lighter replies.</strong> Naseem now keeps each conversation steady from one message to the next, so Claude, ChatGPT and Ollama Cloud can reuse what they’ve already read instead of starting over. Replies start sooner and use less of your plan or budget, most of all in long chats and long tasks.</li>
+        <li><strong>Your edits apply right away.</strong> Changes you make in Knowledge (memory, lessons, skills, Naseem’s profile) reach your open chats on their next message. What Naseem learns on its own is saved at once and joins the conversation at its next summary or in your next chat.</li>
+        <li><strong>Long tasks keep going.</strong> Naseem no longer pauses a task as “not making progress” while it rebuilds and re-checks after a fix.</li>
+        <li><strong>Knows when to ask you.</strong> When something can’t be checked from the computer, like whether a sound played, Naseem says so and asks you instead of trying again and again.</li>
+      </ul>
+      <h3>Fixed in 1.19.0</h3>
+      <ul>
+        <li>A finished reply no longer flashes twice for a moment.</li>
+        <li>Naseem no longer creates a stray file when its answer mentions an Xcode project.</li>
+        <li>The files list under a reply shows only the files Naseem worked on, not build leftovers.</li>
+        <li>An edit that touches two files at once is split and applied cleanly instead of failing.</li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.18.2</h2><span class="date">Oct 8, 2026</span></header>
       <p>Smoother everyday use.</p>
       <h3>Fixed in 1.18.2</h3>
       <ul>
