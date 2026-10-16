@@ -71,17 +71,26 @@
   <main>
     <h1>How Naseem Works</h1>
     <h2 id="the-roles">The roles</h2>
-<p>Naseem splits a task between models, and always tells you which one did what. Choose them in <strong>Settings → Models</strong>.</p>
+<p>Naseem splits a task between models, and always tells you which one did what. Choose them in <strong>Settings → Models</strong>. They fall into three groups: models that <strong>do the work</strong>, models that <strong>judge it</strong>, and models that take <strong>side jobs</strong> so the main model doesn't have to.</p>
+<p><strong>Doing the work</strong></p>
 <ul>
-  <li><strong>Planner</strong> — optional. Before a task with several steps, writes a short plan — <strong>Goal · Steps · Files · Done when</strong> — that the main model then follows. <em>(Pro)</em></li>
-  <li><strong>Main model</strong> — does the work: reads, runs tools, edits files, answers. Every chat starts on it and can switch.</li>
-  <li><strong>Sub-agents</strong> — take delegated pieces of a task, several at once. Because they run in parallel they can use many tokens, so a fast, affordable model and a lower effort suit them. <em>(Pro)</em></li>
-  <li><strong>Reviewer</strong> — optional. Checks finished work against your request before it's called done, and sends it back with a reason when it falls short. <em>(Pro)</em></li>
-  <li><strong>Helper</strong> — Naseem's own background jobs: project suggestions, project notes, MCP descriptions.</li>
-  <li><strong>Vision</strong> and <strong>Reading</strong> — see images for a main model that can't, and read long documents once into notes.</li>
-  <li><strong>Image</strong> — makes and edits pictures when you ask for one: a logo, a banner, an illustration. <strong>Automatic</strong> uses your ChatGPT subscription if you're signed in (no key, no extra bill), then your OpenAI key, then Google. A chat can pick its own from the model menu → <strong>Image model</strong>, and every image is captioned with the model that made it. <em>(Pro)</em></li>
+  <li><strong>Main model</strong> — does the work: reads, runs tools, edits files, and writes every answer you see. <strong>Runs:</strong> on every message. Every chat starts on it and can switch. <strong>Pick:</strong> your best model for real work.</li>
+  <li><strong>Sub-agents</strong> <em>(Pro)</em> — take delegated pieces of a task, several at once, each with only its own piece. Only their summaries come back to the main model. <strong>Runs:</strong> when the main model splits a job into independent parts. <strong>Pick:</strong> fast and affordable, at a lower effort — running in parallel, they can use many tokens. <strong>Automatic</strong> uses the helper model.</li>
+</ul>
+<p><strong>Judging the work</strong></p>
+<ul>
+  <li><strong>Planner</strong> <em>(Pro, optional)</em> — before a task with several steps, writes a short plan — <strong>Goal · Steps · Files · Done when</strong> — that the main model then follows. It can look at the project but never changes anything. <strong>Runs:</strong> when the main model decides a task needs a plan, or when you press <strong>Plan first</strong>. Simple requests get no plan and cost nothing extra. <strong>Pick:</strong> a strong model. A strong planner with a cheaper main model is the classic saving.</li>
+  <li><strong>Reviewer</strong> <em>(Pro, optional)</em> — checks finished work against your request before it's called done, and sends it back with a reason when it falls short. It never writes the answer itself. <strong>Runs:</strong> once at the end of a task, at most twice per run. <strong>Pick:</strong> a careful model, ideally a different one from the main model, so it doesn't simply agree with itself.</li>
+</ul>
+<p><strong>Side jobs</strong></p>
+<ul>
+  <li><strong>Helper</strong> — Naseem's own background jobs: project suggestions, project notes, MCP server descriptions. <strong>Runs:</strong> in the background, usually after a reply. <strong>Pick:</strong> leave it on <strong>Automatic</strong> — a fast, cheap sibling of your main model (a Flash, mini or Haiku class model). Avoid reasoning models here; they can take half a minute on a tiny job.</li>
+  <li><strong>Vision</strong> — looks at images when your main model can't see them. <strong>Runs:</strong> only when an image arrives and the chat model can't see it. <strong>Describe</strong> keeps your chat model in charge: the vision model writes one detailed description and the chat goes on. <strong>Switch</strong> hands that turn to the vision model, then switches back. <strong>Pick:</strong> any model that can see images.</li>
+  <li><strong>Reading</strong> — reads a long document once and writes notes the rest of the chat works from, instead of carrying the whole document along. <strong>Runs:</strong> when you attach a long document. <strong>Pick:</strong> a long context and a low price; cleverness matters less than room. Avoid reasoning models — they spend their budget thinking and hand back nothing. A local model keeps the document on this Mac.</li>
+  <li><strong>Image</strong> <em>(Pro)</em> — makes and edits pictures when you ask for one: a logo, a banner, an illustration. <strong>Runs:</strong> only when you ask, and it asks first unless the chat is Autonomous. <strong>Pick:</strong> <strong>Automatic</strong> uses your ChatGPT subscription if you're signed in (no key, no extra bill), then your OpenAI key, then Google. A chat can pick its own from the model menu → <strong>Image model</strong>, and every image is captioned with the model that made it.</li>
 </ul>
 <p>Each role has its own <strong>effort</strong>. "Same as main model" follows your chat.</p>
+<p><strong>A good starting setup:</strong> your strongest model as <strong>Main</strong> (or as <strong>Planner</strong>, to save on Main), a different strong model as <strong>Reviewer</strong>, and <strong>Helper</strong> and <strong>Sub-agents</strong> left on Automatic.</p>
 <h2 id="who-did-what">Who did what</h2>
 <ul>
   <li>Every reply names its model: <em>Naseem · gpt-5.6-terra · Medium</em>.</li>
