@@ -8,7 +8,7 @@
 Naseem is a fast, lightweight AI agent for Mac — a gentle breeze against the heavy, hot Electron assistants.</p>
 
 <p align="center">
-  <a href="https://ayman3000.github.io/naseem-app/"><b>🌐 Website</b></a>
+  <a href="https://naseemformac.com/"><b>🌐 Website</b></a>
   &nbsp;·&nbsp;
   <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg"><b>⬇️ Download Naseem for macOS</b></a>
   &nbsp;·&nbsp;
@@ -112,7 +112,9 @@ Naseem is built on the open-source [SwiftAgentKit](https://github.com/ayman3000/
 
 ## Links
 
-- 🌐 **Website:** [ayman3000.github.io/naseem-app](https://ayman3000.github.io/naseem-app/)
+- 🌐 **Website:** [naseemformac.com](https://naseemformac.com/)
+- ▶️ **YouTube:** [@AymanHamedLabs](https://www.youtube.com/@AymanHamedLabs)
+- 💼 **LinkedIn:** [Ayman Hamed Labs](https://www.linkedin.com/company/aymanhamedlabs/)
 - ⬇️ **Download (latest DMG):** [Naseem.dmg](https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg)
 - ⭐ **Get Pro:** [aymanhamed.gumroad.com/l/naseem](https://aymanhamed.gumroad.com/l/naseem)
 - 📝 **Release notes & feed:** [Releases](https://github.com/ayman3000/naseem-app/releases)

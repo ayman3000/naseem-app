@@ -6,11 +6,11 @@
 <title>How Naseem Works — Naseem docs, the Mac-native AI agent</title>
 <meta name="description" content="How Naseem Works — documentation for Naseem, the native macOS AI agent that runs commands, edits files and drives Mac apps behind an approval gate.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://ayman3000.github.io/naseem-app/docs/howNaseemWorks.html">
+<link rel="canonical" href="https://naseemformac.com/docs/howNaseemWorks.html">
 <meta property="og:title" content="How Naseem Works — Naseem docs">
 <meta property="og:description" content="How Naseem Works — documentation for Naseem, the native macOS AI agent.">
-<meta property="og:url" content="https://ayman3000.github.io/naseem-app/docs/howNaseemWorks.html">
-<meta property="og:image" content="https://ayman3000.github.io/naseem-app/assets/share-card.png">
+<meta property="og:url" content="https://naseemformac.com/docs/howNaseemWorks.html">
+<meta property="og:image" content="https://naseemformac.com/assets/share-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/icon-256.png">
 <link rel="stylesheet" href="../assets/site.css">
@@ -117,8 +117,10 @@
 <ul>
   <li><strong>When a chat gets long, Naseem summarizes its older messages for the model</strong> and keeps the recent ones word-for-word, so long work stays fast and affordable and the model keeps track of the task.</li>
   <li><strong>Your transcript never changes.</strong> A thin line marks where the summary ends, and <strong>View summary</strong> shows exactly what the model reads instead. Your own requests and exact file paths are kept as you wrote them.</li>
-  <li><strong>Type /compact</strong> in any chat to do it now. Add words after it to say what to keep in detail, for example <code>/compact keep the API design</code>. It's also in the <strong>⋮ menu → Compact Conversation</strong>.</li>
-  <li><strong>Choose when it happens</strong> in <strong>Settings → Agent → Compact conversations at</strong>. If a model ever says a chat is too long, Naseem summarizes and tries once more on its own.</li>
+  <li><strong>Every message re-sends the whole chat.</strong> Providers remember what they've read for a few minutes — the cache — so a chat you're actively using is fast and cheap; one you come back to later is read in full again.</li>
+  <li><strong>When Naseem compacts.</strong> With the recommended <strong>Auto</strong> strategy: at 250K tokens while you're working; at 100K when you come back to a chat after 10 minutes away (the cache has expired by then, so the summary is written while your message is answered, and the chat is short from then on); at 100K for models that don't cache (models running on this Mac, and Gemini); at three-quarters of small context windows.</li>
+  <li><strong>Choose a strategy</strong> in <strong>Settings → Agent → Long chats &amp; cache</strong>: Auto, Keep more detail, Save cost, Custom (your own sizes and idle wait) or Off. Hover over the token counter in any chat to see the rule in force.</li>
+  <li><strong>Type /compact</strong> in any chat to do it now. Add words after it to say what to keep in detail, for example <code>/compact keep the API design</code>. It's also in the <strong>⋮ menu → Compact Conversation</strong>. If a model ever says a chat is too long, Naseem summarizes and tries once more on its own.</li>
 </ul>
   </main>
 </div>
@@ -135,6 +137,8 @@
     <a href="../how-it-works.html">How it works</a>
     <a href="../terms.html">Terms of Use</a>
     <a href="https://aymanhamed.com/support">Support</a>
+    <a href="https://www.youtube.com/@AymanHamedLabs">YouTube</a>
+    <a href="https://www.linkedin.com/company/aymanhamedlabs/">LinkedIn</a>
     <a href="../harness.html">Harness</a>
     <a href="https://www.producthunt.com/p/naseem-2">Community</a>
   </div>
