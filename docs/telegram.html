@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62Y17XZ5C4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-62Y17XZ5C4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telegram — Naseem docs, the Mac-native AI agent</title>
+<meta name="description" content="Telegram — documentation for Naseem, the native macOS AI agent that runs commands, edits files and drives Mac apps behind an approval gate.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://naseemformac.com/docs/telegram.html">
+<meta property="og:title" content="Telegram — Naseem docs">
+<meta property="og:description" content="Telegram — documentation for Naseem, the native macOS AI agent.">
+<meta property="og:url" content="https://naseemformac.com/docs/telegram.html">
+<meta property="og:image" content="https://naseemformac.com/assets/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon-256.png">
+<link rel="stylesheet" href="../assets/site.css">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+
+</head>
+<body class="docs">
+<nav class="top" aria-label="Main"><div class="bar">
+  <a href="../" class="brand" aria-label="Naseem home"><img src="../assets/icon-256.png" alt="" width="32" height="32"><b>Naseem</b><span class="ar" lang="ar">نسيم</span></a>
+  <div class="links">
+    <a href=".././#features">Features</a>
+    <a href=".././#pricing">Pricing</a>
+    <a href="../how-it-works.html">How it works</a>
+    <a href="../docs/" class="here" aria-current="page">Docs</a>
+    <a href="../whats-new.html">What's New</a>
+  </div>
+  <div class="cta">
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme">
+      <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    </button>
+    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <details class="menu">
+      <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg></summary>
+      <div class="panel">
+        <a href=".././#features">Features</a>
+        <a href=".././#pricing">Pricing</a>
+        <a href="../how-it-works.html">How it works</a>
+        <a href="../docs/">Docs</a>
+        <a href="../whats-new.html">What's New</a>
+        <a href="../harness.html">Harness</a>
+        <a href="../philosophy.html">Philosophy</a>
+        <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+      </div>
+    </details>
+  </div>
+</div></nav>
+<div class="shell">
+  <aside>
+    <h4>Documentation</h4>
+    <a href="index.html">Get Started</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="howNaseemWorks.html">How Naseem Works</a>
+    <a href="conversations.html">Chats &amp; Projects</a>
+    <a href="voice.html">Voice</a>
+    <a href="profiles.html">Profiles</a>
+    <a href="tools.html">Tools &amp; Approval</a>
+    <a href="apps.html">Your Mac&#x27;s apps</a>
+    <a href="agentic.html">Simulator &amp; Mac</a>
+    <a href="telegram.html" class="active">Telegram</a>
+    <a href="memory.html">Memory &amp; Skills</a>
+    <a href="mcp.html">MCP Servers</a>
+    <a href="quickAsk.html">Quick Ask</a>
+    <a href="freePro.html">Free vs Pro</a>
+    <a href="beta.html">Beta Features</a>
+    <a href="shortcuts.html">Shortcuts</a>
+    <a href="../whats-new.html">What's New ↗</a>
+  </aside>
+  <main>
+    <h1>Telegram</h1>
+    <blockquote><strong>Your Mac's agent, from your phone.</strong> Message Naseem on Telegram and it works on your Mac: in your projects, with your files and tools, asking your OK the same way it does in the app. Naseem Pro.</blockquote>
+<h2 id="set-it-up-once-about-two-minutes">Set it up once (about two minutes)</h2>
+<p>You need two things from Telegram: a <strong>bot</strong> for Naseem to answer as, and <strong>your user ID</strong>, so the bot answers only you.</p>
+<p>1. <strong>Create the bot.</strong> In Telegram, open <strong>@BotFather</strong>, send <code>/newbot</code>, and pick a name and a username (it must end in <code>bot</code>). BotFather replies with a <strong>token</strong>, a long line like <code>123456789:AA…</code>. Copy it.</p>
+<p>2. <strong>Find your user ID.</strong> Open <strong>@userinfobot</strong> and send it any message. It replies with your numeric <strong>Id</strong>. Copy the number.</p>
+<p>3. <strong>Connect Naseem.</strong> On the Mac, open <strong>Settings → Integrations → Telegram</strong>. Paste the token and press <strong>Save</strong>, paste your user ID into <strong>Allowed user ID</strong>, and turn on <strong>Enable Telegram gateway</strong>.</p>
+<p>4. <strong>Say hello.</strong> Open your new bot in Telegram and send <code>hi</code>. The status in Settings shows <strong>Connected</strong>, and Naseem answers.</p>
+<p>Only the allowed user ID can talk to the bot; messages from anyone else are ignored. Naseem must be running on your Mac, and the Mac awake, for the bot to answer.</p>
+<h2 id="pick-a-project-and-a-chat">Pick a project and a chat</h2>
+<p>Everything is chosen from the chat itself, with buttons.</p>
+<p>1. Send <strong><code>/projects</code></strong>. Your projects appear, most recently used first, plus <strong>No project</strong>.</p>
+<p>2. <strong>Tap a project.</strong> You're now in it. Your next message starts a new chat in that project — or tap one of its existing chats listed below to continue it.</p>
+<p>3. <strong>Send your message.</strong> The first answer starts with a line that says where you are: <em>📁 quackely · Fix the sidebar</em>.</p>
+<p>A chat you use from the phone is an ordinary chat: it uses the project's folder, notes and roadmap, and it shows in the sidebar on the Mac under its project. You can carry on there, at your desk, at any time.</p>
+<h2 id="commands">Commands</h2>
+<ul>
+  <li><strong><code>/projects</code></strong> — pick a project.</li>
+  <li><strong><code>/chats</code></strong> — the recent chats in the project you're in, plus <strong>➕ New chat</strong>.</li>
+  <li><strong><code>/new</code></strong> — a new chat in the project you're in. Outside a project, a fresh Telegram chat.</li>
+  <li><strong><code>/where</code></strong> — the project, chat and model you're on, and whether Naseem is working.</li>
+  <li><strong><code>/stop</code></strong> — stop the current run.</li>
+  <li><strong><code>/status</code></strong> — the model, whether it's running or waiting for your OK, and where you are.</li>
+  <li><strong><code>/help</code></strong> — this list.</li>
+</ul>
+<h2 id="while-it-works">While it works</h2>
+<ul>
+  <li>A run that takes more than a few seconds gets one message that keeps you posted — <em>⏳ Working · step 4 · run_shell</em> — and it disappears when the answer arrives. Quick answers come on their own.</li>
+  <li>The answer is a new message, so your phone notifies you. Bold, code and links show as formatting.</li>
+  <li>Files and images Naseem makes in the run are sent to you as attachments (up to 50 MB each).</li>
+  <li>Messages you send while it's working wait their turn and run next, in order. <code>/stop</code> gets through at once.</li>
+</ul>
+<h2 id="approvals">Approvals</h2>
+<p>Anything that needs your OK — a command, deleting something, a commit — arrives as its own message with <strong>Approve</strong> and <strong>Deny</strong>. Nothing happens until you tap. The same request shows in the app on the Mac too; whichever you answer first wins. Answered on the Mac, the phone's message says <em>answered in the app</em>. A request you don't answer within five minutes is denied.</p>
+<h2 id="from-the-mac-to-the-phone">From the Mac to the phone</h2>
+<p>In any chat on the Mac, open the <strong>⋮ menu → Continue on Telegram</strong>. Naseem sends that chat's name to your phone, and your next message there continues it — same history, same project.</p>
+<p>A run you start from the phone is answered on the phone: the Mac doesn't read it aloud or post a notification.</p>
+<h2 id="good-to-know">Good to know</h2>
+<ul>
+  <li><strong>Rules</strong> can also report to Telegram: a rule's result, and a weekly heartbeat for quiet rules (see <strong>Beta Features</strong>).</li>
+  <li>If a chat you were using is deleted, your next message goes to the Telegram chat, and the reply says so.</li>
+  <li>Your messages and Naseem's answers travel through Telegram's servers, the way any Telegram chat does. Your files, keys and the work itself stay on your Mac.</li>
+  <li>To stop, turn off <strong>Enable Telegram gateway</strong>. To revoke the bot entirely, send <code>/revoke</code> to @BotFather.</li>
+</ul>
+  </main>
+</div>
+<footer class="site"><div class="inner">
+  <div class="about">
+    <b>Naseem <span class="ar" lang="ar">نسيم</span></b>
+    <span>AI agent for Mac. © 2026 Ayman Hamed. Built from the same text as the in-app manual.</span>
+  </div>
+  <div class="cols">
+    <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <a href="../philosophy.html">Philosophy</a>
+    <a href="https://aymanhamed.com/apps/naseem/privacy">Privacy Policy</a>
+    <a href="https://aymanhamed.gumroad.com/l/naseem">Buy Pro</a>
+    <a href="../how-it-works.html">How it works</a>
+    <a href="../terms.html">Terms of Use</a>
+    <a href="https://aymanhamed.com/support">Support</a>
+    <a href="https://www.youtube.com/@AymanHamedLabs">YouTube</a>
+    <a href="https://www.linkedin.com/company/aymanhamedlabs/">LinkedIn</a>
+    <a href="../harness.html">Harness</a>
+    <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+  </div>
+</div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
