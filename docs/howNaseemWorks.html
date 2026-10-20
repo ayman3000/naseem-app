@@ -117,7 +117,7 @@
 <h2 id="when-a-model-fails">When a model fails</h2>
 <p>If a sub-agent's or the helper's model fails, that step runs again once on your <strong>main model</strong>, and the card says so: <em>Sub-agent · glm-5.3 failed → gpt-5.6-terra</em>. Stopping a task yourself never triggers a fallback. If the reviewer fails, the work stands, marked <em>not reviewed</em>.</p>
 <h2 id="one-model-for-everything">One model for everything</h2>
-<p>In a chat, the <strong>⋮ menu → Roles → This chat's model for all</strong> runs sub-agents and the reviewer on that chat's model and effort. It's useful for quick chats, local models, or when you want no surprises. The status line then says <em>one model</em>.</p>
+<p>In a chat, the <strong>model menu (chip icon) → Roles → This chat's model for all</strong> runs sub-agents and the reviewer on that chat's model and effort. It's useful for quick chats, local models, or when you want no surprises. The status line then says <em>one model</em>.</p>
 <h2 id="who-decides">Who decides</h2>
 <p>1. The chat's <strong>"this chat's model for all"</strong>, when on.</p>
 <p>2. The chat's <strong>profile</strong> (Settings → Profiles → <em>Roles for this profile</em>).</p>
@@ -139,7 +139,7 @@
   <li><strong>Every message re-sends the whole chat.</strong> Providers remember what they've read for a few minutes — the cache — so a chat you're actively using is fast and cheap; one you come back to later is read in full again.</li>
   <li><strong>When Naseem compacts.</strong> With the recommended <strong>Auto</strong> strategy: at 250K tokens while you're working; at 100K when you come back to a chat after 10 minutes away (the cache has expired by then, so the summary is written while your message is answered, and the chat is short from then on); at 100K for models that don't cache (models running on this Mac, and Gemini); at three-quarters of small context windows.</li>
   <li><strong>Choose a strategy</strong> in <strong>Settings → Agent → Long chats &amp; cache</strong>: Auto, Keep more detail, Save cost, Custom (your own sizes and idle wait) or Off. Hover over the token counter in any chat to see the rule in force.</li>
-  <li><strong>Type /compact</strong> in any chat to do it now. Add words after it to say what to keep in detail, for example <code>/compact keep the API design</code>. It's also in the <strong>⋮ menu → Compact Conversation</strong>. If a model ever says a chat is too long, Naseem summarizes and tries once more on its own.</li>
+  <li><strong>Type /compact</strong> in any chat to do it now. Add words after it to say what to keep in detail, for example <code>/compact keep the API design</code>. It's also in the <strong>model menu (chip icon) → Compact Conversation</strong>. If a model ever says a chat is too long, Naseem summarizes and tries once more on its own.</li>
 </ul>
   </main>
 </div>
