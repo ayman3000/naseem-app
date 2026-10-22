@@ -148,6 +148,29 @@
   .review { display: flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; color: var(--accent); }
   .review .ok { display: flex; }
   .hero-demo { display: flex; flex-direction: column; gap: 14px; }
+  /* Hero scenes: four things Naseem does, rotating (2026-10-22). */
+  .scene-tabs { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .scene-tabs button { font: 500 13px/1 var(--sans); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--surface); color: var(--text2); cursor: pointer; }
+  .scene-tabs button[aria-selected="true"] { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent-ink); }
+  .scenes { display: grid; }
+  .scenes .scene { grid-area: 1 / 1; align-self: start; opacity: 0; visibility: hidden; transition: opacity .35s ease; }
+  .scenes .scene.on { opacity: 1; visibility: visible; }
+  .visual { border-radius: 12px; background: var(--bg); padding: 12px 14px 14px; }
+  .visual svg { width: 100%; height: 96px; display: block; }
+  .visual .curve { fill: none; stroke: var(--accent); stroke-width: 2.5; }
+  .visual .ball { fill: #E5534B; }
+  .visual .slider { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .visual .slider i { position: relative; flex: 1; height: 4px; border-radius: 4px; background: var(--line2); }
+  .visual .slider b { position: absolute; top: -5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+  .visual .play { padding: 4px 10px; border-radius: 8px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; }
+  .film { display: flex; align-items: center; gap: 12px; height: 92px; padding: 0 16px; border-radius: 12px; color: #E8F0F5; font-size: 13px;
+          background: linear-gradient(135deg, #0B1F33, #2A1D4A 55%, #1B3B2E); }
+  .film .play-big { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.16); font-size: 15px; }
+  .phone { align-self: center; width: 78%; border-radius: 16px; border: 1px solid var(--line2); background: var(--bg); overflow: hidden; font-size: 13px; }
+  .phone .ph-head { padding: 8px 12px; font-weight: 600; color: var(--text2); border-bottom: 1px solid var(--line3); }
+  .phone .ph-msg { margin: 10px 12px 12px; padding: 10px 12px; border-radius: 12px 12px 12px 4px; background: var(--surface); line-height: 1.5; }
+  @media (prefers-reduced-motion: reduce) { .scenes .scene { transition: none; } }
+
   .real-note { align-self: center; font-size: 13px; color: var(--muted); }
   .real-note:hover { color: var(--accent); opacity: 1; }
   .step .n { width: 112px; flex-shrink: 0; font-weight: 500; }
@@ -343,9 +366,9 @@
 </head>
 <body>
 
-<a class="banner" href="https://www.producthunt.com/p/naseem-2" target="_blank" rel="noopener">
+<a class="banner" href="whats-new.html">
   <span class="pill">NEW</span>
-  <span>Naseem launched on Product Hunt — join the community forum: questions, wins, what's next</span>
+  <span>Naseem 1.28 — make explainer videos, and a calmer, clearer look</span>
   <span aria-hidden="true">→</span>
 </a>
 
@@ -396,7 +419,7 @@
     <div class="hero-copy">
       <div class="badge"><span class="v" id="version">1.28.0</span><span>Native Swift · No Electron · macOS 15+</span></div>
       <h1><span class="ln">The Mac agent that</span> <span class="ln"><em class="hl">does the work</em>,</span> <span class="ln">not just the chat.</span></h1>
-      <p class="sub">Naseem is a fast, lightweight AI agent for Mac — a gentle breeze against heavy, hot Electron assistants. Chat with any major model or fully on-device, and let it safely act on your Mac.</p>
+      <p class="sub">Just ask, in plain words. Naseem plans the steps, uses your apps and files, asks before anything risky, and hands you the result — an interactive lesson, a video, your week sorted, your code fixed. Simple enough for anyone, deep enough for developers. Any major model, or fully on-device.</p>
       <div class="ctas">
         <a class="btn btn-dark btn-lg" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 11l6 6 6-6"/><path d="M5 20h14"/></svg>
@@ -409,7 +432,53 @@
     </div>
 
     <div class="hero-demo">
-    <div class="window" role="img" aria-label="A real Naseem run: it planned the fix, edited weather.py, had a sub-agent write tests, ran them — 5 passed — and a reviewer passed the work">
+    <div class="scene-tabs" role="tablist" aria-label="What Naseem can do">
+      <button role="tab" data-for="learn">Learn</button>
+      <button role="tab" data-for="video">Make a video</button>
+      <button role="tab" data-for="automate">Automate</button>
+      <button role="tab" data-for="code">Code</button>
+    </div>
+    <div class="scenes">
+    <div class="window scene" data-scene="learn" role="img" aria-label="Asked to teach the learning rate, Naseem answers with an interactive page: a ball rolls down a loss curve and a slider changes how it moves">
+      <div class="titlebar">
+        <span class="dot" style="background:#EE6A5F"></span><span class="dot" style="background:#F5BE4F"></span><span class="dot" style="background:#62C554"></span>
+        <span class="t">Learning rate · Everyday</span>
+      </div>
+      <div class="chat">
+        <div class="msg-me">Teach me how the learning rate changes the way a model finds the lowest loss. Make it something I can play with.</div>
+        <div class="steps"><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">web_search</span><span class="d">how gradient descent overshoots</span></div><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">show_visual</span><span class="d">interactive page · slider + Play</span></div></div>
+        <div class="visual">
+          <svg viewBox="0 0 320 120" aria-hidden="true"><path class="curve" d="M8 30 C 60 20, 70 95, 120 90 S 170 40, 200 70 S 260 110, 312 26"/><circle class="ball" cx="200" cy="70" r="7"/></svg>
+          <div class="slider"><span>Learning rate</span><i><b style="left:58%"></b></i><span class="play">▶ Play</span></div>
+        </div>
+        <div class="msg-ai">Move the slider: too small and the ball crawls, too big and it jumps past the bottom. Press <strong>Play</strong> to watch it learn.</div>
+      </div>
+    </div>
+    <div class="window scene" data-scene="video" role="img" aria-label="Asked for a physics video, Naseem plans six scenes, renders a 45-second MP4 and checks it">
+      <div class="titlebar">
+        <span class="dot" style="background:#EE6A5F"></span><span class="dot" style="background:#F5BE4F"></span><span class="dot" style="background:#62C554"></span>
+        <span class="t">Videos · Explainer</span>
+      </div>
+      <div class="chat">
+        <div class="msg-me">Make a 45-second explainer video about special relativity.</div>
+        <div class="steps"><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">make_plan</span><span class="d">6 scenes · hook → recap</span></div><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">write_file</span><span class="d">SpecialRelativity.tsx</span></div><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">run_shell</span><span class="d">render → special-relativity.mp4</span></div><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">run_shell</span><span class="d">checked · 1920×1080 · 45 s</span></div></div>
+        <div class="film"><span class="play-big">▶</span><span>special-relativity.mp4 · 0:45</span></div>
+        <div class="msg-ai">Your video is ready in <strong>Videos/out</strong>: time dilation, the Lorentz factor, length contraction, and a recap.</div>
+      </div>
+    </div>
+    <div class="window scene" data-scene="automate" role="img" aria-label="Asked for a daily briefing, Naseem sets up a weekday rule that sends it to the phone on Telegram">
+      <div class="titlebar">
+        <span class="dot" style="background:#EE6A5F"></span><span class="dot" style="background:#F5BE4F"></span><span class="dot" style="background:#62C554"></span>
+        <span class="t">Morning briefing · Rule</span>
+      </div>
+      <div class="chat">
+        <div class="msg-me">Every weekday at 9, send me my day and the top AI news on Telegram.</div>
+        <div class="steps"><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">create_rule</span><span class="d">weekdays · 9:00 · to Telegram</span></div><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">calendar</span><span class="d">today: 3 events</span></div><div class="step"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="n">web_search</span><span class="d">top AI stories</span></div></div>
+        <div class="phone"><div class="ph-head">Naseem · Telegram</div><div class="ph-msg">☀︎ <strong>Your Tuesday</strong> — design review at 11, lunch at 1.<br>📰 3 AI stories worth your time…</div></div>
+        <div class="msg-ai">Done. It runs every weekday at 9 and lands on your phone — reply there to ask a follow-up.</div>
+      </div>
+    </div>
+    <div class="window scene" data-scene="code" role="img" aria-label="A real Naseem run: it planned the fix, edited weather.py, had a sub-agent write tests, ran them — 5 passed — and a reviewer passed the work">
       <div class="titlebar">
         <span class="dot" style="background:#EE6A5F"></span><span class="dot" style="background:#F5BE4F"></span><span class="dot" style="background:#62C554"></span>
         <span class="t">weather-cli · Software Engineer</span>
@@ -428,7 +497,8 @@
         <div class="review"><span class="ok"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>Review · passed</div>
       </div>
     </div>
-    <a class="real-note" href="#see-it">A real run, not a mockup — see it below ↓</a>
+    </div>
+    <a class="real-note" href="#see-it">Requests people really make — see full runs below ↓</a>
     </div>
   </div>
 </header>
@@ -697,5 +767,27 @@
   })();
 </script>
 <script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+/* Hero scenes: tabs, plus a gentle rotation that stops on hover, on a tab
+   click, or when the visitor prefers reduced motion. */
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.scene-tabs button'));
+  var scenes = document.querySelectorAll('.scenes .scene');
+  if (!tabs.length) return;
+  var i = 0, timer = null, still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n) {
+    i = n;
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === n ? 'true' : 'false'); });
+    scenes.forEach(function (s) { s.classList.toggle('on', s.getAttribute('data-scene') === tabs[n].getAttribute('data-for')); });
+  }
+  function start() { if (!still && !timer) timer = setInterval(function () { show((i + 1) % tabs.length); }, 6000); }
+  function stop() { clearInterval(timer); timer = null; }
+  tabs.forEach(function (t, k) { t.addEventListener('click', function () { stop(); still = true; show(k); }); });
+  var demo = document.querySelector('.hero-demo');
+  demo.addEventListener('mouseenter', stop);
+  demo.addEventListener('mouseleave', start);
+  show(0); start();
+})();
+</script>
 </body>
 </html>
