@@ -148,6 +148,11 @@
   .review { display: flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; color: var(--accent); }
   .review .ok { display: flex; }
   .hero-demo { display: flex; flex-direction: column; gap: 14px; }
+  /* See Naseem: whole-window screens under tabs. */
+  .full-tabs { margin: 0 0 18px; }
+  .full-shots { display: grid; border-radius: 14px; overflow: hidden; border: 1px solid var(--line2); box-shadow: var(--shadow); background: #101418; }
+  .full-shots img { grid-area: 1 / 1; width: 100%; height: auto; display: block; opacity: 0; visibility: hidden; transition: opacity .3s ease; }
+  .full-shots img.on { opacity: 1; visibility: visible; }
   /* Hero scenes: four things Naseem does, rotating (2026-10-22). */
   .scene-tabs { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
   .scene-tabs button { font: 500 13px/1 var(--sans); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line2); background: var(--surface); color: var(--text2); cursor: pointer; }
@@ -503,6 +508,28 @@
   </div>
 </header>
 
+<section class="block see-naseem" id="see-naseem" aria-labelledby="see-naseem-h"><div class="wrap">
+  <div class="head2">
+    <div>
+      <span class="kicker">See Naseem</span>
+      <h2 class="h2" id="see-naseem-h">One window for <em class="hl">everything you ask.</em></h2>
+    </div>
+    <p class="lead">Your chats and projects on the left, the conversation in the middle, what Naseem makes on the right. In English or Arabic.</p>
+  </div>
+  <div class="scene-tabs full-tabs" role="tablist" aria-label="Naseem screens">
+    <button role="tab" data-for="start">Start</button>
+    <button role="tab" data-for="ask">Ask anything</button>
+    <button role="tab" data-for="interactive">Interactive answers</button>
+    <button role="tab" data-for="arabic">العربية</button>
+  </div>
+  <div class="full-shots">
+    <img data-shot="start" src="assets/shots/full-start.webp" width="1600" height="992" loading="lazy" alt="A new chat: cards to try and ready prompt ideas grouped by Learn, Create, Organise, Automate and Your Mac">
+    <img data-shot="ask" src="assets/shots/full-ask.webp" width="1600" height="946" loading="lazy" alt="Naseem answers what it can do, grouped by area: software, your Mac, research, creating, documents, automation">
+    <img data-shot="interactive" src="assets/shots/full-interactive.webp" width="1600" height="946" loading="lazy" alt="An interactive four-cylinder engine cutaway opened full size, with controls and live telemetry">
+    <img data-shot="arabic" src="assets/shots/full-arabic.webp" width="1600" height="946" loading="lazy" alt="Naseem in Arabic, the whole window mirrored right to left">
+  </div>
+</div></section>
+
 <section class="equation" aria-label="What makes an agent"><div class="wrap">
   <div>
     <h2>An agent, not just a chat window.</h2>
@@ -787,6 +814,19 @@
   demo.addEventListener('mouseenter', stop);
   demo.addEventListener('mouseleave', start);
   show(0); start();
+})();
+</script>
+<script>
+/* See Naseem: tabs over whole-window screenshots. */
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.full-tabs button'));
+  var shots = document.querySelectorAll('.full-shots img');
+  function show(n) {
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === n ? 'true' : 'false'); });
+    shots.forEach(function (im) { im.classList.toggle('on', im.getAttribute('data-shot') === tabs[n].getAttribute('data-for')); });
+  }
+  tabs.forEach(function (t, k) { t.addEventListener('click', function () { show(k); }); });
+  if (tabs.length) show(0);
 })();
 </script>
 </body>
