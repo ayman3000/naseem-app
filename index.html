@@ -796,7 +796,7 @@
         .replace(/^[-*]\s+/, '').replace(/\*\*/g, '').split(' — ')[0];
       var el = document.getElementById('latest-teaser');
       if (el) el.innerHTML = '<strong>Latest: ' + (rel.name || rel.tag_name).replace(/[<>&]/g, '') + '</strong>' +
-        (first ? ' — ' + first.replace(/[<>&]/g, '') : '') + '. See <a href="whats-new.html">everything that\'s new</a>.';
+        (first ? ' — ' + first.replace(/[<>&]/g, '').replace(/[.。]+\s*$/, '') : '') + '. See <a href="whats-new.html">everything that\'s new</a>.';
       var v = document.getElementById('version');
       var tag = (rel.tag_name || '').replace(/^v/, '');
       if (v && /^\d+\.\d+\.\d+$/.test(tag)) v.textContent = tag;
