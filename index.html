@@ -604,7 +604,7 @@
     <div class="item"><span class="num">01</span><h3>Makes the real thing</h3><p>Files, pages, audio and video on your Mac — not a description of what you could do next.</p></div>
     <div class="item"><span class="num">02</span><h3>Your guide</h3><p>Start cards and ready prompts show what's possible. Guided projects explain every step before anything starts.</p></div>
     <div class="item"><span class="num">03</span><h3>Answers you can use</h3><p>Ask to understand something and get a page to click, slide and try — not another wall of text.</p></div>
-    <div class="item"><span class="num">04</span><h3>Uses your Mac apps</h3><p>Notes, Mail, Calendar, System Settings — through Apple's Accessibility, approved action by action.</p></div>
+    <div class="item"><span class="num">04</span><h3>Uses your Mac apps</h3><p>Mail, Calendar, Reminders, Notes and Contacts directly — and any other app through Apple's Accessibility, approved action by action.</p></div>
     <div class="item"><span class="num">05</span><h3>Proves, doesn't assert</h3><p>A "done" is a claim to check. A file that isn't on disk sends the reply back; a tap on a changed screen is refused.</p></div>
     <div class="item"><span class="num">06</span><h3>A real developer, too</h3><p>Your files, your terminal, git, tests and the iOS Simulator — your Mac's actual environment, not a browser sandbox.</p></div>
     <div class="item"><span class="num">07</span><h3>Stays fast on long tasks</h3><p>Hundreds of steps without the conversation getting heavier and slower with every one.</p></div>
@@ -646,7 +646,9 @@
   <div class="cards">
     <div class="card pro"><div class="top"><h3>Interactive answers</h3><span class="tag">PRO</span></div><p>Explanations become pages you can play with — sliders, diagrams, step-throughs — right in the chat.</p></div>
     <div class="card pro"><div class="top"><h3>Guided projects</h3><span class="tag">PRO</span></div><p>A course, a podcast episode or an explainer video, explained before it starts and checked before it's done.</p></div>
-    <div class="card pro"><div class="top"><h3>Notion</h3><span class="tag">PRO</span></div><p>Sign in once and Naseem reads and writes your Notion pages and databases.</p></div>
+    <div class="card"><h3>Answers you can see</h3><p>Real places on a map with the route, charts you can hover, diagrams, sortable tables you can save as Excel, weather and flight cards — drawn natively in the chat.</p></div>
+    <div class="card"><h3>Your day, at a glance</h3><p>Your calendar and reminders as cards. Naseem suggests an event with an Add button — nothing changes until you click it, and Undo takes it back.</p></div>
+    <div class="card pro"><div class="top"><h3>Connectors</h3><span class="tag">PRO</span></div><p>Notion, Todoist, Linear, Airtable, Dropbox, Canva and Mapbox in one click; Kiwi.com flights free.</p></div>
     <div class="card pro"><div class="top"><h3>iOS Simulator driving</h3><span class="tag">PRO</span></div><p>Boot, build, install, tap and swipe through the real UI, read logs, take screenshots.</p></div>
     <div class="card pro"><div class="top"><h3>Mac computer use</h3><span class="tag">PRO</span></div><p>Drive GUI-only Mac apps via Accessibility — allowlisted per chat, approved per action.</p></div>
     <div class="card pro"><div class="top"><h3>Sub-agent delegation</h3><span class="tag">PRO</span></div><p>Hand focused pieces of a task to child agents that work side by side, with their steps shown live.</p></div>
@@ -682,9 +684,10 @@
       <div><div class="name">Free</div><div class="amount"><span class="big">$0</span><small>no card</small></div></div>
       <ul>
         <li>Every provider, including local MLX</li>
+        <li>Your Mac's apps: Mail, Calendar, Reminders, Notes</li>
+        <li>Maps, charts, weather, flights &amp; calendar cards</li>
         <li>Conversations &amp; up to 3 projects</li>
-        <li>Web search, vision, artifacts</li>
-        <li>Core tools with approval, MCP</li>
+        <li>Files, terminal &amp; Python with approval, MCP</li>
         <li>Memory &amp; skills, Quick Ask</li>
       </ul>
       <a class="btn btn-light" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download Free</a>
@@ -695,16 +698,17 @@
         <div class="amount"><span class="big">$79</span><small>one-time · lifetime updates</small></div>
       </div>
       <ul>
-        <li>iOS Simulator automation</li>
-        <li>Native Mac computer use</li>
-        <li>Sub-agent delegation</li>
-        <li>Image generation &amp; editing</li>
-        <li>Telegram remote access</li>
-        <li>Self-improving skills &amp; custom profiles</li>
-        <li>Unlimited projects · up to 3 Macs</li>
+        <li><strong>One license · up to 3 Macs</strong></li>
+        <li>Videos, courses &amp; podcasts, made with you</li>
+        <li>Images &amp; interactive answers</li>
+        <li>Connectors: Notion, Todoist, Linear, Canva…</li>
+        <li>Word, Excel &amp; scanned PDFs · Rules</li>
+        <li>iOS Simulator &amp; Mac computer use</li>
+        <li>Sub-agents, planner &amp; reviewer · Telegram</li>
+        <li>Unlimited projects &amp; custom profiles</li>
       </ul>
       <a class="btn" href="https://aymanhamed.gumroad.com/l/naseem">Get Naseem Pro</a>
-      <span class="note">14-day Pro trial · No credit card · No subscription</span>
+      <span class="note">14-day Pro trial · No credit card · Never charged automatically</span>
     </div>
   </div>
 </div></section>
@@ -724,7 +728,7 @@
   <div class="foot">
     <div class="about">
       <b>Naseem <span class="ar" lang="ar">نسيم</span></b>
-      <span>Built on open source: <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> · <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a>. © 2026 Ayman Hamed. Naseem is intentionally unsandboxed so its terminal is a real terminal — the safety boundary is you: every consequential action asks first.</span>
+      <span>Built on open source: <a href="https://github.com/ayman3000/SwiftAgentKit">SwiftAgentKit</a> · <a href="https://github.com/ayman3000/LLMProviderKit">LLMProviderKit</a>. © 2026 Ayman Hamed. Naseem is intentionally unsandboxed so its terminal is a real terminal — the safety boundary is you: consequential actions ask first unless you let a chat run on its own, and sending email, deleting and git history always ask.</span>
     </div>
     <div class="cols">
       <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
