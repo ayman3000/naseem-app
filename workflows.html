@@ -69,95 +69,73 @@
 
 <main><div class="wrap">
   <h1>Workflow examples</h1>
-  <p class="lead">A workflow is a routine you describe in your own words, in any language: what to do, step by step, when it runs, which model does each step, and where it must stop for your OK. Naseem asks about anything unclear, shows you the steps, and runs it on your Mac. Copy any example below into <strong>Workflows ▸ + ▸ New Workflow…</strong> and change it to fit.</p>
-  <p class="how"><strong>Good to know:</strong> “a fast model” and “my strongest model” mean whichever of your set-up models fits — Naseem names them before you save. Steps marked “ask me first” show you the exact draft with Approve, Edit or Reject. A workflow runs on its own only after you approve that exact version, and only touches the folders, apps and connectors it lists. Workflows are part of Naseem Pro.</p>
-  <div class="wf-filter" role="group" aria-label="Filter examples"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="everyday" aria-pressed="false">Everyday</button><button type="button" data-cat="files" aria-pressed="false">Files</button><button type="button" data-cat="work" aria-pressed="false">Work</button><button type="button" data-cat="research" aria-pressed="false">Research</button><button type="button" data-cat="developer" aria-pressed="false">Developer</button></div>
-  <div class="principle wf" data-cat="everyday">
-    <h2>Morning brief</h2>
-    <div class="tags"><span>Every weekday</span><span>4 steps</span><span>2 models</span><span>Gmail</span></div>
-    <div class="flow">Every weekday at 8:00:
-1. Read today&#x27;s calendar and the reminders due today.
-2. With a fast model, skim my unread Gmail and pick out anything urgent.
-3. Check the weather where I am.
-4. With my strongest model, write a three-line brief: what&#x27;s on, what&#x27;s urgent, what to wear.</div>
+  <p class="lead">A workflow is a routine you describe in your own words, in any language: what to do, step by step, when it runs, which model does each step, and where it must stop for your OK. Naseem asks about anything unclear, shows you the steps, and runs it on your Mac. Pick your kind of work below, copy an example into <strong>Workflows ▸ + ▸ New Workflow…</strong>, and change it to fit. If Naseem already knows your work, the New Workflow screen also suggests examples written for you.</p>
+  <p class="how"><strong>Good to know:</strong> “a fast model” and “my strongest model” mean whichever of your set-up models fits — Naseem names them before you save. Steps marked “ask me first” show you the exact draft with Approve, Edit or Reject. A workflow runs on its own only after you approve that exact version, and only touches the folders, apps and connectors it lists. “With a model on my Mac” keeps private work — students’, clients’, patients’ — on your Mac. Workflows are part of Naseem Pro.</p>
+  <div class="wf-filter" role="group" aria-label="Filter examples by work"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="teaching" aria-pressed="false">Teaching</button><button type="button" data-cat="study" aria-pressed="false">Study</button><button type="button" data-cat="research" aria-pressed="false">Research</button><button type="button" data-cat="business" aria-pressed="false">Business</button><button type="button" data-cat="legal" aria-pressed="false">Legal</button><button type="button" data-cat="creators" aria-pressed="false">Creators</button><button type="button" data-cat="developer" aria-pressed="false">Developers</button><button type="button" data-cat="personal" aria-pressed="false">Personal</button></div>
+  <div class="principle wf" data-cat="teaching">
+    <h2>Grade assignments</h2>
+    <div class="tags"><span>New file</span><span>5 steps</span><span>Model on my Mac</span><span>Ask first</span></div>
+    <div class="flow">When a new assignment appears in Documents/Class/Submissions:
+1. Read the answer key and rubric in Documents/Class/Rubric.
+2. With a model on my Mac, read the assignment and check it against the key.
+3. Score each question, with a short reason for every point lost.
+4. Add the student&#x27;s scores to grades.csv in Documents/Class.
+5. Write a feedback note for the student in Documents/Class/Feedback — ask me first.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="everyday">
-    <h2>Bills before they&#x27;re due</h2>
-    <div class="tags"><span>Every Sunday</span><span>3 steps</span><span>Reminders</span><span>Ask first</span></div>
-    <div class="flow">Every Sunday at 18:00:
-1. Look through this month&#x27;s emails in Mail for bills and their due dates.
-2. List the ones due in the next 10 days with the amount.
-3. Add a reminder for each, two days before it&#x27;s due — ask me first.</div>
+  <div class="principle wf" data-cat="teaching">
+    <h2>Class insights every Friday</h2>
+    <div class="tags"><span>Every Friday</span><span>3 steps</span><span>Strong model</span></div>
+    <div class="flow">Every Friday at 15:00:
+1. Read grades.csv in Documents/Class.
+2. With my strongest model, find the class average per question, the questions most students missed, and who needs help.
+3. Write a one-page report with a chart to Documents/Class/Reports.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="everyday">
-    <h2>Weekend plan</h2>
-    <div class="tags"><span>Every Friday</span><span>4 steps</span><span>Weather</span><span>Maps</span></div>
-    <div class="flow">Every Friday at 17:00:
-1. Check the weekend weather where I am.
-2. Find three places within 30 minutes that fit it — outdoors if it&#x27;s sunny, indoors if not.
-3. Make a short plan for Saturday and Sunday with a map.
-4. Put the plan in my calendar as tentative events — ask me first.</div>
+  <div class="principle wf" data-cat="teaching">
+    <h2>Quiz from today&#x27;s lesson</h2>
+    <div class="tags"><span>On request</span><span>3 steps</span><span>2 models</span></div>
+    <div class="flow">1. Read today&#x27;s lesson notes in Documents/Class/Lessons.
+2. With my strongest model, write a 10-question quiz: 6 multiple choice, 4 short answer, from easy to hard.
+3. With a fast model, write the answer key and save both as PDFs in Documents/Class/Quizzes.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="files">
-    <h2>File my invoices</h2>
-    <div class="tags"><span>New file</span><span>4 steps</span><span>Fast model</span><span>Ask first</span></div>
-    <div class="flow">When a PDF appears in Downloads:
-1. With a fast model, read it and decide whether it&#x27;s an invoice; if it isn&#x27;t, stop.
-2. Pull out the date, the vendor and the amount.
-3. Move it to Documents/Invoices/&lt;year&gt;/&lt;vendor&gt; — ask me first.
-4. Add a row to invoices.csv in Documents/Invoices.</div>
+  <div class="principle wf" data-cat="teaching">
+    <h2>Weekly note to parents</h2>
+    <div class="tags"><span>Every Thursday</span><span>3 steps</span><span>Mail</span><span>Ask first</span></div>
+    <div class="flow">Every Thursday at 16:00:
+1. Read this week&#x27;s lesson notes and the class calendar.
+2. Write a short, friendly note: what we learned, what&#x27;s coming, what to bring.
+3. Draft it as an email to the parents&#x27; list in Mail — ask me first.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="files">
-    <h2>Screenshots, named and sorted</h2>
-    <div class="tags"><span>New file</span><span>3 steps</span><span>Fast model</span></div>
-    <div class="flow">When a new screenshot appears on the Desktop:
-1. With a fast model, look at it and give it a short, descriptive file name.
-2. Move it to Pictures/Screenshots/&lt;year&gt;-&lt;month&gt;.
-3. If it shows an error message, also copy the text into errors.md there.</div>
+  <div class="principle wf" data-cat="study">
+    <h2>Lecture to flashcards</h2>
+    <div class="tags"><span>New file</span><span>4 steps</span><span>Fast model</span></div>
+    <div class="flow">When a new recording or notes file appears in Documents/Lectures:
+1. If it&#x27;s a recording, transcribe it.
+2. With a fast model, summarise it in ten lines.
+3. Write 15 question-and-answer flashcards and save them as an Anki CSV next to it.
+4. Add any deadline it mentions to Reminders.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="files">
-    <h2>Tidy Downloads</h2>
-    <div class="tags"><span>Every Friday</span><span>3 steps</span><span>Ask first</span></div>
-    <div class="flow">Every Friday at 17:00:
-1. Sort my Downloads into folders by type: documents, images, installers, archives.
-2. List installers and archives older than 30 days.
-3. Move those to the Trash — ask me first.</div>
+  <div class="principle wf" data-cat="study">
+    <h2>Weekly study plan</h2>
+    <div class="tags"><span>Every Sunday</span><span>3 steps</span><span>Calendar</span><span>Ask first</span></div>
+    <div class="flow">Every Sunday at 19:00:
+1. Read this week&#x27;s calendar and the reminders due this week.
+2. Plan study blocks around my classes: the hardest subject first, no block longer than 90 minutes.
+3. Put the blocks in my calendar — ask me first.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="work">
-    <h2>Weekly report to my team</h2>
-    <div class="tags"><span>Every Monday</span><span>5 steps</span><span>Mail</span><span>Ask first</span></div>
-    <div class="flow">Every Monday at 9:00:
-1. Read last week&#x27;s sales sheet in Documents.
-2. With my strongest model, find what changed against the week before, and why.
-3. Make a one-page PDF with a chart and three bullet points.
-4. Draft an email to my team in Mail with the PDF attached — ask me first.
-5. Send it.</div>
-    <button type="button" class="copy">Copy</button>
-  </div>
-  <div class="principle wf" data-cat="work">
-    <h2>Meeting notes to tasks</h2>
-    <div class="tags"><span>New file</span><span>Notion</span><span>Reminders</span><span>Ask first</span></div>
-    <div class="flow">When a new notes file appears in Documents/Meetings:
-1. With a fast model, summarise it in five lines.
-2. List every action item with its owner and due date.
-3. Add the action items to my Notion page &quot;Tasks&quot; — ask me first.
-4. Put the ones that are mine in Reminders, with their dates.</div>
-    <button type="button" class="copy">Copy</button>
-  </div>
-  <div class="principle wf" data-cat="work">
-    <h2>Prepare for tomorrow&#x27;s meetings</h2>
-    <div class="tags"><span>Every weekday</span><span>4 steps</span><span>2 models</span><span>Gmail</span></div>
-    <div class="flow">Every weekday at 17:30:
-1. Read tomorrow&#x27;s calendar.
-2. For each meeting, find the latest emails with the people in it.
-3. With a fast model, pull out open questions and promises made.
-4. With my strongest model, write a one-paragraph brief per meeting and save them as briefs.md in Documents.</div>
+  <div class="principle wf" data-cat="research">
+    <h2>Paper digest</h2>
+    <div class="tags"><span>Every morning</span><span>4 steps</span><span>2 models</span></div>
+    <div class="flow">Every weekday at 7:30:
+1. Search for papers published yesterday on &lt;your topic&gt;.
+2. With a fast model, keep the five most relevant.
+3. With my strongest model, summarise each in three lines: question, method, finding.
+4. Save the digest as digest-&lt;date&gt;.md in Documents/Research.</div>
     <button type="button" class="copy">Copy</button>
   </div>
   <div class="principle wf" data-cat="research">
@@ -171,14 +149,74 @@
 5. Post a three-line summary to Slack #team — ask me first.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="research">
-    <h2>Competitor watch</h2>
-    <div class="tags"><span>Every Monday</span><span>4 steps</span><span>2 models</span></div>
-    <div class="flow">Every Monday at 10:00:
-1. Visit the pricing and changelog pages of &lt;competitor 1&gt;, &lt;competitor 2&gt; and &lt;competitor 3&gt;.
-2. With a fast model, compare them with last week&#x27;s copy saved in Documents/Competitors.
-3. With my strongest model, write what changed and why it might matter to us.
-4. Save this week&#x27;s copy for next time.</div>
+  <div class="principle wf" data-cat="business">
+    <h2>Receipts to expenses</h2>
+    <div class="tags"><span>New file</span><span>4 steps</span><span>Fast model</span></div>
+    <div class="flow">When a receipt (PDF or photo) appears in Documents/Receipts:
+1. With a fast model, read the date, the shop, the amount and the category.
+2. Add a row to expenses.csv in Documents/Receipts.
+3. Rename the file &lt;date&gt;-&lt;shop&gt;-&lt;amount&gt;.
+4. On the first day of each month, make a one-page summary by category.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="business">
+    <h2>Weekly report to my team</h2>
+    <div class="tags"><span>Every Monday</span><span>5 steps</span><span>Mail</span><span>Ask first</span></div>
+    <div class="flow">Every Monday at 9:00:
+1. Read last week&#x27;s sales sheet in Documents.
+2. With my strongest model, find what changed against the week before, and why.
+3. Make a one-page PDF with a chart and three bullet points.
+4. Draft an email to my team in Mail with the PDF attached — ask me first.
+5. Send it.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="business">
+    <h2>Meeting notes to tasks</h2>
+    <div class="tags"><span>New file</span><span>Notion</span><span>Reminders</span><span>Ask first</span></div>
+    <div class="flow">When a new notes file appears in Documents/Meetings:
+1. With a fast model, summarise it in five lines.
+2. List every action item with its owner and due date.
+3. Add the action items to my Notion page &quot;Tasks&quot; — ask me first.
+4. Put the ones that are mine in Reminders, with their dates.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="business">
+    <h2>CVs against the job</h2>
+    <div class="tags"><span>New file</span><span>4 steps</span><span>Model on my Mac</span></div>
+    <div class="flow">When a new CV appears in Documents/Hiring/&lt;role&gt;:
+1. Read the job description in Documents/Hiring/&lt;role&gt;/job.md.
+2. With a model on my Mac, score the CV against each requirement, with the line that proves it.
+3. Add the candidate and the scores to shortlist.csv.
+4. Every Friday, list the top five with one line each.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="legal">
+    <h2>Contract checklist</h2>
+    <div class="tags"><span>New file</span><span>3 steps</span><span>Model on my Mac</span></div>
+    <div class="flow">When a new contract PDF appears in Documents/Contracts/Incoming:
+1. With a model on my Mac, list its key clauses: term, payment, termination, liability, confidentiality.
+2. Mark anything unusual against my standard terms in Documents/Contracts/standard.md.
+3. Write a one-page risks note next to the contract.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="creators">
+    <h2>Video to everything</h2>
+    <div class="tags"><span>New file</span><span>5 steps</span><span>2 models</span></div>
+    <div class="flow">When a new video appears in Movies/Uploads:
+1. Transcribe it.
+2. With my strongest model, write five titles and a description.
+3. Make chapters with timestamps from the transcript.
+4. With a fast model, suggest three thumbnail ideas.
+5. Save it all as &lt;video name&gt;.md next to the video.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="creators">
+    <h2>A week of posts from a blog post</h2>
+    <div class="tags"><span>New file</span><span>3 steps</span><span>Ask first</span></div>
+    <div class="flow">When a new post appears in Documents/Blog:
+1. Read it and pick the five strongest ideas.
+2. Write one short social post per idea, each with a different hook.
+3. Put them in my calendar Monday to Friday at 10:00 as drafts — ask me first.</div>
     <button type="button" class="copy">Copy</button>
   </div>
   <div class="principle wf" data-cat="developer">
@@ -202,16 +240,54 @@
     <button type="button" class="copy">Copy</button>
   </div>
   <div class="principle wf" data-cat="developer">
-    <h2>Dependency check</h2>
-    <div class="tags"><span>Every Monday</span><span>4 steps</span><span>Ask first</span></div>
-    <div class="flow">Every Monday at 9:00, in this project:
-1. List outdated dependencies.
-2. For each one, read its release notes for breaking changes.
-3. Update the safe ones on a new branch and run the tests.
-4. Open a pull request with what changed — ask me first.</div>
+    <h2>Release notes from the week</h2>
+    <div class="tags"><span>Every Friday</span><span>3 steps</span><span>Strong model</span></div>
+    <div class="flow">Every Friday at 17:00, in this project:
+1. Read this week&#x27;s merged commits.
+2. With my strongest model, group them into new, improved and fixed, in plain words for users.
+3. Save them as naseem/release-notes-&lt;date&gt;.md.</div>
     <button type="button" class="copy">Copy</button>
   </div>
-  <div class="principle wf" data-cat="everyday" dir="rtl" lang="ar">
+  <div class="principle wf" data-cat="personal">
+    <h2>Morning brief</h2>
+    <div class="tags"><span>Every weekday</span><span>4 steps</span><span>2 models</span><span>Gmail</span></div>
+    <div class="flow">Every weekday at 8:00:
+1. Read today&#x27;s calendar and the reminders due today.
+2. With a fast model, skim my unread Gmail and pick out anything urgent.
+3. Check the weather where I am.
+4. With my strongest model, write a three-line brief: what&#x27;s on, what&#x27;s urgent, what to wear.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="personal">
+    <h2>Trip ready</h2>
+    <div class="tags"><span>Calendar</span><span>4 steps</span><span>Weather</span></div>
+    <div class="flow">Two days before any trip in my calendar:
+1. Check the weather at the destination for each day.
+2. Make a packing list for that weather and the trip&#x27;s length.
+3. Find the booking emails for flights and hotel, and list anything missing.
+4. Save it as a note named after the trip.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="personal">
+    <h2>Bills before they&#x27;re due</h2>
+    <div class="tags"><span>Every Sunday</span><span>3 steps</span><span>Reminders</span><span>Ask first</span></div>
+    <div class="flow">Every Sunday at 18:00:
+1. Look through this month&#x27;s emails in Mail for bills and their due dates.
+2. List the ones due in the next 10 days with the amount.
+3. Add a reminder for each, two days before it&#x27;s due — ask me first.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="personal">
+    <h2>File my invoices</h2>
+    <div class="tags"><span>New file</span><span>4 steps</span><span>Fast model</span><span>Ask first</span></div>
+    <div class="flow">When a PDF appears in Downloads:
+1. With a fast model, read it and decide whether it&#x27;s an invoice; if it isn&#x27;t, stop.
+2. Pull out the date, the vendor and the amount.
+3. Move it to Documents/Invoices/&lt;year&gt;/&lt;vendor&gt; — ask me first.
+4. Add a row to invoices.csv in Documents/Invoices.</div>
+    <button type="button" class="copy">Copy</button>
+  </div>
+  <div class="principle wf" data-cat="personal" dir="rtl" lang="ar">
     <h2>موجز الصباح (بالعربية)</h2>
     <div class="tags"><span>كل يوم عمل</span><span>4 خطوات</span><span>نموذجان</span></div>
     <div class="flow">كل يوم عمل الساعة 8:00:
