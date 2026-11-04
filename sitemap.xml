@@ -117,4 +117,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://naseemformac.com/workflows.html</loc>
+  </url>
+  <url>
+    <loc>https://naseemformac.com/docs/workflows.html</loc>
+  </url>
 </urlset>
