@@ -30,6 +30,9 @@
 .wf .tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
 .wf .tags span{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--accent-soft)}
 .wf .flow{white-space:pre-wrap}
+.wf-shot{margin:22px 0 6px}.wf-shot img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}.wf-shot figcaption{font-size:14px;color:var(--muted,inherit);opacity:.8;margin-top:6px}
+.wf-pair{display:grid;grid-template-columns:1fr 1.6fr;gap:16px;align-items:start}
+@media (max-width:700px){.wf-pair{grid-template-columns:1fr}}
 .wf .copy{position:absolute;top:18px;right:18px;font:inherit;font-size:13px;padding:4px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .wf[dir="rtl"] .copy{right:auto;left:18px}
 </style>
@@ -70,6 +73,11 @@
 <main><div class="wrap">
   <h1>Workflow examples</h1>
   <p class="lead">A workflow is a routine you describe in your own words, in any language: what to do, step by step, when it runs, which model does each step, and where it must stop for your OK. Naseem asks about anything unclear, shows you the steps, and runs it on your Mac. Pick your kind of work below, copy an example into <strong>Workflows ▸ + ▸ New Workflow…</strong>, and change it to fit. If Naseem already knows your work, the New Workflow screen also suggests examples written for you.</p>
+  <figure class="wf-shot"><img src="assets/shots/workflow-card.webp" alt="A workflow card in Naseem: Weekly report to my team — when it runs, the models, what it can touch, and five steps, the email step marked to stop for your approval" width="1400" height="581" loading="lazy"><figcaption>What you approve: the steps, the model for each, and where it stops for your OK.</figcaption></figure>
+  <div class="wf-pair">
+    <figure class="wf-shot"><img src="assets/shots/workflow-sidebar.webp" alt="The Workflows section at the top of Naseem's sidebar, with a + button, listing two workflows and when each runs" width="625" height="340" loading="lazy"><figcaption>Your workflows, at the top of the sidebar.</figcaption></figure>
+    <figure class="wf-shot"><img src="assets/shots/workflow-examples.webp" alt="The New Workflow screen's examples: Morning brief, File my invoices, Weekly report to my team, Meeting notes to tasks, Grade assignments, Friday research digest, Build an app from a plan — each with tags" width="1100" height="596" loading="lazy"><figcaption>Start from an example — or one written for your work.</figcaption></figure>
+  </div>
   <p class="how"><strong>Good to know:</strong> “a fast model” and “my strongest model” mean whichever of your set-up models fits — Naseem names them before you save. Steps marked “ask me first” show you the exact draft with Approve, Edit or Reject. A workflow runs on its own only after you approve that exact version, and only touches the folders, apps and connectors it lists. “With a model on my Mac” keeps private work — students’, clients’, patients’ — on your Mac. Workflows are part of Naseem Pro.</p>
   <div class="wf-filter" role="group" aria-label="Filter examples by work"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="teaching" aria-pressed="false">Teaching</button><button type="button" data-cat="study" aria-pressed="false">Study</button><button type="button" data-cat="research" aria-pressed="false">Research</button><button type="button" data-cat="business" aria-pressed="false">Business</button><button type="button" data-cat="legal" aria-pressed="false">Legal</button><button type="button" data-cat="creators" aria-pressed="false">Creators</button><button type="button" data-cat="developer" aria-pressed="false">Developers</button><button type="button" data-cat="personal" aria-pressed="false">Personal</button></div>
   <div class="principle wf" data-cat="teaching">
