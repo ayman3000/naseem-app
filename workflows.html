@@ -30,6 +30,9 @@
 .wf .tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0}
 .wf .tags span{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--accent-soft)}
 .wf .flow{white-space:pre-wrap}
+.wf-how{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:10px}
+.wf-how li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.wf-how b{display:inline-block;min-width:118px}
 .wf-shot{margin:22px 0 6px}.wf-shot img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}.wf-shot figcaption{font-size:14px;color:var(--muted,inherit);opacity:.8;margin-top:6px}
 .wf-pair{display:grid;grid-template-columns:1fr 1.6fr;gap:16px;align-items:start}
 @media (max-width:700px){.wf-pair{grid-template-columns:1fr}}
@@ -74,8 +77,14 @@
 
 <main><div class="wrap">
   <h1>Workflow examples</h1>
-  <p class="lead">A workflow is a routine you describe in your own words, in any language: what to do, step by step, when it runs, which model does each step, and where it must stop for your OK. Naseem asks about anything unclear, shows you the steps, and runs it on your Mac. Pick your kind of work below, copy an example into <strong>Workflows ▸ + ▸ New Workflow…</strong>, and change it to fit. If Naseem already knows your work, the New Workflow screen also suggests examples written for you.</p>
-  <figure class="wf-shot"><img src="assets/shots/workflow-card.webp" alt="A workflow card in Naseem: Weekly report to my team — when it runs, the models, what it can touch, and five steps, the email step marked to stop for your approval" width="1400" height="581" loading="lazy"><figcaption>What you approve: the steps, the model for each, and where it stops for your OK.</figcaption></figure>
+  <p class="lead"><strong>Naseem can remember a job and do it again.</strong> Describe it once, in your own words and any language; Naseem turns it into steps and runs it on your Mac when the time comes.</p>
+  <ol class="wf-how">
+    <li><b>You say</b> “Every Friday at 16:00, summarise this week’s progress in my project and email it to my team.”</li>
+    <li><b>Naseem makes</b> the steps, picks a model for each, and marks where it stops for your OK — you review it, then Save.</li>
+    <li><b>Friday comes</b> and it runs. Before the email goes out, you see the complete message and approve it.</li>
+  </ol>
+  <p>Pick your kind of work below, copy an example into <strong>Workflows ▸ + ▸ New Workflow…</strong>, and change it to fit. If Naseem already knows your work, the New Workflow screen also suggests examples written for you.</p>
+  <figure class="wf-shot"><img src="assets/shots/workflow-card.webp" alt="A workflow card in Naseem: Weekly report to my team — when it runs, the models, what it can touch, and four steps, the send-email step marked to stop for your approval" width="1400" height="567" loading="lazy"><figcaption>What you approve: the steps, the model for each, and where it stops for your OK.</figcaption></figure>
   <div class="wf-pair">
     <figure class="wf-shot"><img src="assets/shots/workflow-sidebar.webp" alt="The Workflows section at the top of Naseem's sidebar, with a + button, listing two workflows and when each runs" width="625" height="340" loading="lazy"><figcaption>Your workflows, at the top of the sidebar.</figcaption></figure>
     <figure class="wf-shot"><img src="assets/shots/workflow-examples.webp" alt="The New Workflow screen's examples: Morning brief, File my invoices, Weekly report to my team, Meeting notes to tasks, Grade assignments, Friday research digest, Build an app from a plan — each with tags" width="1100" height="596" loading="lazy"><figcaption>Start from an example — or one written for your work.</figcaption></figure>
@@ -171,13 +180,12 @@
   </div>
   <div class="principle wf" data-cat="business">
     <h2>Weekly report to my team</h2>
-    <div class="tags"><span>Every Monday</span><span>5 steps</span><span>Mail</span><span>Ask first</span></div>
+    <div class="tags"><span>Every Monday</span><span>4 steps</span><span>Mail</span><span>Ask first</span></div>
     <div class="flow">Every Monday at 9:00:
 1. Read last week&#x27;s sales sheet in Documents.
 2. With my strongest model, find what changed against the week before, and why.
 3. Make a one-page PDF with a chart and three bullet points.
-4. Draft an email to my team in Mail with the PDF attached — ask me first.
-5. Send it.</div>
+4. Send the email to my team in Mail with the PDF attached — show me the complete email and ask me first.</div>
     <button type="button" class="copy">Copy</button>
   </div>
   <div class="principle wf" data-cat="business">
