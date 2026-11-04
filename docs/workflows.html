@@ -93,7 +93,8 @@
 <h2 id="what-a-workflow-can-do">What a workflow can do</h2>
 <ul>
   <li><strong>Run on a schedule:</strong> "every weekday at 8:00", "every Monday at 9:00".</li>
-  <li><strong>Run when a file arrives</strong> in a folder: "when a PDF appears in Downloads".</li>
+  <li><strong>Run when a file arrives</strong> in a folder: "when a PDF appears in Downloads". Each new file gets its own run, once the folder has been quiet for 10 seconds. Files that arrived while Naseem was closed are picked up when it opens: a few run on their own, more wait on the workflow's card with <strong>Run them</strong> or <strong>Skip</strong>.</li>
+  <li><strong>Handle all the new files together</strong> on a schedule: "every day at 17:00, grade the new submissions in Documents/Class". Each run gets exactly the files added since its last finished run; if nothing is new, it doesn't run. Files already in the folder when you save the workflow count as done.</li>
   <li><strong>Run when you ask:</strong> with <strong>Run now</strong>.</li>
   <li><strong>If your Mac is asleep</strong> or Naseem is closed when a workflow is due, it runs once when Naseem is open again, not once for every time it missed.</li>
   <li><strong>Use a different model per step:</strong> a fast, cheap one for sorting and reading, your strongest one for judging and writing. Say "with a fast model" or "with my strongest model" and Naseem picks from the models you've set up, and names them before you save.</li>
@@ -117,6 +118,7 @@
   <li><strong>"Ask me first"</strong> steps never act without your click.</li>
   <li><strong>Private work stays on your Mac</strong> when a step says "with a model on my Mac", for students', clients' or patients' work.</li>
   <li><strong>Pause them all</strong> in <strong>Settings ▸ Workflows</strong>: turn off <strong>Workflows run on their own</strong>. <strong>Run now</strong> still works.</li>
+  <li><strong>Open Naseem at login</strong> (also in <strong>Settings ▸ Workflows</strong>) so workflows are ready when your Mac is.</li>
 </ul>
 <h2 id="where-they-live">Where they live</h2>
 <ul>
