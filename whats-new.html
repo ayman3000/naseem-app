@@ -68,7 +68,19 @@
          the GitHub API is rate-limited. The script below replaces it with the
          live list. -->
     <article class="release latest">
-      <header><h2>Naseem 1.43.0</h2><span class="tag">Latest</span><span class="date">Nov 7, 2026</span></header>
+      <header><h2>Naseem 1.44.0</h2><span class="tag">Latest</span><span class="date">Nov 8, 2026</span></header>
+      <p>Workflows that run when they should.</p>
+      <h3>Improved in 1.44.0</h3>
+      <ul>
+        <li><strong>A run doesn't stop to ask.</strong> Inside the folders, apps and connectors a workflow lists, it works without approval cards — the version you saved is the consent. "Ask me first" steps are still the only stops. Before, a scheduled run could wait on a card nobody was there to click.</li>
+        <li><strong>A waiting workflow no longer holds up the others.</strong> One file that wasn't approved yet could keep every workflow behind it from running, every minute. Each workflow is now judged on its own.</li>
+        <li><strong>Model names from Ollama match.</strong> A workflow that names a model without its tag ("deepseek-v4.1-flash" for "deepseek-v4.1-flash:cloud") runs on it, instead of being treated as not set up.</li>
+        <li><strong>The menu bar says when a workflow can't run</strong> — "⚠︎ not running — the model isn't set up" or whatever the reason — instead of looking healthy. <code>workflows-status.json</code> in your Outputs folder carries the same facts.</li>
+        <li><strong>The Rules window is gone.</strong> Every Rule became a workflow in 1.42; the old window, its menu item and the leftover records are removed. One way to automate.</li>
+      </ul>
+    </article>
+    <article class="release">
+      <header><h2>Naseem 1.43.0</h2><span class="date">Nov 7, 2026</span></header>
       <p>Think it through, read it easily.</p>
       <h3>New in 1.43.0</h3>
       <ul>
