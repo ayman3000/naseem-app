@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62Y17XZ5C4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-62Y17XZ5C4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إضافة خوادم MCP إلى نسيم — Blender و Google Cloud وأي خادم آخر</title>
+<meta name="description" content="كيف تضيف أي خادم MCP إلى نسيم، وكيل الذكاء الاصطناعي على Mac: خوادم مستضافة بتسجيل دخول عبر المتصفح، خوادم تعمل على جهازك، ووصفات جاهزة لـ Blender و Google Cloud.">
+<meta property="og:url" content="https://naseemformac.com/mcp-servers-ar.html">
+<meta property="og:image" content="https://naseemformac.com/assets/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://naseemformac.com/mcp-servers-ar.html">
+<link rel="alternate" hreflang="en" href="https://naseemformac.com/mcp-servers.html">
+<link rel="alternate" hreflang="ar" href="https://naseemformac.com/mcp-servers-ar.html">
+<link rel="icon" href="assets/icon-256.png">
+<link rel="stylesheet" href="assets/site.css">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<style>
+.guide pre.flow { margin: 12px 0; text-align: left; }
+.guide ol, .guide ul { color: var(--text3); padding-inline-start: 22px; line-height: 1.7; margin: 8px 0; }
+.guide .lang { font-size: 14px; margin: 8px 0 24px; }
+.guide[dir="rtl"] { font-family: var(--arabic); }
+.guide[dir="rtl"] h1 { font-family: var(--arabic); font-weight: 600; letter-spacing: 0; line-height: 1.3; }
+.guide[dir="rtl"] code { font-family: var(--mono); direction: ltr; unicode-bidi: isolate; }
+</style>
+</head>
+<body class="page">
+<nav class="top" aria-label="Main"><div class="bar">
+  <a href="./" class="brand" aria-label="Naseem home"><img src="assets/icon-256.png" alt="" width="32" height="32"><b>Naseem</b><span class="ar" lang="ar">نسيم</span></a>
+  <div class="links">
+    <a href="./#features">Features</a>
+    <a href="./#pricing">Pricing</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="docs/">Docs</a>
+    <a href="workflows.html">Workflows</a>
+    <a href="whats-new.html">What's New</a>
+  </div>
+  <div class="cta">
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme">
+      <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    </button>
+    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <details class="menu">
+      <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg></summary>
+      <div class="panel">
+        <a href="./#features">Features</a>
+        <a href="./#pricing">Pricing</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="docs/">Docs</a>
+        <a href="workflows.html">Workflows</a>
+        <a href="whats-new.html">What's New</a>
+        <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+      </div>
+    </details>
+  </div>
+</div></nav>
+
+<main><div class="wrap guide" dir="rtl" lang="ar">
+  <h1>إضافة خوادم MCP</h1>
+  <p class="lead">خادم MCP يمنح نسيم أدوات جديدة: مشهد Blender المفتوح، مشاريعك على Google Cloud، قاعدة بيانات، أو تطبيقًا آخر. «الموصِّلات» في الإعدادات تغطي الخدمات الشائعة بنقرة واحدة. هذا الدليل لكل ما عداها: أي خادم تجده يمكن إضافته يدويًا في دقيقة.</p>
+  <p class="lang"><a href="mcp-servers.html" lang="en" dir="ltr">English</a></p>
+
+  <div class="principle">
+    <h2>١. إضافة أي خادم</h2>
+    <ol>
+      <li>افتح <strong>Settings ← MCP</strong> واضغط <strong>Add Server</strong>.</li>
+      <li>الصق إعداد الخادم في مربع <strong>Server JSON</strong>.</li>
+      <li>اضغط <strong>Save</strong>. النقطة الخضراء وعدد الأدوات يعنيان أن الخادم متصل.</li>
+    </ol>
+    <p>معظم الخوادم تنشر إعدادًا جاهزًا لـ Claude أو Cursor أو VS Code أو Codex. الإعداد نفسه يُلصق في نسيم كما هو، لخادم واحد أو لعدة خوادم معًا.</p>
+    <p class="how"><strong>نصيحة:</strong> اترك خيار <em>Require approval for this server's tools</em> مفعّلًا مع أي خادم لا تعرفه بعد، فيسألك نسيم قبل تشغيل كل أداة من أدواته.</p>
+  </div>
+
+  <div class="principle">
+    <h2>٢. خوادم لها عنوان على الويب</h2>
+    <p>الخادم المستضاف يحتاج عنوانه فقط:</p>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "my-server": { "url": "https://example.com/mcp" }
+  }
+}</pre>
+    <p>إذا كان الخادم يتيح تسجيل الدخول عبر المتصفح، يظهر زر <strong>Sign in</strong> في صفّه. تسجّل الدخول لدى الخدمة في متصفحك، ويحفظ نسيم تسجيل الدخول في سلسلة مفاتيح جهازك.</p>
+  </div>
+
+  <div class="principle">
+    <h2>٣. خوادم تعمل على جهازك</h2>
+    <p>كثير من الخوادم برامج صغيرة يشغّلها نسيم لك. إعدادها يحتوي أمرًا بدل العنوان:</p>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "my-server": {
+      "command": "npx",
+      "args": ["-y", "some-mcp-package"],
+      "env": { "SOME_KEY": "value" }
+    }
+  }
+}</pre>
+    <ul>
+      <li><strong><code>npx</code></strong> يأتي مع <a href="https://nodejs.org/">Node.js</a>.</li>
+      <li><strong><code>uvx</code></strong> يأتي مع <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>.</li>
+    </ul>
+    <p>ثبّت ما يطلبه الخادم مرة واحدة. قد يستغرق أول اتصال دقيقة ريثما يُنزَّل الخادم. الخادم الذي يعمل على جهازك ليس له زر Sign in في نسيم: يستخدم الحساب المسجَّل به على الجهاز أصلًا، أو مفتاحًا تضعه تحت <code>env</code>.</p>
+  </div>
+
+  <div class="principle">
+    <h2>٤. وصفة: Blender</h2>
+    <p>اسأل عن المشهد المفتوح، عدّله، أخرِج صورة، وابحث في دليل Blender، عبر خادم MCP الرسمي من Blender Lab.</p>
+    <ol>
+      <li>في Blender 5.1 أو أحدث، افتح <strong>Preferences ← Get Extensions</strong>، أضف المستودع <code>https://lab.blender.org/</code>، ثم ثبّت إضافة <strong>MCP</strong> وفعّلها.</li>
+      <li>في تفضيلات الإضافة شغّل خادمها بالزر الموجود هناك. يجب أن تظهر عبارة <em>Server is running</em>.</li>
+      <li>ثبّت <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a> إن لم يكن لديك.</li>
+      <li>في نسيم، أضف هذا الخادم:</li>
+    </ol>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "blender": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp",
+        "blender-mcp"
+      ]
+    }
+  }
+}</pre>
+    <p>يجب أن يكون Blender مفتوحًا وخادمه يعمل كلما استخدمت هذه الأدوات. إذا غيّرت المنفذ في تفضيلات Blender، أضف هذا السطر إلى الإعداد بقيمك:</p>
+    <pre class="flow" dir="ltr">"env": { "BLENDER_MCP_HOST": "localhost", "BLENDER_MCP_PORT": "9876" }</pre>
+    <p class="how"><strong>أبقِ الموافقة مفعّلة:</strong> هذا الخادم يستطيع تشغيل كود Python داخل Blender.</p>
+  </div>
+
+  <div class="principle">
+    <h2>٥. وصفة: Google Cloud</h2>
+    <p>شغّل أوامر <code>gcloud</code> من المحادثة: المشاريع، الأجهزة الافتراضية، التخزين، IAM والخدمات.</p>
+    <ol>
+      <li>ثبّت <a href="https://cloud.google.com/sdk/docs/install">gcloud CLI</a> وسجّل الدخول مرة واحدة في Terminal بالأمر <code>gcloud auth login</code>.</li>
+      <li>ثبّت <a href="https://nodejs.org/">Node.js</a> إن لم يكن لديك.</li>
+      <li>في نسيم، أضف هذا الخادم:</li>
+    </ol>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "gcloud": {
+      "command": "npx",
+      "args": ["-y", "@google-cloud/gcloud-mcp"]
+    }
+  }
+}</pre>
+    <p>يعمل الخادم بالحساب المسجَّل به في <code>gcloud</code> على جهازك.</p>
+  </div>
+
+  <div class="principle">
+    <h2>٦. إذا لم يتصل</h2>
+    <ul>
+      <li><strong>لم يُعثر على الأمر.</strong> ثبّت Node.js من أجل <code>npx</code> أو uv من أجل <code>uvx</code>، ثم اضغط <strong>Reconnect</strong>.</li>
+      <li><strong>فشل أول اتصال أو انتهت مهلته.</strong> كان الخادم ما زال يُنزَّل. اضغط <strong>Reconnect</strong> مرة واحدة.</li>
+      <li><strong>النقطة خضراء لكن الأدوات تفشل.</strong> الخادم يعمل بلا حساب. سجّل الدخول حيث يتوقع الخادم: زر <strong>Sign in</strong> للخادم المستضاف، وأداة الخدمة نفسها للخادم الذي يعمل على جهازك.</li>
+      <li><strong>نسيم يسأل قبل كل أداة.</strong> هذا خيار <em>Require approval</em>. أوقفه من نافذة <strong>Edit</strong> للخادم حين تثق به.</li>
+      <li><strong>خدمة شائعة غير مذكورة هنا.</strong> ابحث أولًا في <strong>Settings ← Connectors</strong>: تلك لا تحتاج أي إعداد.</li>
+    </ul>
+  </div>
+</div></main>
+
+<footer class="site"><div class="inner">
+  <div class="about">
+    <b>Naseem <span class="ar" lang="ar">نسيم</span></b>
+    <span>AI agent for Mac. © 2026 Ayman Hamed.</span>
+  </div>
+  <div class="cols">
+    <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="https://aymanhamed.com/apps/naseem/privacy">Privacy Policy</a>
+    <a href="https://aymanhamed.gumroad.com/l/naseem">Buy Pro</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="https://aymanhamed.com/support">Support</a>
+    <a href="https://www.youtube.com/@AymanHamedLabs">YouTube</a>
+    <a href="https://www.linkedin.com/company/aymanhamedlabs/">LinkedIn</a>
+    <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
+    <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+  </div>
+</div></footer>
+<script src="assets/site.js"></script>
+<script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

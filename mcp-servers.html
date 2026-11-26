@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-62Y17XZ5C4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-62Y17XZ5C4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add MCP servers to Naseem — Blender, Google Cloud and any other server</title>
+<meta name="description" content="How to add any MCP server to Naseem, the AI agent for Mac: hosted servers with a browser sign-in, servers that run on your Mac, and ready recipes for Blender and Google Cloud.">
+<meta property="og:url" content="https://naseemformac.com/mcp-servers.html">
+<meta property="og:image" content="https://naseemformac.com/assets/share-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://naseemformac.com/mcp-servers.html">
+<link rel="alternate" hreflang="en" href="https://naseemformac.com/mcp-servers.html">
+<link rel="alternate" hreflang="ar" href="https://naseemformac.com/mcp-servers-ar.html">
+<link rel="icon" href="assets/icon-256.png">
+<link rel="stylesheet" href="assets/site.css">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<style>
+.guide pre.flow { margin: 12px 0; text-align: left; }
+.guide ol, .guide ul { color: var(--text3); padding-inline-start: 22px; line-height: 1.7; margin: 8px 0; }
+.guide .lang { font-size: 14px; margin: 8px 0 24px; }
+.guide[dir="rtl"] { font-family: var(--arabic); }
+.guide[dir="rtl"] h1 { font-family: var(--arabic); font-weight: 600; letter-spacing: 0; line-height: 1.3; }
+.guide[dir="rtl"] code { font-family: var(--mono); direction: ltr; unicode-bidi: isolate; }
+</style>
+</head>
+<body class="page">
+<nav class="top" aria-label="Main"><div class="bar">
+  <a href="./" class="brand" aria-label="Naseem home"><img src="assets/icon-256.png" alt="" width="32" height="32"><b>Naseem</b><span class="ar" lang="ar">نسيم</span></a>
+  <div class="links">
+    <a href="./#features">Features</a>
+    <a href="./#pricing">Pricing</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="docs/">Docs</a>
+    <a href="workflows.html">Workflows</a>
+    <a href="whats-new.html">What's New</a>
+  </div>
+  <div class="cta">
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme">
+      <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    </button>
+    <a class="dl" href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <details class="menu">
+      <summary aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg></summary>
+      <div class="panel">
+        <a href="./#features">Features</a>
+        <a href="./#pricing">Pricing</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="docs/">Docs</a>
+        <a href="workflows.html">Workflows</a>
+        <a href="whats-new.html">What's New</a>
+        <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+      </div>
+    </details>
+  </div>
+</div></nav>
+
+<main><div class="wrap guide">
+  <h1>Add MCP servers</h1>
+  <p class="lead">An MCP server gives Naseem new tools: your Blender scene, your Google Cloud projects, a database, another app. Connectors in Settings cover the popular services with one click. This guide is for everything else: any server you find can be added by hand in a minute.</p>
+  <p class="lang"><a href="mcp-servers-ar.html" lang="ar" class="ar">العربية</a></p>
+
+  <div class="principle">
+    <h2>1. Add any server</h2>
+    <ol>
+      <li>Open <strong>Settings → MCP</strong> and press <strong>Add Server</strong>.</li>
+      <li>Paste the server's config into the <strong>Server JSON</strong> box.</li>
+      <li>Press <strong>Save</strong>. A green dot and a tool count mean it is connected.</li>
+    </ol>
+    <p>Most servers publish a config for Claude, Cursor, VS Code or Codex. That same snippet pastes into Naseem unchanged, one server or several at once.</p>
+    <p class="how"><strong>Tip:</strong> leave <em>Require approval for this server's tools</em> on for a server you don't know yet. Naseem then asks before each of its tools runs.</p>
+  </div>
+
+  <div class="principle">
+    <h2>2. Servers with a web address</h2>
+    <p>A hosted server needs only its address:</p>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "my-server": { "url": "https://example.com/mcp" }
+  }
+}</pre>
+    <p>If the server offers a browser sign-in, a <strong>Sign in</strong> button appears on its row. You sign in with the service in your browser, and Naseem keeps the sign-in in your Mac's Keychain.</p>
+  </div>
+
+  <div class="principle">
+    <h2>3. Servers that run on your Mac</h2>
+    <p>Many servers are small programs that Naseem starts for you. Their config has a command instead of an address:</p>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "my-server": {
+      "command": "npx",
+      "args": ["-y", "some-mcp-package"],
+      "env": { "SOME_KEY": "value" }
+    }
+  }
+}</pre>
+    <ul>
+      <li><strong><code>npx</code></strong> comes with <a href="https://nodejs.org/">Node.js</a>.</li>
+      <li><strong><code>uvx</code></strong> comes with <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>.</li>
+    </ul>
+    <p>Install the one the server asks for, once. The first connect can take a minute while the server downloads. A server on your Mac has no Sign in button in Naseem: it uses the account you are already signed in to on the Mac, or a key you put under <code>env</code>.</p>
+  </div>
+
+  <div class="principle">
+    <h2>4. Recipe: Blender</h2>
+    <p>Ask about the open scene, change it, render, and search Blender's manual, using Blender's own MCP server from Blender Lab.</p>
+    <ol>
+      <li>In Blender 5.1 or later, open <strong>Preferences → Get Extensions</strong>, add the repository <code>https://lab.blender.org/</code>, then install and enable the <strong>MCP</strong> add-on.</li>
+      <li>In the add-on's preferences, start its server with the button there. It should say <em>Server is running</em>.</li>
+      <li>Install <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a> if you don't have it.</li>
+      <li>In Naseem, add this server:</li>
+    </ol>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "blender": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://projects.blender.org/lab/blender_mcp.git#subdirectory=mcp",
+        "blender-mcp"
+      ]
+    }
+  }
+}</pre>
+    <p>Blender must be open with its server running whenever you use these tools. If you changed the port in Blender's preferences, add this line to the config with your values:</p>
+    <pre class="flow" dir="ltr">"env": { "BLENDER_MCP_HOST": "localhost", "BLENDER_MCP_PORT": "9876" }</pre>
+    <p class="how"><strong>Keep approval on:</strong> this server can run Python code inside Blender.</p>
+  </div>
+
+  <div class="principle">
+    <h2>5. Recipe: Google Cloud</h2>
+    <p>Run <code>gcloud</code> commands from a chat: projects, compute instances, storage, IAM and services.</p>
+    <ol>
+      <li>Install the <a href="https://cloud.google.com/sdk/docs/install">gcloud CLI</a> and sign in once in Terminal with <code>gcloud auth login</code>.</li>
+      <li>Install <a href="https://nodejs.org/">Node.js</a> if you don't have it.</li>
+      <li>In Naseem, add this server:</li>
+    </ol>
+    <pre class="flow" dir="ltr">{
+  "mcpServers": {
+    "gcloud": {
+      "command": "npx",
+      "args": ["-y", "@google-cloud/gcloud-mcp"]
+    }
+  }
+}</pre>
+    <p>The server acts as the account your <code>gcloud</code> CLI is signed in to.</p>
+  </div>
+
+  <div class="principle">
+    <h2>6. When it doesn't connect</h2>
+    <ul>
+      <li><strong>The command was not found.</strong> Install Node.js for <code>npx</code> or uv for <code>uvx</code>, then press <strong>Reconnect</strong>.</li>
+      <li><strong>The first connect failed or timed out.</strong> The server was still downloading. Press <strong>Reconnect</strong> once.</li>
+      <li><strong>Green dot, but the tools fail.</strong> The server is running without an account. Sign in where the server expects it: the <strong>Sign in</strong> button for a hosted server, the service's own tool for a server on your Mac.</li>
+      <li><strong>Naseem asks before every tool.</strong> That is <em>Require approval</em>. Turn it off in the server's <strong>Edit</strong> sheet once you trust the server.</li>
+      <li><strong>A popular service is not here.</strong> Look in <strong>Settings → Connectors</strong> first: those need no config at all.</li>
+    </ul>
+  </div>
+</div></main>
+
+<footer class="site"><div class="inner">
+  <div class="about">
+    <b>Naseem <span class="ar" lang="ar">نسيم</span></b>
+    <span>AI agent for Mac. © 2026 Ayman Hamed.</span>
+  </div>
+  <div class="cols">
+    <a href="https://github.com/ayman3000/naseem-app/releases/latest/download/Naseem.dmg">Download</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="https://aymanhamed.com/apps/naseem/privacy">Privacy Policy</a>
+    <a href="https://aymanhamed.gumroad.com/l/naseem">Buy Pro</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="https://aymanhamed.com/support">Support</a>
+    <a href="https://www.youtube.com/@AymanHamedLabs">YouTube</a>
+    <a href="https://www.linkedin.com/company/aymanhamedlabs/">LinkedIn</a>
+    <a href="harness.html">Harness</a>
+    <a href="benchmarks.html">Benchmarks</a>
+    <a href="https://www.producthunt.com/p/naseem-2">Community</a>
+  </div>
+</div></footer>
+<script src="assets/site.js"></script>
+<script data-goatcounter="https://aymanhamed.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
